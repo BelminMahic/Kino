@@ -17,5 +17,7 @@ namespace Kino.Mobile.Views
             InitializeComponent();
             this.BindingContext = new LoginViewModel();
         }
+
+        
     }
 }

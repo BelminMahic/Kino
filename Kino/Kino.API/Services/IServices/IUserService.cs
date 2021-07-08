@@ -8,8 +8,9 @@ namespace Kino.API.Services.IServices
 {
     public interface IUserService
     {
+        
         List<Model.User> GetUsers(UserSearchRequest request);
-        Model.User GetById(int id);
+        Kino.Model.User GetById(int id);
         Model.User Insert(UserUpsertRequest request);
         Model.User Update(int id, UserUpsertRequest request);
 

@@ -25,7 +25,7 @@ namespace Kino.Desktop.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44349/api")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:32958/api")]
         public string APIUrl {
             get {
                 return ((string)(this["APIUrl"]));
