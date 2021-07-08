@@ -207,6 +207,7 @@ namespace Kino.Desktop.UI.Movie
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Dodaj film";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnSearch
             // 
@@ -216,6 +217,7 @@ namespace Kino.Desktop.UI.Movie
             this.btnSearch.TabIndex = 5;
             this.btnSearch.Text = "🔍";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtSearch
             // 

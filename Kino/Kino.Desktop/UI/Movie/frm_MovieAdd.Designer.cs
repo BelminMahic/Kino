@@ -64,6 +64,7 @@ namespace Kino.Desktop.UI.Movie
             this.btnUpload = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panelFilmovi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picturePoster)).BeginInit();
             this.SuspendLayout();
@@ -365,6 +366,7 @@ namespace Kino.Desktop.UI.Movie
             this.btnUpload.TabIndex = 21;
             this.btnUpload.Text = "Upload";
             this.btnUpload.UseVisualStyleBackColor = true;
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
             // btnSave
             // 
@@ -374,6 +376,7 @@ namespace Kino.Desktop.UI.Movie
             this.btnSave.TabIndex = 22;
             this.btnSave.Text = "Spasi";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnBack
             // 
@@ -383,6 +386,10 @@ namespace Kino.Desktop.UI.Movie
             this.btnBack.TabIndex = 23;
             this.btnBack.Text = "Nazad";
             this.btnBack.UseVisualStyleBackColor = true;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // frm_MovieAdd
             // 
@@ -415,6 +422,7 @@ namespace Kino.Desktop.UI.Movie
             this.Controls.Add(this.panelFilmovi);
             this.Name = "frm_MovieAdd";
             this.Text = "Kinoteka : Filmovi";
+            this.Load += new System.EventHandler(this.frm_MovieAdd_Load);
             this.panelFilmovi.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picturePoster)).EndInit();
             this.ResumeLayout(false);
@@ -459,5 +467,6 @@ namespace Kino.Desktop.UI.Movie
         private System.Windows.Forms.Button btnUpload;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

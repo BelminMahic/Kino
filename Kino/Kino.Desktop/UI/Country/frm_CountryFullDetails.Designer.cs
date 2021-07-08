@@ -204,6 +204,7 @@ namespace Kino.Desktop.UI.Country
             this.btnEdit.TabIndex = 7;
             this.btnEdit.Text = "Uredi";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // txtNazivDrzave
             // 
@@ -236,6 +237,7 @@ namespace Kino.Desktop.UI.Country
             this.Controls.Add(this.panelDrzave);
             this.Name = "frm_CountryFullDetails";
             this.Text = "Kinoteka : Drzave";
+            this.Load += new System.EventHandler(this.frm_CountryFullDetails_Load);
             this.panelDrzave.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

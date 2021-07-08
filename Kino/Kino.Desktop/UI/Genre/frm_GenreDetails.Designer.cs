@@ -207,6 +207,7 @@ namespace Kino.Desktop.UI.Genre
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Dodaj zanr";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtSearch
             // 
@@ -224,6 +225,7 @@ namespace Kino.Desktop.UI.Genre
             this.btnSearch.TabIndex = 6;
             this.btnSearch.Text = "🔍";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // frm_GenreDetails
             // 

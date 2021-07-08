@@ -237,6 +237,7 @@ namespace Kino.Desktop.UI.Cinema
             this.btnEdit.TabIndex = 16;
             this.btnEdit.Text = "Uredi";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // cb_Gradovi
             // 
@@ -299,6 +300,7 @@ namespace Kino.Desktop.UI.Cinema
             this.Controls.Add(this.panelCinema);
             this.Name = "frm_CinemaFullDetails";
             this.Text = "Kinoteka : Kina";
+            this.Load += new System.EventHandler(this.frm_CinemaFullDetails_Load);
             this.panelCinema.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

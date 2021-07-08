@@ -43,10 +43,10 @@ namespace Kino.Desktop.UI.Country
             this.btnDvorane = new System.Windows.Forms.Button();
             this.btnFilmovi = new System.Windows.Forms.Button();
             this.gbDrzave = new System.Windows.Forms.GroupBox();
+            this.dgv_Drzave = new System.Windows.Forms.DataGridView();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.dgv_Drzave = new System.Windows.Forms.DataGridView();
             this.panelDrzave.SuspendLayout();
             this.gbDrzave.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Drzave)).BeginInit();
@@ -190,6 +190,16 @@ namespace Kino.Desktop.UI.Country
             this.gbDrzave.TabStop = false;
             this.gbDrzave.Text = "Lista drzava";
             // 
+            // dgv_Drzave
+            // 
+            this.dgv_Drzave.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Drzave.Location = new System.Drawing.Point(6, 31);
+            this.dgv_Drzave.Name = "dgv_Drzave";
+            this.dgv_Drzave.RowTemplate.Height = 25;
+            this.dgv_Drzave.Size = new System.Drawing.Size(835, 396);
+            this.dgv_Drzave.TabIndex = 0;
+            this.dgv_Drzave.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgv_Drzave_MouseDoubleClick);
+            // 
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(314, 33);
@@ -198,6 +208,7 @@ namespace Kino.Desktop.UI.Country
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Dodaj drzavu";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnSearch
             // 
@@ -207,6 +218,7 @@ namespace Kino.Desktop.UI.Country
             this.btnSearch.TabIndex = 5;
             this.btnSearch.Text = "🔍";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtSearch
             // 
@@ -215,15 +227,6 @@ namespace Kino.Desktop.UI.Country
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(322, 37);
             this.txtSearch.TabIndex = 6;
-            // 
-            // dgv_Drzave
-            // 
-            this.dgv_Drzave.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Drzave.Location = new System.Drawing.Point(6, 31);
-            this.dgv_Drzave.Name = "dgv_Drzave";
-            this.dgv_Drzave.RowTemplate.Height = 25;
-            this.dgv_Drzave.Size = new System.Drawing.Size(835, 396);
-            this.dgv_Drzave.TabIndex = 0;
             // 
             // frm_CountryDetails
             // 

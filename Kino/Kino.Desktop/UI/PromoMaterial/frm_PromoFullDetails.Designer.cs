@@ -1,15 +1,15 @@
 ﻿
-namespace Kino.Desktop
+namespace Kino.Desktop.UI.PromoMaterial
 {
-    partial class KinotekaMainWindow
+    partial class frm_PromoFullDetails
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -24,12 +24,12 @@ namespace Kino.Desktop
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelMainWindow = new System.Windows.Forms.Panel();
+            this.panelPromo = new System.Windows.Forms.Panel();
             this.btnKina = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
@@ -42,28 +42,35 @@ namespace Kino.Desktop
             this.btnSjedista = new System.Windows.Forms.Button();
             this.btnDvorane = new System.Windows.Forms.Button();
             this.btnFilmovi = new System.Windows.Forms.Button();
-            this.panelMainWindow.SuspendLayout();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.lblQuantity = new System.Windows.Forms.Label();
+            this.lblPromoName = new System.Windows.Forms.Label();
+            this.txtPromoQuantity = new System.Windows.Forms.TextBox();
+            this.txtPromoName = new System.Windows.Forms.TextBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.panelPromo.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panelMainWindow
+            // panelPromo
             // 
-            this.panelMainWindow.BackColor = System.Drawing.Color.White;
-            this.panelMainWindow.Controls.Add(this.btnKina);
-            this.panelMainWindow.Controls.Add(this.btnProfile);
-            this.panelMainWindow.Controls.Add(this.btnReports);
-            this.panelMainWindow.Controls.Add(this.btnUsers);
-            this.panelMainWindow.Controls.Add(this.btnPromo);
-            this.panelMainWindow.Controls.Add(this.btnDrzave);
-            this.panelMainWindow.Controls.Add(this.btnGradovi);
-            this.panelMainWindow.Controls.Add(this.btnZanrovi);
-            this.panelMainWindow.Controls.Add(this.btnRezervacije);
-            this.panelMainWindow.Controls.Add(this.btnSjedista);
-            this.panelMainWindow.Controls.Add(this.btnDvorane);
-            this.panelMainWindow.Controls.Add(this.btnFilmovi);
-            this.panelMainWindow.Location = new System.Drawing.Point(1, -1);
-            this.panelMainWindow.Name = "panelMainWindow";
-            this.panelMainWindow.Size = new System.Drawing.Size(276, 625);
-            this.panelMainWindow.TabIndex = 0;
+            this.panelPromo.BackColor = System.Drawing.Color.White;
+            this.panelPromo.Controls.Add(this.btnKina);
+            this.panelPromo.Controls.Add(this.btnProfile);
+            this.panelPromo.Controls.Add(this.btnReports);
+            this.panelPromo.Controls.Add(this.btnUsers);
+            this.panelPromo.Controls.Add(this.btnPromo);
+            this.panelPromo.Controls.Add(this.btnDrzave);
+            this.panelPromo.Controls.Add(this.btnGradovi);
+            this.panelPromo.Controls.Add(this.btnZanrovi);
+            this.panelPromo.Controls.Add(this.btnRezervacije);
+            this.panelPromo.Controls.Add(this.btnSjedista);
+            this.panelPromo.Controls.Add(this.btnDvorane);
+            this.panelPromo.Controls.Add(this.btnFilmovi);
+            this.panelPromo.Location = new System.Drawing.Point(-1, -1);
+            this.panelPromo.Name = "panelPromo";
+            this.panelPromo.Size = new System.Drawing.Size(279, 625);
+            this.panelPromo.TabIndex = 2;
             // 
             // btnKina
             // 
@@ -73,7 +80,6 @@ namespace Kino.Desktop
             this.btnKina.TabIndex = 11;
             this.btnKina.Text = "Kina";
             this.btnKina.UseVisualStyleBackColor = true;
-            this.btnKina.Click += new System.EventHandler(this.btnKina_Click);
             // 
             // btnProfile
             // 
@@ -83,7 +89,6 @@ namespace Kino.Desktop
             this.btnProfile.TabIndex = 10;
             this.btnProfile.Text = "Profil";
             this.btnProfile.UseVisualStyleBackColor = true;
-            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
             // btnReports
             // 
@@ -93,7 +98,6 @@ namespace Kino.Desktop
             this.btnReports.TabIndex = 9;
             this.btnReports.Text = "Izvjestaji";
             this.btnReports.UseVisualStyleBackColor = true;
-            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
             // btnUsers
             // 
@@ -103,7 +107,6 @@ namespace Kino.Desktop
             this.btnUsers.TabIndex = 8;
             this.btnUsers.Text = "Korisnici";
             this.btnUsers.UseVisualStyleBackColor = true;
-            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
             // 
             // btnPromo
             // 
@@ -113,7 +116,6 @@ namespace Kino.Desktop
             this.btnPromo.TabIndex = 7;
             this.btnPromo.Text = "Promidzbeni materijali";
             this.btnPromo.UseVisualStyleBackColor = true;
-            this.btnPromo.Click += new System.EventHandler(this.btnPromo_Click);
             // 
             // btnDrzave
             // 
@@ -123,7 +125,6 @@ namespace Kino.Desktop
             this.btnDrzave.TabIndex = 6;
             this.btnDrzave.Text = "Drzave";
             this.btnDrzave.UseVisualStyleBackColor = true;
-            this.btnDrzave.Click += new System.EventHandler(this.btnDrzave_Click);
             // 
             // btnGradovi
             // 
@@ -133,7 +134,6 @@ namespace Kino.Desktop
             this.btnGradovi.TabIndex = 5;
             this.btnGradovi.Text = "Gradovi";
             this.btnGradovi.UseVisualStyleBackColor = true;
-            this.btnGradovi.Click += new System.EventHandler(this.btnGradovi_Click);
             // 
             // btnZanrovi
             // 
@@ -143,7 +143,6 @@ namespace Kino.Desktop
             this.btnZanrovi.TabIndex = 4;
             this.btnZanrovi.Text = "Zanrovi";
             this.btnZanrovi.UseVisualStyleBackColor = true;
-            this.btnZanrovi.Click += new System.EventHandler(this.btnZanrovi_Click);
             // 
             // btnRezervacije
             // 
@@ -153,7 +152,6 @@ namespace Kino.Desktop
             this.btnRezervacije.TabIndex = 3;
             this.btnRezervacije.Text = "Rezervacije";
             this.btnRezervacije.UseVisualStyleBackColor = true;
-            this.btnRezervacije.Click += new System.EventHandler(this.btnRezervacije_Click);
             // 
             // btnSjedista
             // 
@@ -163,7 +161,6 @@ namespace Kino.Desktop
             this.btnSjedista.TabIndex = 2;
             this.btnSjedista.Text = "Sjedista";
             this.btnSjedista.UseVisualStyleBackColor = true;
-            this.btnSjedista.Click += new System.EventHandler(this.btnSjedista_Click);
             // 
             // btnDvorane
             // 
@@ -173,7 +170,6 @@ namespace Kino.Desktop
             this.btnDvorane.TabIndex = 1;
             this.btnDvorane.Text = "Dvorane";
             this.btnDvorane.UseVisualStyleBackColor = true;
-            this.btnDvorane.Click += new System.EventHandler(this.btnDvorane_Click);
             // 
             // btnFilmovi
             // 
@@ -183,27 +179,93 @@ namespace Kino.Desktop
             this.btnFilmovi.TabIndex = 0;
             this.btnFilmovi.Text = "Filmovi";
             this.btnFilmovi.UseVisualStyleBackColor = true;
-            this.btnFilmovi.Click += new System.EventHandler(this.btnFilmovi_Click);
             // 
-            // KinotekaMainWindow
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(895, 396);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 45);
+            this.btnBack.TabIndex = 14;
+            this.btnBack.Text = "Nazad";
+            this.btnBack.UseVisualStyleBackColor = true;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(467, 396);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(75, 45);
+            this.btnEdit.TabIndex = 13;
+            this.btnEdit.Text = "Uredi";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            // 
+            // lblQuantity
+            // 
+            this.lblQuantity.AutoSize = true;
+            this.lblQuantity.Location = new System.Drawing.Point(552, 234);
+            this.lblQuantity.Name = "lblQuantity";
+            this.lblQuantity.Size = new System.Drawing.Size(49, 15);
+            this.lblQuantity.TabIndex = 12;
+            this.lblQuantity.Text = "Kolicina";
+            // 
+            // lblPromoName
+            // 
+            this.lblPromoName.AutoSize = true;
+            this.lblPromoName.Location = new System.Drawing.Point(552, 149);
+            this.lblPromoName.Name = "lblPromoName";
+            this.lblPromoName.Size = new System.Drawing.Size(130, 15);
+            this.lblPromoName.TabIndex = 11;
+            this.lblPromoName.Text = "Naziv promo materijala";
+            // 
+            // txtPromoQuantity
+            // 
+            this.txtPromoQuantity.Location = new System.Drawing.Point(552, 252);
+            this.txtPromoQuantity.Multiline = true;
+            this.txtPromoQuantity.Name = "txtPromoQuantity";
+            this.txtPromoQuantity.Size = new System.Drawing.Size(308, 34);
+            this.txtPromoQuantity.TabIndex = 10;
+            // 
+            // txtPromoName
+            // 
+            this.txtPromoName.Location = new System.Drawing.Point(552, 170);
+            this.txtPromoName.Multiline = true;
+            this.txtPromoName.Name = "txtPromoName";
+            this.txtPromoName.Size = new System.Drawing.Size(308, 34);
+            this.txtPromoName.TabIndex = 9;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(679, 401);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 45);
+            this.btnDelete.TabIndex = 15;
+            this.btnDelete.Text = "Obrisi";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // frm_PromoFullDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Kino.Desktop.Properties.Resources.Kinoteka1;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1157, 622);
-            this.Controls.Add(this.panelMainWindow);
-            this.Name = "KinotekaMainWindow";
-            this.Text = "Kinoteka";
-            this.panelMainWindow.ResumeLayout(false);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.lblQuantity);
+            this.Controls.Add(this.lblPromoName);
+            this.Controls.Add(this.txtPromoQuantity);
+            this.Controls.Add(this.txtPromoName);
+            this.Controls.Add(this.panelPromo);
+            this.Name = "frm_PromoFullDetails";
+            this.Text = "frm_PromoFullDetails";
+            this.panelPromo.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panelMainWindow;
-        private System.Windows.Forms.Button btnFilmovi;
+        private System.Windows.Forms.Panel panelPromo;
         private System.Windows.Forms.Button btnKina;
         private System.Windows.Forms.Button btnProfile;
         private System.Windows.Forms.Button btnReports;
@@ -215,6 +277,13 @@ namespace Kino.Desktop
         private System.Windows.Forms.Button btnRezervacije;
         private System.Windows.Forms.Button btnSjedista;
         private System.Windows.Forms.Button btnDvorane;
+        private System.Windows.Forms.Button btnFilmovi;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Label lblQuantity;
+        private System.Windows.Forms.Label lblPromoName;
+        private System.Windows.Forms.TextBox txtPromoQuantity;
+        private System.Windows.Forms.TextBox txtPromoName;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
-

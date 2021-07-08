@@ -198,6 +198,7 @@ namespace Kino.Desktop.UI.Cinema
             this.dgv_Kina.RowTemplate.Height = 25;
             this.dgv_Kina.Size = new System.Drawing.Size(849, 411);
             this.dgv_Kina.TabIndex = 0;
+            this.dgv_Kina.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgv_Kina_MouseDoubleClick);
             // 
             // btnAdd
             // 
@@ -207,6 +208,7 @@ namespace Kino.Desktop.UI.Cinema
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Dodaj kino";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtSearch
             // 
@@ -224,6 +226,7 @@ namespace Kino.Desktop.UI.Cinema
             this.btnSearch.TabIndex = 6;
             this.btnSearch.Text = "🔍";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // frm_CinemaDetails
             // 

@@ -246,6 +246,7 @@ namespace Kino.Desktop.UI.City
             this.Controls.Add(this.panelGradovi);
             this.Name = "frm_CityAdd";
             this.Text = "Kinoteka : Gradovi";
+            this.Load += new System.EventHandler(this.frm_CityAdd_Load);
             this.panelGradovi.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

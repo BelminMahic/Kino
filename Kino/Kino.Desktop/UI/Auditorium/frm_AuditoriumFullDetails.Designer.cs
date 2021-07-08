@@ -190,6 +190,7 @@ namespace Kino.Desktop.UI.Auditorium
             this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "Uredi";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -278,6 +279,7 @@ namespace Kino.Desktop.UI.Auditorium
             this.Controls.Add(this.panelAuditorium);
             this.Name = "frm_AuditoriumFullDetails";
             this.Text = "Kinoteka : Auditorium";
+            this.Load += new System.EventHandler(this.frm_AuditoriumFullDetails_Load);
             this.panelAuditorium.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -249,6 +249,7 @@ namespace Kino.Desktop.UI.Auditorium
             this.btnSave.TabIndex = 11;
             this.btnSave.Text = "Spasi";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // frm_AuditoriumAdd
             // 
@@ -267,6 +268,7 @@ namespace Kino.Desktop.UI.Auditorium
             this.Controls.Add(this.panelAuditorium);
             this.Name = "frm_AuditoriumAdd";
             this.Text = "Kinoteka : Auditorium";
+            this.Load += new System.EventHandler(this.frm_AuditoriumAdd_Load);
             this.panelAuditorium.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

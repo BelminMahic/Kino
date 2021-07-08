@@ -198,6 +198,7 @@ namespace Kino.Desktop.UI.Auditorium
             this.dgv_Auditorium.RowTemplate.Height = 25;
             this.dgv_Auditorium.Size = new System.Drawing.Size(856, 320);
             this.dgv_Auditorium.TabIndex = 0;
+            this.dgv_Auditorium.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgv_Auditorium_MouseDoubleClick);
             // 
             // txtSearch
             // 
@@ -215,6 +216,7 @@ namespace Kino.Desktop.UI.Auditorium
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Dodaj dvoranu";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnSearch
             // 
@@ -224,6 +226,7 @@ namespace Kino.Desktop.UI.Auditorium
             this.btnSearch.TabIndex = 6;
             this.btnSearch.Text = "🔍";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // frm_AuditoriumDetails
             // 

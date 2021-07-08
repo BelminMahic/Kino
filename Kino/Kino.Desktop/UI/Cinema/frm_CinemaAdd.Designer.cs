@@ -223,6 +223,7 @@ namespace Kino.Desktop.UI.Cinema
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Spasi";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnBack
             // 
@@ -288,6 +289,7 @@ namespace Kino.Desktop.UI.Cinema
             this.Controls.Add(this.panelCinema);
             this.Name = "frm_CinemaAdd";
             this.Text = "Kinoteka : Kina";
+            this.Load += new System.EventHandler(this.frm_CinemaAdd_Load);
             this.panelCinema.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
