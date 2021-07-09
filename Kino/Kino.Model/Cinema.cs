@@ -13,5 +13,10 @@ namespace Kino.Model
         public string Address { get; set; }
         public string TelephoneNumber { get; set; }
         public int CityId { get; set; }
+
+        public override string ToString()
+        {
+            return CinemaName;
+        }
     }
 }

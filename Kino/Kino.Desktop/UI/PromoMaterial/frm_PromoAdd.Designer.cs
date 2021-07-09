@@ -30,6 +30,7 @@ namespace Kino.Desktop.UI.PromoMaterial
         private void InitializeComponent()
         {
             this.panelPromo = new System.Windows.Forms.Panel();
+            this.btnSeatReservation = new System.Windows.Forms.Button();
             this.btnKina = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
@@ -48,7 +49,6 @@ namespace Kino.Desktop.UI.PromoMaterial
             this.lblQuantity = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.btnSeatReservation = new System.Windows.Forms.Button();
             this.panelPromo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,6 +72,15 @@ namespace Kino.Desktop.UI.PromoMaterial
             this.panelPromo.Name = "panelPromo";
             this.panelPromo.Size = new System.Drawing.Size(279, 625);
             this.panelPromo.TabIndex = 2;
+            // 
+            // btnSeatReservation
+            // 
+            this.btnSeatReservation.Location = new System.Drawing.Point(0, 124);
+            this.btnSeatReservation.Name = "btnSeatReservation";
+            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
+            this.btnSeatReservation.TabIndex = 12;
+            this.btnSeatReservation.Text = "Rezervacija sjedista";
+            this.btnSeatReservation.UseVisualStyleBackColor = true;
             // 
             // btnKina
             // 
@@ -223,6 +232,7 @@ namespace Kino.Desktop.UI.PromoMaterial
             this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Spasi";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnBack
             // 
@@ -232,15 +242,6 @@ namespace Kino.Desktop.UI.PromoMaterial
             this.btnBack.TabIndex = 8;
             this.btnBack.Text = "Nazad";
             this.btnBack.UseVisualStyleBackColor = true;
-            // 
-            // btnSeatReservation
-            // 
-            this.btnSeatReservation.Location = new System.Drawing.Point(0, 124);
-            this.btnSeatReservation.Name = "btnSeatReservation";
-            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
-            this.btnSeatReservation.TabIndex = 12;
-            this.btnSeatReservation.Text = "Rezervacija sjedista";
-            this.btnSeatReservation.UseVisualStyleBackColor = true;
             // 
             // frm_PromoAdd
             // 

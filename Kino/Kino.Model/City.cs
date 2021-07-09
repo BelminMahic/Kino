@@ -10,5 +10,10 @@ namespace Kino.Model
         public string CityName { get; set; }
         public Country Country { get; set; }
         public int CountryId { get; set; }
+
+        public override string ToString()
+        {
+            return CityName;
+        }
     }
 }

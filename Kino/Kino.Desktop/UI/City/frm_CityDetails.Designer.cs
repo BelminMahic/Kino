@@ -30,6 +30,7 @@ namespace Kino.Desktop.UI.City
         private void InitializeComponent()
         {
             this.panelGradovi = new System.Windows.Forms.Panel();
+            this.btnSeatReservation = new System.Windows.Forms.Button();
             this.btnKina = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
@@ -45,9 +46,8 @@ namespace Kino.Desktop.UI.City
             this.gbGradovi = new System.Windows.Forms.GroupBox();
             this.dgv_Gradovi = new System.Windows.Forms.DataGridView();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.btnSeatReservation = new System.Windows.Forms.Button();
             this.panelGradovi.SuspendLayout();
             this.gbGradovi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Gradovi)).BeginInit();
@@ -73,6 +73,15 @@ namespace Kino.Desktop.UI.City
             this.panelGradovi.Name = "panelGradovi";
             this.panelGradovi.Size = new System.Drawing.Size(276, 625);
             this.panelGradovi.TabIndex = 2;
+            // 
+            // btnSeatReservation
+            // 
+            this.btnSeatReservation.Location = new System.Drawing.Point(0, 115);
+            this.btnSeatReservation.Name = "btnSeatReservation";
+            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
+            this.btnSeatReservation.TabIndex = 12;
+            this.btnSeatReservation.Text = "Rezervacija sjedista";
+            this.btnSeatReservation.UseVisualStyleBackColor = true;
             // 
             // btnKina
             // 
@@ -200,6 +209,7 @@ namespace Kino.Desktop.UI.City
             this.dgv_Gradovi.RowTemplate.Height = 25;
             this.dgv_Gradovi.Size = new System.Drawing.Size(830, 401);
             this.dgv_Gradovi.TabIndex = 0;
+            this.dgv_Gradovi.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgv_Gradovi_MouseDoubleClick);
             // 
             // btnAdd
             // 
@@ -210,13 +220,13 @@ namespace Kino.Desktop.UI.City
             this.btnAdd.Text = "Dodaj grad";
             this.btnAdd.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtSearch
             // 
-            this.textBox1.Location = new System.Drawing.Point(662, 40);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(275, 30);
-            this.textBox1.TabIndex = 5;
+            this.txtSearch.Location = new System.Drawing.Point(662, 40);
+            this.txtSearch.Multiline = true;
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(275, 30);
+            this.txtSearch.TabIndex = 5;
             // 
             // btnSearch
             // 
@@ -226,15 +236,7 @@ namespace Kino.Desktop.UI.City
             this.btnSearch.TabIndex = 6;
             this.btnSearch.Text = "🔍";
             this.btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // btnSeatReservation
-            // 
-            this.btnSeatReservation.Location = new System.Drawing.Point(0, 115);
-            this.btnSeatReservation.Name = "btnSeatReservation";
-            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
-            this.btnSeatReservation.TabIndex = 12;
-            this.btnSeatReservation.Text = "Rezervacija sjedista";
-            this.btnSeatReservation.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // frm_CityDetails
             // 
@@ -243,7 +245,7 @@ namespace Kino.Desktop.UI.City
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1157, 622);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.gbGradovi);
             this.Controls.Add(this.panelGradovi);
@@ -275,7 +277,7 @@ namespace Kino.Desktop.UI.City
         private System.Windows.Forms.GroupBox gbGradovi;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dgv_Gradovi;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnSeatReservation;
     }

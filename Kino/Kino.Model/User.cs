@@ -23,5 +23,10 @@ namespace Kino.Model
         public bool? Status { get; set; }
         public int GenderId { get; set; }
         public ICollection<UserRole> UserRoles { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Name}-{LastName}";
+        }
     }
 }

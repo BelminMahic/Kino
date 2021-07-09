@@ -30,6 +30,7 @@ namespace Kino.Desktop.UI.PromoMaterial
         private void InitializeComponent()
         {
             this.panelPromo = new System.Windows.Forms.Panel();
+            this.btnSeatReservation = new System.Windows.Forms.Button();
             this.btnKina = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
@@ -47,7 +48,6 @@ namespace Kino.Desktop.UI.PromoMaterial
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.btnSeatReservation = new System.Windows.Forms.Button();
             this.panelPromo.SuspendLayout();
             this.gbPromoMaterijali.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPromoMaterijali)).BeginInit();
@@ -73,6 +73,15 @@ namespace Kino.Desktop.UI.PromoMaterial
             this.panelPromo.Name = "panelPromo";
             this.panelPromo.Size = new System.Drawing.Size(278, 625);
             this.panelPromo.TabIndex = 1;
+            // 
+            // btnSeatReservation
+            // 
+            this.btnSeatReservation.Location = new System.Drawing.Point(-1, 114);
+            this.btnSeatReservation.Name = "btnSeatReservation";
+            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
+            this.btnSeatReservation.TabIndex = 12;
+            this.btnSeatReservation.Text = "Rezervacija sjedista";
+            this.btnSeatReservation.UseVisualStyleBackColor = true;
             // 
             // btnKina
             // 
@@ -200,6 +209,7 @@ namespace Kino.Desktop.UI.PromoMaterial
             this.dgvPromoMaterijali.RowTemplate.Height = 25;
             this.dgvPromoMaterijali.Size = new System.Drawing.Size(847, 410);
             this.dgvPromoMaterijali.TabIndex = 0;
+            this.dgvPromoMaterijali.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvPromoMaterijali_MouseDoubleClick);
             // 
             // btnAdd
             // 
@@ -209,6 +219,7 @@ namespace Kino.Desktop.UI.PromoMaterial
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Dodaj promo materijal";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtSearch
             // 
@@ -226,15 +237,7 @@ namespace Kino.Desktop.UI.PromoMaterial
             this.btnSearch.TabIndex = 5;
             this.btnSearch.Text = "🔍";
             this.btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // btnSeatReservation
-            // 
-            this.btnSeatReservation.Location = new System.Drawing.Point(-1, 114);
-            this.btnSeatReservation.Name = "btnSeatReservation";
-            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
-            this.btnSeatReservation.TabIndex = 12;
-            this.btnSeatReservation.Text = "Rezervacija sjedista";
-            this.btnSeatReservation.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // frm_PromoDetails
             // 

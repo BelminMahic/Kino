@@ -75,6 +75,7 @@ namespace Kino.Desktop
             this.btnSeatReservation.TabIndex = 12;
             this.btnSeatReservation.Text = "Rezervacija sjedista";
             this.btnSeatReservation.UseVisualStyleBackColor = true;
+            this.btnSeatReservation.Click += new System.EventHandler(this.btnSeatReservation_Click);
             // 
             // btnKina
             // 

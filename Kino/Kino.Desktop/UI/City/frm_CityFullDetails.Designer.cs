@@ -30,6 +30,7 @@ namespace Kino.Desktop.UI.City
         private void InitializeComponent()
         {
             this.panelGradovi = new System.Windows.Forms.Panel();
+            this.btnSeatReservation = new System.Windows.Forms.Button();
             this.btnKina = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
@@ -49,7 +50,6 @@ namespace Kino.Desktop.UI.City
             this.btnBack = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnSeatReservation = new System.Windows.Forms.Button();
             this.panelGradovi.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +73,15 @@ namespace Kino.Desktop.UI.City
             this.panelGradovi.Name = "panelGradovi";
             this.panelGradovi.Size = new System.Drawing.Size(279, 625);
             this.panelGradovi.TabIndex = 2;
+            // 
+            // btnSeatReservation
+            // 
+            this.btnSeatReservation.Location = new System.Drawing.Point(0, 120);
+            this.btnSeatReservation.Name = "btnSeatReservation";
+            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
+            this.btnSeatReservation.TabIndex = 12;
+            this.btnSeatReservation.Text = "Rezervacija sjedista";
+            this.btnSeatReservation.UseVisualStyleBackColor = true;
             // 
             // btnKina
             // 
@@ -233,6 +242,7 @@ namespace Kino.Desktop.UI.City
             this.btnEdit.TabIndex = 8;
             this.btnEdit.Text = "Uredi";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -242,15 +252,6 @@ namespace Kino.Desktop.UI.City
             this.btnDelete.TabIndex = 14;
             this.btnDelete.Text = "Obrisi";
             this.btnDelete.UseVisualStyleBackColor = true;
-            // 
-            // btnSeatReservation
-            // 
-            this.btnSeatReservation.Location = new System.Drawing.Point(0, 120);
-            this.btnSeatReservation.Name = "btnSeatReservation";
-            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
-            this.btnSeatReservation.TabIndex = 12;
-            this.btnSeatReservation.Text = "Rezervacija sjedista";
-            this.btnSeatReservation.UseVisualStyleBackColor = true;
             // 
             // frm_CityFullDetails
             // 
@@ -268,6 +269,7 @@ namespace Kino.Desktop.UI.City
             this.Controls.Add(this.panelGradovi);
             this.Name = "frm_CityFullDetails";
             this.Text = "Kinoteka : Gradovi";
+            this.Load += new System.EventHandler(this.frm_CityFullDetails_Load);
             this.panelGradovi.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

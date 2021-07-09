@@ -30,6 +30,7 @@ namespace Kino.Desktop.UI.Movie
         private void InitializeComponent()
         {
             this.panelFilmovi = new System.Windows.Forms.Panel();
+            this.btnSeatReservation = new System.Windows.Forms.Button();
             this.btnKina = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
@@ -65,7 +66,7 @@ namespace Kino.Desktop.UI.Movie
             this.txtOriginal = new System.Windows.Forms.TextBox();
             this.txtNazivFilma = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnSeatReservation = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panelFilmovi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picturePoster)).BeginInit();
             this.SuspendLayout();
@@ -90,6 +91,15 @@ namespace Kino.Desktop.UI.Movie
             this.panelFilmovi.Name = "panelFilmovi";
             this.panelFilmovi.Size = new System.Drawing.Size(277, 625);
             this.panelFilmovi.TabIndex = 2;
+            // 
+            // btnSeatReservation
+            // 
+            this.btnSeatReservation.Location = new System.Drawing.Point(0, 115);
+            this.btnSeatReservation.Name = "btnSeatReservation";
+            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
+            this.btnSeatReservation.TabIndex = 12;
+            this.btnSeatReservation.Text = "Rezervacija sjedista";
+            this.btnSeatReservation.UseVisualStyleBackColor = true;
             // 
             // btnKina
             // 
@@ -216,6 +226,7 @@ namespace Kino.Desktop.UI.Movie
             this.btnEdit.TabIndex = 44;
             this.btnEdit.Text = "Uredi";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnUpload
             // 
@@ -225,6 +236,7 @@ namespace Kino.Desktop.UI.Movie
             this.btnUpload.TabIndex = 43;
             this.btnUpload.Text = "Upload";
             this.btnUpload.UseVisualStyleBackColor = true;
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
             // picturePoster
             // 
@@ -396,14 +408,9 @@ namespace Kino.Desktop.UI.Movie
             this.btnDelete.Text = "Obrisi";
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
-            // btnSeatReservation
+            // openFileDialog1
             // 
-            this.btnSeatReservation.Location = new System.Drawing.Point(0, 115);
-            this.btnSeatReservation.Name = "btnSeatReservation";
-            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
-            this.btnSeatReservation.TabIndex = 12;
-            this.btnSeatReservation.Text = "Rezervacija sjedista";
-            this.btnSeatReservation.UseVisualStyleBackColor = true;
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // frm_MovieFullDetails
             // 
@@ -437,6 +444,7 @@ namespace Kino.Desktop.UI.Movie
             this.Controls.Add(this.panelFilmovi);
             this.Name = "frm_MovieFullDetails";
             this.Text = "Kinoteka : Filmovi";
+            this.Load += new System.EventHandler(this.frm_MovieFullDetails_Load);
             this.panelFilmovi.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picturePoster)).EndInit();
             this.ResumeLayout(false);
@@ -483,5 +491,6 @@ namespace Kino.Desktop.UI.Movie
         private System.Windows.Forms.TextBox txtNazivFilma;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSeatReservation;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

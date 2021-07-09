@@ -10,5 +10,10 @@ namespace Kino.Model
         public int GenderId { get; set; }
         [Required]
         public string GenderName { get; set; }
+
+        public override string ToString()
+        {
+            return GenderName;
+        }
     }
 }

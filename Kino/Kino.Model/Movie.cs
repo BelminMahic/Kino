@@ -22,5 +22,11 @@ namespace Kino.Model
         public byte[] MoviePoster { get; set; }
         public int GenreId { get; set; }
         public int CinemaId { get; set; }
+
+        public override string ToString()
+        {
+            return MovieName;
+        }
+
     }
 }

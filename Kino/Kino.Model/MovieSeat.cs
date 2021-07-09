@@ -11,5 +11,11 @@ namespace Kino.Model
         public string MovieSeatRow { get; set; }
         public int RowNumber { get; set; }
         public int AuditoriumId { get; set; }
+
+        public override string ToString()
+        {
+            return $"{MovieSeatRow}-{RowNumber}";
+        }
+
     }
 }

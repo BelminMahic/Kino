@@ -9,6 +9,7 @@ using Kino.Desktop.UI.Profile;
 using Kino.Desktop.UI.PromoMaterial;
 using Kino.Desktop.UI.Reports;
 using Kino.Desktop.UI.Reservation;
+using Kino.Desktop.UI.SeatReservation;
 using Kino.Desktop.UI.User;
 using System;
 using System.Collections.Generic;
@@ -99,6 +100,12 @@ namespace Kino.Desktop
         private void btnKina_Click(object sender, EventArgs e)
         {
             frm_CinemaDetails frm = new frm_CinemaDetails();
+            frm.Show();
+        }
+
+        private void btnSeatReservation_Click(object sender, EventArgs e)
+        {
+            frm_SeatReservationDetails frm = new frm_SeatReservationDetails();
             frm.Show();
         }
     }

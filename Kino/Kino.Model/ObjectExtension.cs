@@ -78,6 +78,10 @@ namespace Kino.Model
         public static async Task<string> ToQueryString(this object metaToken)
         {
             var keyValueContent = metaToken.ToKeyValue();
+            if(keyValueContent == null)
+            {
+                return "";
+            }
             var formUrlEncodedContent = new FormUrlEncodedContent(keyValueContent);
             var urlEncodedString = await formUrlEncodedContent.ReadAsStringAsync();
 

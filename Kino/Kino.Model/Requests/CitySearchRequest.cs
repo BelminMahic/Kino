@@ -6,7 +6,7 @@ namespace Kino.Model.Requests
 {
     public class CitySearchRequest
     {
-        public int? CountryId { get; set; }
+        public string CityName { get; set; }
 
     }
 }

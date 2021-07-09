@@ -30,6 +30,7 @@ namespace Kino.Desktop.UI.PromoMaterial
         private void InitializeComponent()
         {
             this.panelPromo = new System.Windows.Forms.Panel();
+            this.btnSeatReservation = new System.Windows.Forms.Button();
             this.btnKina = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
@@ -49,7 +50,6 @@ namespace Kino.Desktop.UI.PromoMaterial
             this.txtPromoQuantity = new System.Windows.Forms.TextBox();
             this.txtPromoName = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnSeatReservation = new System.Windows.Forms.Button();
             this.panelPromo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +73,15 @@ namespace Kino.Desktop.UI.PromoMaterial
             this.panelPromo.Name = "panelPromo";
             this.panelPromo.Size = new System.Drawing.Size(279, 625);
             this.panelPromo.TabIndex = 2;
+            // 
+            // btnSeatReservation
+            // 
+            this.btnSeatReservation.Location = new System.Drawing.Point(0, 126);
+            this.btnSeatReservation.Name = "btnSeatReservation";
+            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
+            this.btnSeatReservation.TabIndex = 12;
+            this.btnSeatReservation.Text = "Rezervacija sjedista";
+            this.btnSeatReservation.UseVisualStyleBackColor = true;
             // 
             // btnKina
             // 
@@ -199,6 +208,7 @@ namespace Kino.Desktop.UI.PromoMaterial
             this.btnEdit.TabIndex = 13;
             this.btnEdit.Text = "Uredi";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // lblQuantity
             // 
@@ -243,15 +253,6 @@ namespace Kino.Desktop.UI.PromoMaterial
             this.btnDelete.Text = "Obrisi";
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
-            // btnSeatReservation
-            // 
-            this.btnSeatReservation.Location = new System.Drawing.Point(0, 126);
-            this.btnSeatReservation.Name = "btnSeatReservation";
-            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
-            this.btnSeatReservation.TabIndex = 12;
-            this.btnSeatReservation.Text = "Rezervacija sjedista";
-            this.btnSeatReservation.UseVisualStyleBackColor = true;
-            // 
             // frm_PromoFullDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -268,6 +269,7 @@ namespace Kino.Desktop.UI.PromoMaterial
             this.Controls.Add(this.panelPromo);
             this.Name = "frm_PromoFullDetails";
             this.Text = "frm_PromoFullDetails";
+            this.Load += new System.EventHandler(this.frm_PromoFullDetails_Load);
             this.panelPromo.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

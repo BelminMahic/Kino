@@ -34,5 +34,12 @@ namespace Kino.Desktop.UI.Movie
             var result = await _movieService.Get<List<Model.Movie>>(request);
             dgv_Filmovi.DataSource = result;
         }
+
+        private void dgv_Filmovi_DoubleClick(object sender, EventArgs e)
+        {
+            var id = dgv_Filmovi.SelectedRows[0].Cells[0].Value;
+            frm_MovieFullDetails frm = new frm_MovieFullDetails(int.Parse(id.ToString()));
+            frm.Show();
+        }
     }
 }
