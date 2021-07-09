@@ -47,12 +47,14 @@ namespace Kino.Desktop.UI.Country
             this.btnEdit = new System.Windows.Forms.Button();
             this.txtNazivDrzave = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnSeatReservation = new System.Windows.Forms.Button();
             this.panelDrzave.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelDrzave
             // 
             this.panelDrzave.BackColor = System.Drawing.Color.White;
+            this.panelDrzave.Controls.Add(this.btnSeatReservation);
             this.panelDrzave.Controls.Add(this.btnKina);
             this.panelDrzave.Controls.Add(this.btnProfile);
             this.panelDrzave.Controls.Add(this.btnReports);
@@ -162,7 +164,7 @@ namespace Kino.Desktop.UI.Country
             // 
             // btnDvorane
             // 
-            this.btnDvorane.Location = new System.Drawing.Point(0, 113);
+            this.btnDvorane.Location = new System.Drawing.Point(0, 88);
             this.btnDvorane.Name = "btnDvorane";
             this.btnDvorane.Size = new System.Drawing.Size(276, 23);
             this.btnDvorane.TabIndex = 1;
@@ -171,7 +173,7 @@ namespace Kino.Desktop.UI.Country
             // 
             // btnFilmovi
             // 
-            this.btnFilmovi.Location = new System.Drawing.Point(0, 74);
+            this.btnFilmovi.Location = new System.Drawing.Point(-1, 59);
             this.btnFilmovi.Name = "btnFilmovi";
             this.btnFilmovi.Size = new System.Drawing.Size(276, 23);
             this.btnFilmovi.TabIndex = 0;
@@ -223,6 +225,15 @@ namespace Kino.Desktop.UI.Country
             this.btnDelete.Text = "Obrisi";
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
+            // btnSeatReservation
+            // 
+            this.btnSeatReservation.Location = new System.Drawing.Point(-1, 124);
+            this.btnSeatReservation.Name = "btnSeatReservation";
+            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
+            this.btnSeatReservation.TabIndex = 12;
+            this.btnSeatReservation.Text = "Rezervacija sjedista";
+            this.btnSeatReservation.UseVisualStyleBackColor = true;
+            // 
             // frm_CountryFullDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -264,5 +275,6 @@ namespace Kino.Desktop.UI.Country
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.TextBox txtNazivDrzave;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnSeatReservation;
     }
 }

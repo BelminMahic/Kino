@@ -30,6 +30,7 @@ namespace Kino.Desktop
         private void InitializeComponent()
         {
             this.panelMainWindow = new System.Windows.Forms.Panel();
+            this.btnSeatReservation = new System.Windows.Forms.Button();
             this.btnKina = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
@@ -48,6 +49,7 @@ namespace Kino.Desktop
             // panelMainWindow
             // 
             this.panelMainWindow.BackColor = System.Drawing.Color.White;
+            this.panelMainWindow.Controls.Add(this.btnSeatReservation);
             this.panelMainWindow.Controls.Add(this.btnKina);
             this.panelMainWindow.Controls.Add(this.btnProfile);
             this.panelMainWindow.Controls.Add(this.btnReports);
@@ -64,6 +66,15 @@ namespace Kino.Desktop
             this.panelMainWindow.Name = "panelMainWindow";
             this.panelMainWindow.Size = new System.Drawing.Size(276, 625);
             this.panelMainWindow.TabIndex = 0;
+            // 
+            // btnSeatReservation
+            // 
+            this.btnSeatReservation.Location = new System.Drawing.Point(0, 124);
+            this.btnSeatReservation.Name = "btnSeatReservation";
+            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
+            this.btnSeatReservation.TabIndex = 12;
+            this.btnSeatReservation.Text = "Rezervacija sjedista";
+            this.btnSeatReservation.UseVisualStyleBackColor = true;
             // 
             // btnKina
             // 
@@ -167,7 +178,7 @@ namespace Kino.Desktop
             // 
             // btnDvorane
             // 
-            this.btnDvorane.Location = new System.Drawing.Point(0, 113);
+            this.btnDvorane.Location = new System.Drawing.Point(0, 95);
             this.btnDvorane.Name = "btnDvorane";
             this.btnDvorane.Size = new System.Drawing.Size(276, 23);
             this.btnDvorane.TabIndex = 1;
@@ -177,7 +188,7 @@ namespace Kino.Desktop
             // 
             // btnFilmovi
             // 
-            this.btnFilmovi.Location = new System.Drawing.Point(0, 74);
+            this.btnFilmovi.Location = new System.Drawing.Point(-3, 56);
             this.btnFilmovi.Name = "btnFilmovi";
             this.btnFilmovi.Size = new System.Drawing.Size(276, 23);
             this.btnFilmovi.TabIndex = 0;
@@ -215,6 +226,7 @@ namespace Kino.Desktop
         private System.Windows.Forms.Button btnRezervacije;
         private System.Windows.Forms.Button btnSjedista;
         private System.Windows.Forms.Button btnDvorane;
+        private System.Windows.Forms.Button btnSeatReservation;
     }
 }
 

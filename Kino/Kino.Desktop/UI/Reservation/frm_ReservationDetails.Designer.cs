@@ -55,6 +55,7 @@ namespace Kino.Desktop.UI.Reservation
             this.lbl_VrijemeP = new System.Windows.Forms.Label();
             this.gb_Rezervacije = new System.Windows.Forms.GroupBox();
             this.dgv_Rezervacije = new System.Windows.Forms.DataGridView();
+            this.btnSeatReservation = new System.Windows.Forms.Button();
             this.panelRezervacije.SuspendLayout();
             this.gb_Rezervacije.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Rezervacije)).BeginInit();
@@ -63,6 +64,7 @@ namespace Kino.Desktop.UI.Reservation
             // panelRezervacije
             // 
             this.panelRezervacije.BackColor = System.Drawing.Color.White;
+            this.panelRezervacije.Controls.Add(this.btnSeatReservation);
             this.panelRezervacije.Controls.Add(this.btnKina);
             this.panelRezervacije.Controls.Add(this.btnProfile);
             this.panelRezervacije.Controls.Add(this.btnReports);
@@ -172,7 +174,7 @@ namespace Kino.Desktop.UI.Reservation
             // 
             // btnDvorane
             // 
-            this.btnDvorane.Location = new System.Drawing.Point(0, 113);
+            this.btnDvorane.Location = new System.Drawing.Point(0, 97);
             this.btnDvorane.Name = "btnDvorane";
             this.btnDvorane.Size = new System.Drawing.Size(276, 23);
             this.btnDvorane.TabIndex = 1;
@@ -181,7 +183,7 @@ namespace Kino.Desktop.UI.Reservation
             // 
             // btnFilmovi
             // 
-            this.btnFilmovi.Location = new System.Drawing.Point(0, 74);
+            this.btnFilmovi.Location = new System.Drawing.Point(0, 68);
             this.btnFilmovi.Name = "btnFilmovi";
             this.btnFilmovi.Size = new System.Drawing.Size(276, 23);
             this.btnFilmovi.TabIndex = 0;
@@ -301,6 +303,15 @@ namespace Kino.Desktop.UI.Reservation
             this.dgv_Rezervacije.Size = new System.Drawing.Size(845, 461);
             this.dgv_Rezervacije.TabIndex = 0;
             // 
+            // btnSeatReservation
+            // 
+            this.btnSeatReservation.Location = new System.Drawing.Point(0, 126);
+            this.btnSeatReservation.Name = "btnSeatReservation";
+            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
+            this.btnSeatReservation.TabIndex = 12;
+            this.btnSeatReservation.Text = "Rezervacija sjedista";
+            this.btnSeatReservation.UseVisualStyleBackColor = true;
+            // 
             // frm_ReservationDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -359,5 +370,6 @@ namespace Kino.Desktop.UI.Reservation
         private System.Windows.Forms.Label lbl_VrijemeP;
         private System.Windows.Forms.GroupBox gb_Rezervacije;
         private System.Windows.Forms.DataGridView dgv_Rezervacije;
+        private System.Windows.Forms.Button btnSeatReservation;
     }
 }

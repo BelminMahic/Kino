@@ -48,12 +48,14 @@ namespace Kino.Desktop.UI.PromoMaterial
             this.lblQuantity = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.btnSeatReservation = new System.Windows.Forms.Button();
             this.panelPromo.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelPromo
             // 
             this.panelPromo.BackColor = System.Drawing.Color.White;
+            this.panelPromo.Controls.Add(this.btnSeatReservation);
             this.panelPromo.Controls.Add(this.btnKina);
             this.panelPromo.Controls.Add(this.btnProfile);
             this.panelPromo.Controls.Add(this.btnReports);
@@ -163,7 +165,7 @@ namespace Kino.Desktop.UI.PromoMaterial
             // 
             // btnDvorane
             // 
-            this.btnDvorane.Location = new System.Drawing.Point(0, 113);
+            this.btnDvorane.Location = new System.Drawing.Point(0, 96);
             this.btnDvorane.Name = "btnDvorane";
             this.btnDvorane.Size = new System.Drawing.Size(276, 23);
             this.btnDvorane.TabIndex = 1;
@@ -172,7 +174,7 @@ namespace Kino.Desktop.UI.PromoMaterial
             // 
             // btnFilmovi
             // 
-            this.btnFilmovi.Location = new System.Drawing.Point(0, 74);
+            this.btnFilmovi.Location = new System.Drawing.Point(0, 67);
             this.btnFilmovi.Name = "btnFilmovi";
             this.btnFilmovi.Size = new System.Drawing.Size(276, 23);
             this.btnFilmovi.TabIndex = 0;
@@ -231,6 +233,15 @@ namespace Kino.Desktop.UI.PromoMaterial
             this.btnBack.Text = "Nazad";
             this.btnBack.UseVisualStyleBackColor = true;
             // 
+            // btnSeatReservation
+            // 
+            this.btnSeatReservation.Location = new System.Drawing.Point(0, 124);
+            this.btnSeatReservation.Name = "btnSeatReservation";
+            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
+            this.btnSeatReservation.TabIndex = 12;
+            this.btnSeatReservation.Text = "Rezervacija sjedista";
+            this.btnSeatReservation.UseVisualStyleBackColor = true;
+            // 
             // frm_PromoAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -273,5 +284,6 @@ namespace Kino.Desktop.UI.PromoMaterial
         private System.Windows.Forms.Label lblQuantity;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnSeatReservation;
     }
 }

@@ -46,6 +46,7 @@ namespace Kino.Desktop.UI.User
             this.dgv_Korisnici = new System.Windows.Forms.DataGridView();
             this.txtPretraga = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.btnSeatReservation = new System.Windows.Forms.Button();
             this.panelKorisnici.SuspendLayout();
             this.gb_Korisnici.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Korisnici)).BeginInit();
@@ -54,6 +55,7 @@ namespace Kino.Desktop.UI.User
             // panelKorisnici
             // 
             this.panelKorisnici.BackColor = System.Drawing.Color.White;
+            this.panelKorisnici.Controls.Add(this.btnSeatReservation);
             this.panelKorisnici.Controls.Add(this.btnKina);
             this.panelKorisnici.Controls.Add(this.btnProfile);
             this.panelKorisnici.Controls.Add(this.btnReports);
@@ -163,7 +165,7 @@ namespace Kino.Desktop.UI.User
             // 
             // btnDvorane
             // 
-            this.btnDvorane.Location = new System.Drawing.Point(0, 113);
+            this.btnDvorane.Location = new System.Drawing.Point(-1, 96);
             this.btnDvorane.Name = "btnDvorane";
             this.btnDvorane.Size = new System.Drawing.Size(276, 23);
             this.btnDvorane.TabIndex = 1;
@@ -172,7 +174,7 @@ namespace Kino.Desktop.UI.User
             // 
             // btnFilmovi
             // 
-            this.btnFilmovi.Location = new System.Drawing.Point(0, 74);
+            this.btnFilmovi.Location = new System.Drawing.Point(-1, 67);
             this.btnFilmovi.Name = "btnFilmovi";
             this.btnFilmovi.Size = new System.Drawing.Size(276, 23);
             this.btnFilmovi.TabIndex = 0;
@@ -215,6 +217,15 @@ namespace Kino.Desktop.UI.User
             this.btnSearch.Text = "🔍";
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
+            // btnSeatReservation
+            // 
+            this.btnSeatReservation.Location = new System.Drawing.Point(0, 125);
+            this.btnSeatReservation.Name = "btnSeatReservation";
+            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
+            this.btnSeatReservation.TabIndex = 12;
+            this.btnSeatReservation.Text = "Rezervacija sjedista";
+            this.btnSeatReservation.UseVisualStyleBackColor = true;
+            // 
             // frm_UserDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -254,5 +265,6 @@ namespace Kino.Desktop.UI.User
         private System.Windows.Forms.DataGridView dgv_Korisnici;
         private System.Windows.Forms.TextBox txtPretraga;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnSeatReservation;
     }
 }
