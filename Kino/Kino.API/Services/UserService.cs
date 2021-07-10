@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Kino.API.Database;
+using Kino.API.Filters;
 using Kino.API.Services.IServices;
 using Kino.Model.Requests;
 using Microsoft.EntityFrameworkCore;
@@ -23,21 +24,7 @@ namespace Kino.API.Services
             _mapper = mapper;
         }
 
-        public Model.User Authenticate(string username, string pass)
-        {
-            var user = _context.User.Include("UserRole.Roles").FirstOrDefault(x => x.UserName == username);
-
-            if (user != null)
-            {
-                var newHash = GenerateHash(user.PasswordSalt, pass);
-
-                if (newHash == user.PasswordHash)
-                {
-                    return _mapper.Map<Model.User>(user);
-                }
-            }
-            return null;
-        }
+      
 
         public static string GenerateSalt()
         {
@@ -86,16 +73,35 @@ namespace Kino.API.Services
             return _mapper.Map<List<Model.User>>(list);
         }
 
+        public async Task<Model.User> Login(string username,string password)
+        {
+            var entity = await _context.User.Include("UserRole.Role").FirstOrDefaultAsync(x => x.UserName == username);
+
+            if(entity == null)
+            {
+                throw new UserException("Pogresan username ili password");
+            }
+            var hash = GenerateHash(entity.PasswordSalt, password);
+            if(hash != entity.PasswordHash)
+            {
+                throw new UserException("Pogresan username ili password");
+
+            }
+
+
+            return _mapper.Map<Model.User>(entity);
+        }
+
         public Model.User Insert(UserUpsertRequest request)
         {
             var entity = _mapper.Map<Database.User>(request);
-            //if (request.Password != request.PasswordConfirmation)
-            //{
-            //    throw new UserException("Passwordi se ne slazu!");
-            //}
-            //entity.PasswordSalt = GenerateSalt();
+            if (request.Password != request.PasswordConfirmation)
+            {
+                throw new UserException("Passwordi se ne slazu!");
+            }
+            entity.PasswordSalt = GenerateSalt();
 
-            //entity.PasswordHash = GenerateHash(entity.PasswordSalt,request.Password);
+            entity.PasswordHash = GenerateHash(entity.PasswordSalt, request.Password);
 
             _context.User.Add(entity);
             _context.SaveChanges();

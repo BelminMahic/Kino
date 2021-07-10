@@ -18,11 +18,9 @@ namespace Kino.Model
         public string UserName { get; set; }
         public bool? Status { get; set; }
         public int GenderId { get; set; }
-        public ICollection<UserRole> UserRoles { get; set; }
 
-        public override string ToString()
-        {
-            return $"{Name}-{LastName}";
-        }
+        public ICollection<UserRole> UserRole { get; set; }
+
+
     }
 }

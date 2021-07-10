@@ -25,6 +25,7 @@ namespace Kino.Model.Requests
         public string PasswordConfirmation { get; set; }
         [Required(AllowEmptyStrings = false)]
         public int GenderId { get; set; }
+
         public List<int> Roles { get; set; } = new List<int>();
     }
 }

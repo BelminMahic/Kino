@@ -1,13 +1,18 @@
 using Kino.API.Database;
+using Kino.API.Filters;
+using Kino.API.Security;
 using Kino.API.Services;
 using Kino.API.Services.IServices;
 using Kino.Model.Requests;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
+using Newtonsoft.Json.Serialization;
 
 namespace Kino.API
 {
@@ -23,7 +28,18 @@ namespace Kino.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers(x =>
+                x.Filters.Add<ErrorFilter>()
+            ).AddNewtonsoftJson(options =>
+            {
+                options.SerializerSettings.DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Local;
+                options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+                options.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
+            });
+
+
             services.AddDbContext<KinotekaDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("kinoteka")));
 
             services.AddSwaggerGen(options =>
@@ -34,22 +50,22 @@ namespace Kino.API
                         Title = "Kinoteka API",
                         Version = "1"
                     });
-                //options.AddSecurityDefinition("basicAuth", new OpenApiSecurityScheme
-                //{
-                //    Type = SecuritySchemeType.Http,
-                //    Scheme = "basic"
-                //});
+                options.AddSecurityDefinition("basicAuth", new OpenApiSecurityScheme
+                {
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "basic"
+                });
 
-                //options.AddSecurityRequirement(new OpenApiSecurityRequirement
-                //{
-                //    {
-                //        new OpenApiSecurityScheme
-                //        {
-                //            Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "basicAuth" }
-                //        },
-                //        new string[]{}
-                //    }
-                //});
+                options.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "basicAuth" }
+                        },
+                        new string[]{}
+                    }
+                });
             });
 
 
@@ -70,7 +86,8 @@ namespace Kino.API
             services.AddScoped<ICRUDService<Model.MovieSeat, object, MovieSeatUpsertRequest, MovieSeatUpsertRequest>, MovieSeatService>();
             services.AddScoped<ICRUDService<Model.Reservation, ReservationSearchRequest, ReservationUpsertRequest, ReservationUpsertRequest>, ReservationService>();
             services.AddScoped<ICRUDService<Model.SeatReservation, SeatReservationSearchRequest, SeatReservationUpsertRequest, SeatReservationUpsertRequest>, SeatReservationService>();
-
+            services.AddAuthentication("BasicAuthentication")
+                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication",null);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -81,10 +98,9 @@ namespace Kino.API
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseSwagger();

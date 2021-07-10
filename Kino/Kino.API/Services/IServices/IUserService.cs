@@ -14,6 +14,6 @@ namespace Kino.API.Services.IServices
         Model.User Insert(UserUpsertRequest request);
         Model.User Update(int id, UserUpsertRequest request);
 
-        Model.User Authenticate(string username, string password);
+        Task<Model.User> Login(string username, string password);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Kino.API.Services.IServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,6 +11,7 @@ namespace Kino.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class BaseController<T, TSearch> : ControllerBase
     {
         private readonly IService<T, TSearch> _service;
