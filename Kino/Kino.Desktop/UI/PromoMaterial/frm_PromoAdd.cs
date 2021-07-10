@@ -19,6 +19,7 @@ namespace Kino.Desktop.UI.PromoMaterial
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
+            if (this.ValidateChildren()) { 
             var request = new PromoMaterialUpsertRequest
             {
                 PromoMaterialName = txtPromoName.Text,
@@ -27,6 +28,35 @@ namespace Kino.Desktop.UI.PromoMaterial
 
             await _promoService.Insert<Model.PromoMaterial>(request);
             MessageBox.Show("Promo materijal je uspjesno dodan!");
+            }
+        }
+
+        private void txtPromoName_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPromoName.Text))
+            {
+                errorProvider.SetError(txtPromoName, "Naziv promo materijala je obavezno polje");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtPromoName, null);
+
+            }
+        }
+
+        private void txtPromoQuantity_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPromoQuantity.Text))
+            {
+                errorProvider.SetError(txtPromoQuantity, "Kolicina promo materijala je obavezno polje");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtPromoQuantity, null);
+
+            }
         }
     }
 }

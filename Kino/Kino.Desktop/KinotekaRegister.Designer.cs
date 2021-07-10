@@ -29,6 +29,7 @@ namespace Kino.Desktop
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtIme = new System.Windows.Forms.TextBox();
             this.txtPrezime = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
@@ -49,6 +50,8 @@ namespace Kino.Desktop
             this.lblSpol = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // txtIme
@@ -58,6 +61,7 @@ namespace Kino.Desktop
             this.txtIme.Name = "txtIme";
             this.txtIme.Size = new System.Drawing.Size(146, 28);
             this.txtIme.TabIndex = 0;
+            this.txtIme.Validating += new System.ComponentModel.CancelEventHandler(this.txtIme_Validating);
             // 
             // txtPrezime
             // 
@@ -66,6 +70,7 @@ namespace Kino.Desktop
             this.txtPrezime.Name = "txtPrezime";
             this.txtPrezime.Size = new System.Drawing.Size(146, 28);
             this.txtPrezime.TabIndex = 1;
+            this.txtPrezime.Validating += new System.ComponentModel.CancelEventHandler(this.txtPrezime_Validating);
             // 
             // txtUsername
             // 
@@ -74,6 +79,7 @@ namespace Kino.Desktop
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(218, 28);
             this.txtUsername.TabIndex = 2;
+            this.txtUsername.Validating += new System.ComponentModel.CancelEventHandler(this.txtUsername_Validating);
             // 
             // txtEmail
             // 
@@ -82,6 +88,7 @@ namespace Kino.Desktop
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(218, 28);
             this.txtEmail.TabIndex = 3;
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // txtTelefon
             // 
@@ -90,6 +97,7 @@ namespace Kino.Desktop
             this.txtTelefon.Name = "txtTelefon";
             this.txtTelefon.Size = new System.Drawing.Size(218, 28);
             this.txtTelefon.TabIndex = 4;
+            this.txtTelefon.Validating += new System.ComponentModel.CancelEventHandler(this.txtTelefon_Validating);
             // 
             // txtSifra
             // 
@@ -98,6 +106,7 @@ namespace Kino.Desktop
             this.txtSifra.Name = "txtSifra";
             this.txtSifra.Size = new System.Drawing.Size(163, 28);
             this.txtSifra.TabIndex = 5;
+            this.txtSifra.Validating += new System.ComponentModel.CancelEventHandler(this.txtSifra_Validating);
             // 
             // txtPotvrda
             // 
@@ -106,6 +115,7 @@ namespace Kino.Desktop
             this.txtPotvrda.Name = "txtPotvrda";
             this.txtPotvrda.Size = new System.Drawing.Size(163, 28);
             this.txtPotvrda.TabIndex = 6;
+            this.txtPotvrda.Validating += new System.ComponentModel.CancelEventHandler(this.txtPotvrda_Validating);
             // 
             // cb_Spolovi
             // 
@@ -141,6 +151,7 @@ namespace Kino.Desktop
             this.btnRegister.TabIndex = 10;
             this.btnRegister.Text = "Registracija";
             this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // btnBack
             // 
@@ -223,6 +234,10 @@ namespace Kino.Desktop
             this.label2.TabIndex = 19;
             this.label2.Text = "Potvrda sifre";
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // KinotekaRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -251,6 +266,7 @@ namespace Kino.Desktop
             this.Controls.Add(this.txtIme);
             this.Name = "KinotekaRegister";
             this.Text = "Kinoteka : Register";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -278,5 +294,6 @@ namespace Kino.Desktop
         private System.Windows.Forms.Label lblSpol;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

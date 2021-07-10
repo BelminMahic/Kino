@@ -19,6 +19,11 @@ namespace Kino.Desktop.UI.Country
         }
         private async void btnSave_Click(object sender, EventArgs e)
         {
+
+            if(this.ValidateChildren())
+            {
+
+
             var request = new CountryUpsertRequest()
             {
                 CountryName = txtNazivDrzave.Text
@@ -26,7 +31,22 @@ namespace Kino.Desktop.UI.Country
 
             await _aPIService.Insert<Model.Country>(request);
             MessageBox.Show("Dodavanje uspjesno odradjeno!");
+            }
 
+        }
+
+        private void txtNazivDrzave_Validating(object sender, CancelEventArgs e)
+        {
+            if(string.IsNullOrWhiteSpace(txtNazivDrzave.Text))
+            {
+                errorProvider.SetError(txtNazivDrzave, "Naziv drzave je obavezno polje");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtNazivDrzave, null);
+
+            }
         }
     }
 }

@@ -36,5 +36,11 @@ namespace Kino.Desktop.UI.City
             frm_CityFullDetails frm = new frm_CityFullDetails(int.Parse(id.ToString()));
             frm.Show();
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            frm_CityAdd frm = new frm_CityAdd();
+            frm.Show();
+        }
     }
 }

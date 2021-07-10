@@ -34,6 +34,7 @@ namespace Kino.Desktop.UI.Movie
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
+            if (this.ValidateChildren()) { 
             var genreIdObj = cb_Zanrovi.SelectedValue;
             if (int.TryParse(genreIdObj.ToString(), out int genreId))
             {
@@ -58,6 +59,7 @@ namespace Kino.Desktop.UI.Movie
             await _movieService.Insert<Model.Movie>(request);
 
             MessageBox.Show("Film uspjesno dodan!");
+            }
         }
 
 
@@ -96,6 +98,104 @@ namespace Kino.Desktop.UI.Movie
 
                 Image image = Image.FromFile(filename);
                 picturePoster.Image = image;
+            }
+        }
+
+        private void txtNazivFilma_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNazivFilma.Text))
+            {
+                errorProvider.SetError(txtNazivFilma, "Naziv filma je obavezno polje");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtNazivFilma, null);
+
+            }
+        }
+
+        private void txtOriginal_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtOriginal.Text))
+            {
+                errorProvider.SetError(txtOriginal, "Originalni naziv filma je obavezno polje");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtOriginal, null);
+
+            }
+        }
+
+        private void txt_Reditelj_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txt_Reditelj.Text))
+            {
+                errorProvider.SetError(txt_Reditelj, "Naziv reditelja je obavezno polje");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txt_Reditelj, null);
+
+            }
+        }
+
+        private void txtGlumci_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtGlumci.Text))
+            {
+                errorProvider.SetError(txtGlumci, "Naziv glumaca je obavezno polje");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtGlumci, null);
+
+            }
+        }
+
+        private void txtTrajanje_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtTrajanje.Text))
+            {
+                errorProvider.SetError(txtTrajanje, "Trajanje filma je obavezno polje");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtTrajanje, null);
+
+            }
+        }
+
+        private void txtDatumPrikazivanja_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtDatumPrikazivanja.Text))
+            {
+                errorProvider.SetError(txtDatumPrikazivanja, "Datum prikazivanja je obavezno polje");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtDatumPrikazivanja, null);
+
+            }
+        }
+
+        private void txtOpis_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtOpis.Text))
+            {
+                errorProvider.SetError(txtOpis, "Opis filma je obavezno polje");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtOpis, null);
+
             }
         }
     }

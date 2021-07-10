@@ -29,7 +29,9 @@ namespace Kino.Desktop.UI.Genre
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelGenre = new System.Windows.Forms.Panel();
+            this.btnSeatReservation = new System.Windows.Forms.Button();
             this.btnKina = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
@@ -46,8 +48,9 @@ namespace Kino.Desktop.UI.Genre
             this.lblNazivZanra = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.btnSeatReservation = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelGenre.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // panelGenre
@@ -70,6 +73,15 @@ namespace Kino.Desktop.UI.Genre
             this.panelGenre.Name = "panelGenre";
             this.panelGenre.Size = new System.Drawing.Size(278, 625);
             this.panelGenre.TabIndex = 1;
+            // 
+            // btnSeatReservation
+            // 
+            this.btnSeatReservation.Location = new System.Drawing.Point(-1, 119);
+            this.btnSeatReservation.Name = "btnSeatReservation";
+            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
+            this.btnSeatReservation.TabIndex = 12;
+            this.btnSeatReservation.Text = "Rezervacija sjedista";
+            this.btnSeatReservation.UseVisualStyleBackColor = true;
             // 
             // btnKina
             // 
@@ -186,6 +198,7 @@ namespace Kino.Desktop.UI.Genre
             this.txtNazivZanra.Name = "txtNazivZanra";
             this.txtNazivZanra.Size = new System.Drawing.Size(212, 32);
             this.txtNazivZanra.TabIndex = 2;
+            this.txtNazivZanra.Validating += new System.ComponentModel.CancelEventHandler(this.txtNazivZanra_Validating);
             // 
             // lblNazivZanra
             // 
@@ -215,14 +228,9 @@ namespace Kino.Desktop.UI.Genre
             this.btnBack.Text = "Nazad";
             this.btnBack.UseVisualStyleBackColor = true;
             // 
-            // btnSeatReservation
+            // errorProvider
             // 
-            this.btnSeatReservation.Location = new System.Drawing.Point(-1, 119);
-            this.btnSeatReservation.Name = "btnSeatReservation";
-            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
-            this.btnSeatReservation.TabIndex = 12;
-            this.btnSeatReservation.Text = "Rezervacija sjedista";
-            this.btnSeatReservation.UseVisualStyleBackColor = true;
+            this.errorProvider.ContainerControl = this;
             // 
             // frm_GenreAdd
             // 
@@ -238,6 +246,7 @@ namespace Kino.Desktop.UI.Genre
             this.Name = "frm_GenreAdd";
             this.Text = "Kinoteka : Zanrovi";
             this.panelGenre.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,5 +272,6 @@ namespace Kino.Desktop.UI.Genre
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnSeatReservation;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

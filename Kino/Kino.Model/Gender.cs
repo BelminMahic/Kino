@@ -8,7 +8,6 @@ namespace Kino.Model
     public class Gender
     {
         public int GenderId { get; set; }
-        [Required]
         public string GenderName { get; set; }
 
         public override string ToString()

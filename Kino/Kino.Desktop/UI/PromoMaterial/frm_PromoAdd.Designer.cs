@@ -29,6 +29,7 @@ namespace Kino.Desktop.UI.PromoMaterial
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelPromo = new System.Windows.Forms.Panel();
             this.btnSeatReservation = new System.Windows.Forms.Button();
             this.btnKina = new System.Windows.Forms.Button();
@@ -49,7 +50,9 @@ namespace Kino.Desktop.UI.PromoMaterial
             this.lblQuantity = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelPromo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // panelPromo
@@ -197,6 +200,7 @@ namespace Kino.Desktop.UI.PromoMaterial
             this.txtPromoName.Name = "txtPromoName";
             this.txtPromoName.Size = new System.Drawing.Size(308, 34);
             this.txtPromoName.TabIndex = 3;
+            this.txtPromoName.Validating += new System.ComponentModel.CancelEventHandler(this.txtPromoName_Validating);
             // 
             // txtPromoQuantity
             // 
@@ -205,6 +209,7 @@ namespace Kino.Desktop.UI.PromoMaterial
             this.txtPromoQuantity.Name = "txtPromoQuantity";
             this.txtPromoQuantity.Size = new System.Drawing.Size(308, 34);
             this.txtPromoQuantity.TabIndex = 4;
+            this.txtPromoQuantity.Validating += new System.ComponentModel.CancelEventHandler(this.txtPromoQuantity_Validating);
             // 
             // lblPromoName
             // 
@@ -243,6 +248,10 @@ namespace Kino.Desktop.UI.PromoMaterial
             this.btnBack.Text = "Nazad";
             this.btnBack.UseVisualStyleBackColor = true;
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // frm_PromoAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -259,6 +268,7 @@ namespace Kino.Desktop.UI.PromoMaterial
             this.Name = "frm_PromoAdd";
             this.Text = "frm_PromoAdd";
             this.panelPromo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,5 +296,6 @@ namespace Kino.Desktop.UI.PromoMaterial
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnSeatReservation;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

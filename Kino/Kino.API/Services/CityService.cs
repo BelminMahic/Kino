@@ -19,10 +19,9 @@ namespace Kino.API.Services
         {
             var query = _context.Set<Database.City>().AsQueryable();
 
-            if (search?.CountryId.HasValue == true)
-            {
-                query = query.Where(x => x.CountryId == search.CountryId);
-            }
+            if (!string.IsNullOrEmpty(search?.CityName))
+                query = query.Where(x => x.CityName.StartsWith(search.CityName));
+
 
             query = query.OrderBy(x => x.CityName);
 

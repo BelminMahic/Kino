@@ -219,6 +219,7 @@ namespace Kino.Desktop.UI.City
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Dodaj grad";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtSearch
             // 

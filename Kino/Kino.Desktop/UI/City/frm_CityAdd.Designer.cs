@@ -29,7 +29,9 @@ namespace Kino.Desktop.UI.City
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelGradovi = new System.Windows.Forms.Panel();
+            this.btnSeatReservation = new System.Windows.Forms.Button();
             this.btnKina = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
@@ -48,8 +50,9 @@ namespace Kino.Desktop.UI.City
             this.cb_Drzave = new System.Windows.Forms.ComboBox();
             this.lblNazivGrada = new System.Windows.Forms.Label();
             this.lblDrzava = new System.Windows.Forms.Label();
-            this.btnSeatReservation = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelGradovi.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // panelGradovi
@@ -72,6 +75,15 @@ namespace Kino.Desktop.UI.City
             this.panelGradovi.Name = "panelGradovi";
             this.panelGradovi.Size = new System.Drawing.Size(277, 625);
             this.panelGradovi.TabIndex = 1;
+            // 
+            // btnSeatReservation
+            // 
+            this.btnSeatReservation.Location = new System.Drawing.Point(1, 113);
+            this.btnSeatReservation.Name = "btnSeatReservation";
+            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
+            this.btnSeatReservation.TabIndex = 12;
+            this.btnSeatReservation.Text = "Rezervacija sjedista";
+            this.btnSeatReservation.UseVisualStyleBackColor = true;
             // 
             // btnKina
             // 
@@ -189,6 +201,7 @@ namespace Kino.Desktop.UI.City
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Spasi";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnBack
             // 
@@ -206,6 +219,7 @@ namespace Kino.Desktop.UI.City
             this.txtNazivGrada.Name = "txtNazivGrada";
             this.txtNazivGrada.Size = new System.Drawing.Size(218, 35);
             this.txtNazivGrada.TabIndex = 4;
+            this.txtNazivGrada.Validating += new System.ComponentModel.CancelEventHandler(this.txtNazivGrada_Validating);
             // 
             // cb_Drzave
             // 
@@ -233,14 +247,9 @@ namespace Kino.Desktop.UI.City
             this.lblDrzava.TabIndex = 7;
             this.lblDrzava.Text = "Drzava";
             // 
-            // btnSeatReservation
+            // errorProvider
             // 
-            this.btnSeatReservation.Location = new System.Drawing.Point(1, 113);
-            this.btnSeatReservation.Name = "btnSeatReservation";
-            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
-            this.btnSeatReservation.TabIndex = 12;
-            this.btnSeatReservation.Text = "Rezervacija sjedista";
-            this.btnSeatReservation.UseVisualStyleBackColor = true;
+            this.errorProvider.ContainerControl = this;
             // 
             // frm_CityAdd
             // 
@@ -259,6 +268,7 @@ namespace Kino.Desktop.UI.City
             this.Text = "Kinoteka : Gradovi";
             this.Load += new System.EventHandler(this.frm_CityAdd_Load);
             this.panelGradovi.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,5 +296,6 @@ namespace Kino.Desktop.UI.City
         private System.Windows.Forms.Label lblNazivGrada;
         private System.Windows.Forms.Label lblDrzava;
         private System.Windows.Forms.Button btnSeatReservation;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

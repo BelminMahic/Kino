@@ -29,7 +29,9 @@ namespace Kino.Desktop.UI.Auditorium
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelAuditorium = new System.Windows.Forms.Panel();
+            this.btnSeatReservation = new System.Windows.Forms.Button();
             this.btnKina = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
@@ -50,8 +52,9 @@ namespace Kino.Desktop.UI.Auditorium
             this.txtNazivDvorane = new System.Windows.Forms.TextBox();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnSeatReservation = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelAuditorium.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // panelAuditorium
@@ -74,6 +77,15 @@ namespace Kino.Desktop.UI.Auditorium
             this.panelAuditorium.Name = "panelAuditorium";
             this.panelAuditorium.Size = new System.Drawing.Size(278, 625);
             this.panelAuditorium.TabIndex = 2;
+            // 
+            // btnSeatReservation
+            // 
+            this.btnSeatReservation.Location = new System.Drawing.Point(-1, 112);
+            this.btnSeatReservation.Name = "btnSeatReservation";
+            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
+            this.btnSeatReservation.TabIndex = 12;
+            this.btnSeatReservation.Text = "Rezervacija sjedista";
+            this.btnSeatReservation.UseVisualStyleBackColor = true;
             // 
             // btnKina
             // 
@@ -217,6 +229,7 @@ namespace Kino.Desktop.UI.Auditorium
             this.txtBrojSjedista.Name = "txtBrojSjedista";
             this.txtBrojSjedista.Size = new System.Drawing.Size(206, 29);
             this.txtBrojSjedista.TabIndex = 16;
+            this.txtBrojSjedista.Validating += new System.ComponentModel.CancelEventHandler(this.txtBrojSjedista_Validating);
             // 
             // cb_Kina
             // 
@@ -233,6 +246,7 @@ namespace Kino.Desktop.UI.Auditorium
             this.txtNazivDvorane.Name = "txtNazivDvorane";
             this.txtNazivDvorane.Size = new System.Drawing.Size(206, 29);
             this.txtNazivDvorane.TabIndex = 14;
+            this.txtNazivDvorane.Validating += new System.ComponentModel.CancelEventHandler(this.txtNazivDvorane_Validating);
             // 
             // btnBack
             // 
@@ -253,14 +267,9 @@ namespace Kino.Desktop.UI.Auditorium
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // btnSeatReservation
+            // errorProvider
             // 
-            this.btnSeatReservation.Location = new System.Drawing.Point(-1, 112);
-            this.btnSeatReservation.Name = "btnSeatReservation";
-            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
-            this.btnSeatReservation.TabIndex = 12;
-            this.btnSeatReservation.Text = "Rezervacija sjedista";
-            this.btnSeatReservation.UseVisualStyleBackColor = true;
+            this.errorProvider.ContainerControl = this;
             // 
             // frm_AuditoriumAdd
             // 
@@ -281,6 +290,7 @@ namespace Kino.Desktop.UI.Auditorium
             this.Text = "Kinoteka : Auditorium";
             this.Load += new System.EventHandler(this.frm_AuditoriumAdd_Load);
             this.panelAuditorium.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,5 +320,6 @@ namespace Kino.Desktop.UI.Auditorium
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnSeatReservation;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

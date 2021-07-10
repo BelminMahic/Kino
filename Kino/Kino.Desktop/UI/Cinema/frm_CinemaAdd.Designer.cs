@@ -29,7 +29,9 @@ namespace Kino.Desktop.UI.Cinema
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelCinema = new System.Windows.Forms.Panel();
+            this.btnSeatReservation = new System.Windows.Forms.Button();
             this.btnKina = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
@@ -52,8 +54,9 @@ namespace Kino.Desktop.UI.Cinema
             this.lblAdresa = new System.Windows.Forms.Label();
             this.lblTelefon = new System.Windows.Forms.Label();
             this.lblGradovi = new System.Windows.Forms.Label();
-            this.btnSeatReservation = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelCinema.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // panelCinema
@@ -76,6 +79,15 @@ namespace Kino.Desktop.UI.Cinema
             this.panelCinema.Name = "panelCinema";
             this.panelCinema.Size = new System.Drawing.Size(277, 625);
             this.panelCinema.TabIndex = 1;
+            // 
+            // btnSeatReservation
+            // 
+            this.btnSeatReservation.Location = new System.Drawing.Point(-2, 124);
+            this.btnSeatReservation.Name = "btnSeatReservation";
+            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
+            this.btnSeatReservation.TabIndex = 12;
+            this.btnSeatReservation.Text = "Rezervacija sjedista";
+            this.btnSeatReservation.UseVisualStyleBackColor = true;
             // 
             // btnKina
             // 
@@ -192,6 +204,7 @@ namespace Kino.Desktop.UI.Cinema
             this.txtNazivKina.Name = "txtNazivKina";
             this.txtNazivKina.Size = new System.Drawing.Size(212, 32);
             this.txtNazivKina.TabIndex = 2;
+            this.txtNazivKina.Validating += new System.ComponentModel.CancelEventHandler(this.txtNazivKina_Validating);
             // 
             // txtAdresa
             // 
@@ -200,6 +213,7 @@ namespace Kino.Desktop.UI.Cinema
             this.txtAdresa.Name = "txtAdresa";
             this.txtAdresa.Size = new System.Drawing.Size(212, 32);
             this.txtAdresa.TabIndex = 3;
+            this.txtAdresa.Validating += new System.ComponentModel.CancelEventHandler(this.txtAdresa_Validating);
             // 
             // txtTelefon
             // 
@@ -208,6 +222,7 @@ namespace Kino.Desktop.UI.Cinema
             this.txtTelefon.Name = "txtTelefon";
             this.txtTelefon.Size = new System.Drawing.Size(212, 32);
             this.txtTelefon.TabIndex = 4;
+            this.txtTelefon.Validating += new System.ComponentModel.CancelEventHandler(this.txtTelefon_Validating);
             // 
             // cb_Gradovi
             // 
@@ -272,14 +287,9 @@ namespace Kino.Desktop.UI.Cinema
             this.lblGradovi.TabIndex = 11;
             this.lblGradovi.Text = "Grad";
             // 
-            // btnSeatReservation
+            // errorProvider
             // 
-            this.btnSeatReservation.Location = new System.Drawing.Point(-2, 124);
-            this.btnSeatReservation.Name = "btnSeatReservation";
-            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
-            this.btnSeatReservation.TabIndex = 12;
-            this.btnSeatReservation.Text = "Rezervacija sjedista";
-            this.btnSeatReservation.UseVisualStyleBackColor = true;
+            this.errorProvider.ContainerControl = this;
             // 
             // frm_CinemaAdd
             // 
@@ -302,6 +312,7 @@ namespace Kino.Desktop.UI.Cinema
             this.Text = "Kinoteka : Kina";
             this.Load += new System.EventHandler(this.frm_CinemaAdd_Load);
             this.panelCinema.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,5 +344,6 @@ namespace Kino.Desktop.UI.Cinema
         private System.Windows.Forms.Label lblTelefon;
         private System.Windows.Forms.Label lblGradovi;
         private System.Windows.Forms.Button btnSeatReservation;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

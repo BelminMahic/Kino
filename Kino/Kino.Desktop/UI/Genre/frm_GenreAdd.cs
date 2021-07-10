@@ -20,6 +20,7 @@ namespace Kino.Desktop.UI.Genre
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
+            if (this.ValidateChildren()) { 
             var request = new GenreUpsertRequest
             {
                 GenreName = txtNazivZanra.Text
@@ -27,6 +28,21 @@ namespace Kino.Desktop.UI.Genre
 
             await _genreService.Insert<Model.Genre>(request);
             MessageBox.Show("Zanr je uspjesno dodan!");
+            }
+        }
+
+        private void txtNazivZanra_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNazivZanra.Text))
+            {
+                errorProvider.SetError(txtNazivZanra, "Naziv zanra je obavezno polje");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtNazivZanra, null);
+
+            }
         }
     }
 }

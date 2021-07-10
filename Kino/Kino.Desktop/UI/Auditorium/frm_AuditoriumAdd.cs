@@ -37,6 +37,7 @@ namespace Kino.Desktop.UI.Auditorium
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
+            if (this.ValidateChildren()) { 
             var request = new AuditoriumUpsertRequest
             {
                 AuditoriumName = txtNazivDvorane.Text,
@@ -45,6 +46,35 @@ namespace Kino.Desktop.UI.Auditorium
             };
             await _audService.Insert<Model.Auditorium>(request);
             MessageBox.Show("Dodavanje uspjesno odradjeno!");
+            }
+        }
+
+        private void txtNazivDvorane_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNazivDvorane.Text))
+            {
+                errorProvider.SetError(txtNazivDvorane, "Naziv dvorane je obavezno polje");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtNazivDvorane, null);
+
+            }
+        }
+
+        private void txtBrojSjedista_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtBrojSjedista.Text))
+            {
+                errorProvider.SetError(txtBrojSjedista, "Broj sjedista je obavezno polje");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtBrojSjedista, null);
+
+            }
         }
     }
 }

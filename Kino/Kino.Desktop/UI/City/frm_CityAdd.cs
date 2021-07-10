@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kino.Model.Requests;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,6 +35,32 @@ namespace Kino.Desktop.UI.City
             cb_Drzave.DataSource = result;
         }
 
-       
+        private void txtNazivGrada_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNazivGrada.Text))
+            {
+                errorProvider.SetError(txtNazivGrada, "Naziv grada je obavezno polje");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtNazivGrada, null);
+
+            }
+        }
+
+        private async void btnSave_Click(object sender, EventArgs e)
+        {
+            if (this.ValidateChildren()) { 
+            var request = new CityUpsertRequest()
+            {
+                CityName = txtNazivGrada.Text,
+                CountryId = int.Parse(cb_Drzave.SelectedValue.ToString())
+            };
+
+            await _cityService.Insert<Model.City>(request);
+            MessageBox.Show("Dodavanje uspjesno odradjeno!");
+            }
+        }
     }
 }

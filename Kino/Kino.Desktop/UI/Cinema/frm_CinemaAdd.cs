@@ -37,6 +37,7 @@ namespace Kino.Desktop.UI.Cinema
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
+            if (this.ValidateChildren()) { 
             var request = new CinemaUpsertRequest()
             {
                 CinemaName = txtNazivKina.Text,
@@ -46,6 +47,49 @@ namespace Kino.Desktop.UI.Cinema
             };
             await _service.Insert<Model.Cinema>(request);
             MessageBox.Show("Dodavanje uspjesno odradjeno!");
+            }
+        }
+
+        private void txtNazivKina_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNazivKina.Text))
+            {
+                errorProvider.SetError(txtNazivKina, "Naziv kina je obavezno polje");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtNazivKina, null);
+
+            }
+        }
+
+        private void txtAdresa_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtAdresa.Text))
+            {
+                errorProvider.SetError(txtAdresa, "Adresa je obavezno polje");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtAdresa, null);
+
+            }
+        }
+
+        private void txtTelefon_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtTelefon.Text))
+            {
+                errorProvider.SetError(txtTelefon, "Broj telefona je obavezno polje");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtTelefon, null);
+
+            }
         }
     }
 }

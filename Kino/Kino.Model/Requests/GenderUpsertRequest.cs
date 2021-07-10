@@ -6,6 +6,7 @@ namespace Kino.Model.Requests
 {
     public class GenderUpsertRequest
     {
+
         public string GenderName { get; set; }
 
     }

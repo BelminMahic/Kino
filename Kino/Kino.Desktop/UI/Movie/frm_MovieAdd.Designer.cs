@@ -29,7 +29,9 @@ namespace Kino.Desktop.UI.Movie
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelFilmovi = new System.Windows.Forms.Panel();
+            this.btnSeatReservation = new System.Windows.Forms.Button();
             this.btnKina = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
@@ -65,9 +67,10 @@ namespace Kino.Desktop.UI.Movie
             this.btnSave = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btnSeatReservation = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelFilmovi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picturePoster)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // panelFilmovi
@@ -90,6 +93,15 @@ namespace Kino.Desktop.UI.Movie
             this.panelFilmovi.Name = "panelFilmovi";
             this.panelFilmovi.Size = new System.Drawing.Size(279, 625);
             this.panelFilmovi.TabIndex = 1;
+            // 
+            // btnSeatReservation
+            // 
+            this.btnSeatReservation.Location = new System.Drawing.Point(0, 125);
+            this.btnSeatReservation.Name = "btnSeatReservation";
+            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
+            this.btnSeatReservation.TabIndex = 12;
+            this.btnSeatReservation.Text = "Rezervacija sjedista";
+            this.btnSeatReservation.UseVisualStyleBackColor = true;
             // 
             // btnKina
             // 
@@ -206,6 +218,7 @@ namespace Kino.Desktop.UI.Movie
             this.txtNazivFilma.Name = "txtNazivFilma";
             this.txtNazivFilma.Size = new System.Drawing.Size(236, 24);
             this.txtNazivFilma.TabIndex = 2;
+            this.txtNazivFilma.Validating += new System.ComponentModel.CancelEventHandler(this.txtNazivFilma_Validating);
             // 
             // txtOriginal
             // 
@@ -214,6 +227,7 @@ namespace Kino.Desktop.UI.Movie
             this.txtOriginal.Name = "txtOriginal";
             this.txtOriginal.Size = new System.Drawing.Size(236, 24);
             this.txtOriginal.TabIndex = 3;
+            this.txtOriginal.Validating += new System.ComponentModel.CancelEventHandler(this.txtOriginal_Validating);
             // 
             // txt_Reditelj
             // 
@@ -222,6 +236,7 @@ namespace Kino.Desktop.UI.Movie
             this.txt_Reditelj.Name = "txt_Reditelj";
             this.txt_Reditelj.Size = new System.Drawing.Size(236, 24);
             this.txt_Reditelj.TabIndex = 4;
+            this.txt_Reditelj.Validating += new System.ComponentModel.CancelEventHandler(this.txt_Reditelj_Validating);
             // 
             // txtGlumci
             // 
@@ -230,6 +245,7 @@ namespace Kino.Desktop.UI.Movie
             this.txtGlumci.Name = "txtGlumci";
             this.txtGlumci.Size = new System.Drawing.Size(236, 24);
             this.txtGlumci.TabIndex = 5;
+            this.txtGlumci.Validating += new System.ComponentModel.CancelEventHandler(this.txtGlumci_Validating);
             // 
             // txtTrajanje
             // 
@@ -238,6 +254,7 @@ namespace Kino.Desktop.UI.Movie
             this.txtTrajanje.Name = "txtTrajanje";
             this.txtTrajanje.Size = new System.Drawing.Size(236, 24);
             this.txtTrajanje.TabIndex = 6;
+            this.txtTrajanje.Validating += new System.ComponentModel.CancelEventHandler(this.txtTrajanje_Validating);
             // 
             // txtDatumPrikazivanja
             // 
@@ -246,6 +263,7 @@ namespace Kino.Desktop.UI.Movie
             this.txtDatumPrikazivanja.Name = "txtDatumPrikazivanja";
             this.txtDatumPrikazivanja.Size = new System.Drawing.Size(236, 24);
             this.txtDatumPrikazivanja.TabIndex = 7;
+            this.txtDatumPrikazivanja.Validating += new System.ComponentModel.CancelEventHandler(this.txtDatumPrikazivanja_Validating);
             // 
             // cb_Kino
             // 
@@ -270,6 +288,7 @@ namespace Kino.Desktop.UI.Movie
             this.txtOpis.Name = "txtOpis";
             this.txtOpis.Size = new System.Drawing.Size(236, 136);
             this.txtOpis.TabIndex = 10;
+            this.txtOpis.Validating += new System.ComponentModel.CancelEventHandler(this.txtOpis_Validating);
             // 
             // lblNazivFilma
             // 
@@ -393,14 +412,9 @@ namespace Kino.Desktop.UI.Movie
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // btnSeatReservation
+            // errorProvider
             // 
-            this.btnSeatReservation.Location = new System.Drawing.Point(0, 125);
-            this.btnSeatReservation.Name = "btnSeatReservation";
-            this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
-            this.btnSeatReservation.TabIndex = 12;
-            this.btnSeatReservation.Text = "Rezervacija sjedista";
-            this.btnSeatReservation.UseVisualStyleBackColor = true;
+            this.errorProvider.ContainerControl = this;
             // 
             // frm_MovieAdd
             // 
@@ -436,6 +450,7 @@ namespace Kino.Desktop.UI.Movie
             this.Load += new System.EventHandler(this.frm_MovieAdd_Load);
             this.panelFilmovi.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picturePoster)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -480,5 +495,6 @@ namespace Kino.Desktop.UI.Movie
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button btnSeatReservation;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
