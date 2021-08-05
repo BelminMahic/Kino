@@ -41,7 +41,11 @@ namespace Kino.Desktop
             frm_AuditoriumDetails frm = new frm_AuditoriumDetails();
             frm.Show();
         }
-
+        private void btnSeatReservation_Click(object sender, EventArgs e)
+        {
+            frm_SeatReservationDetails frm = new frm_SeatReservationDetails();
+            frm.Show();
+        }
         private void btnSjedista_Click(object sender, EventArgs e)
         {
             frm_MovieSeatDetails frm = new frm_MovieSeatDetails();
@@ -103,10 +107,6 @@ namespace Kino.Desktop
             frm.Show();
         }
 
-        private void btnSeatReservation_Click(object sender, EventArgs e)
-        {
-            frm_SeatReservationDetails frm = new frm_SeatReservationDetails();
-            frm.Show();
-        }
+       
     }
 }

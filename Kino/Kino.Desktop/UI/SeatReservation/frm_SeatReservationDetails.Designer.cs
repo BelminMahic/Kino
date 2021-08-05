@@ -86,6 +86,7 @@ namespace Kino.Desktop.UI.SeatReservation
             this.btnSeatReservation.TabIndex = 12;
             this.btnSeatReservation.Text = "Rezervacija sjedista";
             this.btnSeatReservation.UseVisualStyleBackColor = true;
+            this.btnSeatReservation.Click += new System.EventHandler(this.btnSeatReservation_Click);
             // 
             // btnKina
             // 
@@ -95,6 +96,7 @@ namespace Kino.Desktop.UI.SeatReservation
             this.btnKina.TabIndex = 11;
             this.btnKina.Text = "Kina";
             this.btnKina.UseVisualStyleBackColor = true;
+            this.btnKina.Click += new System.EventHandler(this.btnKina_Click);
             // 
             // btnProfile
             // 
@@ -104,6 +106,7 @@ namespace Kino.Desktop.UI.SeatReservation
             this.btnProfile.TabIndex = 10;
             this.btnProfile.Text = "Profil";
             this.btnProfile.UseVisualStyleBackColor = true;
+            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
             // btnReports
             // 
@@ -113,6 +116,7 @@ namespace Kino.Desktop.UI.SeatReservation
             this.btnReports.TabIndex = 9;
             this.btnReports.Text = "Izvjestaji";
             this.btnReports.UseVisualStyleBackColor = true;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
             // btnUsers
             // 
@@ -122,6 +126,7 @@ namespace Kino.Desktop.UI.SeatReservation
             this.btnUsers.TabIndex = 8;
             this.btnUsers.Text = "Korisnici";
             this.btnUsers.UseVisualStyleBackColor = true;
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
             // 
             // btnPromo
             // 
@@ -131,6 +136,7 @@ namespace Kino.Desktop.UI.SeatReservation
             this.btnPromo.TabIndex = 7;
             this.btnPromo.Text = "Promidzbeni materijali";
             this.btnPromo.UseVisualStyleBackColor = true;
+            this.btnPromo.Click += new System.EventHandler(this.btnPromo_Click);
             // 
             // btnDrzave
             // 
@@ -140,6 +146,7 @@ namespace Kino.Desktop.UI.SeatReservation
             this.btnDrzave.TabIndex = 6;
             this.btnDrzave.Text = "Drzave";
             this.btnDrzave.UseVisualStyleBackColor = true;
+            this.btnDrzave.Click += new System.EventHandler(this.btnDrzave_Click);
             // 
             // btnGradovi
             // 
@@ -149,6 +156,7 @@ namespace Kino.Desktop.UI.SeatReservation
             this.btnGradovi.TabIndex = 5;
             this.btnGradovi.Text = "Gradovi";
             this.btnGradovi.UseVisualStyleBackColor = true;
+            this.btnGradovi.Click += new System.EventHandler(this.btnGradovi_Click);
             // 
             // btnZanrovi
             // 
@@ -158,6 +166,7 @@ namespace Kino.Desktop.UI.SeatReservation
             this.btnZanrovi.TabIndex = 4;
             this.btnZanrovi.Text = "Zanrovi";
             this.btnZanrovi.UseVisualStyleBackColor = true;
+            this.btnZanrovi.Click += new System.EventHandler(this.btnZanrovi_Click);
             // 
             // btnRezervacije
             // 
@@ -167,6 +176,7 @@ namespace Kino.Desktop.UI.SeatReservation
             this.btnRezervacije.TabIndex = 3;
             this.btnRezervacije.Text = "Rezervacije";
             this.btnRezervacije.UseVisualStyleBackColor = true;
+            this.btnRezervacije.Click += new System.EventHandler(this.btnRezervacije_Click);
             // 
             // btnSjedista
             // 
@@ -176,6 +186,7 @@ namespace Kino.Desktop.UI.SeatReservation
             this.btnSjedista.TabIndex = 2;
             this.btnSjedista.Text = "Sjedista";
             this.btnSjedista.UseVisualStyleBackColor = true;
+            this.btnSjedista.Click += new System.EventHandler(this.btnSjedista_Click);
             // 
             // btnDvorane
             // 
@@ -185,6 +196,7 @@ namespace Kino.Desktop.UI.SeatReservation
             this.btnDvorane.TabIndex = 1;
             this.btnDvorane.Text = "Dvorane";
             this.btnDvorane.UseVisualStyleBackColor = true;
+            this.btnDvorane.Click += new System.EventHandler(this.btnDvorane_Click);
             // 
             // btnFilmovi
             // 
@@ -194,6 +206,7 @@ namespace Kino.Desktop.UI.SeatReservation
             this.btnFilmovi.TabIndex = 0;
             this.btnFilmovi.Text = "Filmovi";
             this.btnFilmovi.UseVisualStyleBackColor = true;
+            this.btnFilmovi.Click += new System.EventHandler(this.btnFilmovi_Click);
             // 
             // cbRezervacija
             // 

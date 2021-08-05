@@ -80,6 +80,7 @@ namespace Kino.Desktop.UI.MovieSeat
             // 
             // btnSeatReservation
             // 
+            this.btnSeatReservation.Enabled = false;
             this.btnSeatReservation.Location = new System.Drawing.Point(0, 124);
             this.btnSeatReservation.Name = "btnSeatReservation";
             this.btnSeatReservation.Size = new System.Drawing.Size(276, 23);
@@ -89,6 +90,7 @@ namespace Kino.Desktop.UI.MovieSeat
             // 
             // btnKina
             // 
+            this.btnKina.Enabled = false;
             this.btnKina.Location = new System.Drawing.Point(0, 523);
             this.btnKina.Name = "btnKina";
             this.btnKina.Size = new System.Drawing.Size(276, 23);
@@ -98,6 +100,7 @@ namespace Kino.Desktop.UI.MovieSeat
             // 
             // btnProfile
             // 
+            this.btnProfile.Enabled = false;
             this.btnProfile.Location = new System.Drawing.Point(0, 484);
             this.btnProfile.Name = "btnProfile";
             this.btnProfile.Size = new System.Drawing.Size(276, 23);
@@ -107,6 +110,7 @@ namespace Kino.Desktop.UI.MovieSeat
             // 
             // btnReports
             // 
+            this.btnReports.Enabled = false;
             this.btnReports.Location = new System.Drawing.Point(0, 441);
             this.btnReports.Name = "btnReports";
             this.btnReports.Size = new System.Drawing.Size(276, 23);
@@ -116,6 +120,7 @@ namespace Kino.Desktop.UI.MovieSeat
             // 
             // btnUsers
             // 
+            this.btnUsers.Enabled = false;
             this.btnUsers.Location = new System.Drawing.Point(0, 402);
             this.btnUsers.Name = "btnUsers";
             this.btnUsers.Size = new System.Drawing.Size(276, 23);
@@ -125,6 +130,7 @@ namespace Kino.Desktop.UI.MovieSeat
             // 
             // btnPromo
             // 
+            this.btnPromo.Enabled = false;
             this.btnPromo.Location = new System.Drawing.Point(0, 363);
             this.btnPromo.Name = "btnPromo";
             this.btnPromo.Size = new System.Drawing.Size(276, 23);
@@ -134,6 +140,7 @@ namespace Kino.Desktop.UI.MovieSeat
             // 
             // btnDrzave
             // 
+            this.btnDrzave.Enabled = false;
             this.btnDrzave.Location = new System.Drawing.Point(0, 321);
             this.btnDrzave.Name = "btnDrzave";
             this.btnDrzave.Size = new System.Drawing.Size(276, 23);
@@ -143,6 +150,7 @@ namespace Kino.Desktop.UI.MovieSeat
             // 
             // btnGradovi
             // 
+            this.btnGradovi.Enabled = false;
             this.btnGradovi.Location = new System.Drawing.Point(0, 279);
             this.btnGradovi.Name = "btnGradovi";
             this.btnGradovi.Size = new System.Drawing.Size(276, 23);
@@ -152,6 +160,7 @@ namespace Kino.Desktop.UI.MovieSeat
             // 
             // btnZanrovi
             // 
+            this.btnZanrovi.Enabled = false;
             this.btnZanrovi.Location = new System.Drawing.Point(0, 235);
             this.btnZanrovi.Name = "btnZanrovi";
             this.btnZanrovi.Size = new System.Drawing.Size(276, 23);
@@ -161,6 +170,7 @@ namespace Kino.Desktop.UI.MovieSeat
             // 
             // btnRezervacije
             // 
+            this.btnRezervacije.Enabled = false;
             this.btnRezervacije.Location = new System.Drawing.Point(0, 193);
             this.btnRezervacije.Name = "btnRezervacije";
             this.btnRezervacije.Size = new System.Drawing.Size(276, 23);
@@ -170,6 +180,7 @@ namespace Kino.Desktop.UI.MovieSeat
             // 
             // btnSjedista
             // 
+            this.btnSjedista.Enabled = false;
             this.btnSjedista.Location = new System.Drawing.Point(0, 153);
             this.btnSjedista.Name = "btnSjedista";
             this.btnSjedista.Size = new System.Drawing.Size(276, 23);
@@ -179,6 +190,7 @@ namespace Kino.Desktop.UI.MovieSeat
             // 
             // btnDvorane
             // 
+            this.btnDvorane.Enabled = false;
             this.btnDvorane.Location = new System.Drawing.Point(0, 86);
             this.btnDvorane.Name = "btnDvorane";
             this.btnDvorane.Size = new System.Drawing.Size(276, 23);
@@ -188,6 +200,7 @@ namespace Kino.Desktop.UI.MovieSeat
             // 
             // btnFilmovi
             // 
+            this.btnFilmovi.Enabled = false;
             this.btnFilmovi.Location = new System.Drawing.Point(1, 57);
             this.btnFilmovi.Name = "btnFilmovi";
             this.btnFilmovi.Size = new System.Drawing.Size(276, 23);
