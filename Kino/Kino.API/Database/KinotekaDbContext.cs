@@ -25,6 +25,8 @@ namespace Kino.API.Database
         public DbSet<Reservation> Reservation { get; set; }
         public DbSet<User> User { get; set; }
         public DbSet<UserRole> UserRole { get; set; }
+        public DbSet<UserMovieRating> UserMovieRating { get; set; }
+
         public DbSet<Role> Role { get; set; }
         public DbSet<Cinema> Cinema { get; set; }
         public DbSet<Screening> Screening { get; set; }

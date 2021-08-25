@@ -4,14 +4,16 @@ using Kino.API.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Kino.API.Migrations
 {
     [DbContext(typeof(KinotekaDbContext))]
-    partial class KinotekaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210825195348_addingUserMovieRating")]
+    partial class addingUserMovieRating
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
