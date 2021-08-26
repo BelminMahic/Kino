@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MobileApp.Views.MovieDetailsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="{Binding Movie.MovieName}"
+    BackgroundColor="#DCDCDC"
+    mc:Ignorable="d">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Clicked="ToolbarItem_Clicked"
+            Order="Primary"
+            Priority="0"
+            Text="Logout" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <ActivityIndicator
+                BackgroundColor="SkyBlue"
+                IsRunning="{Binding IsLoading}"
+                IsVisible="{Binding IsLoading}" />
+            <Grid BackgroundColor="White" VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25*" />
+                    <RowDefinition Height="25*" />
+                    <RowDefinition Height="25*" />
+                    <RowDefinition Height="25*" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30*" />
+                    <ColumnDefinition Width="70*" />
+                </Grid.ColumnDefinitions>
+
+                <Image
+                    Grid.Row="0"
+                    Grid.RowSpan="3"
+                    Grid.Column="0"
+                    HeightRequest="20"
+                    Source="{Binding Movie.ImageSource}"
+                    WidthRequest="20" />
+
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    FontSize="14"
+                    Text="{Binding Movie.MovieName}"
+                    TextColor="Black" />
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    FontSize="14"
+                    Text="{Binding Movie.OriginalMovieName}"
+                    TextColor="Black" />
+
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    FontSize="14"
+                    TextColor="Black">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{Binding Movie.DirectorFullName}" />
+                            <Span Text=", " />
+                            <Span Text="{Binding Movie.ActorsName}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    BackgroundColor="SkyBlue"
+                    Clicked="BuyTicket_Clicked"
+                    HeightRequest="50"
+                    Text="Kupovina Karte"
+                    TextColor="Black"
+                    WidthRequest="100" />
+
+            </Grid>
+
+            <Label
+                Margin="20,30"
+                FontSize="14"
+                Text="{Binding Movie.Description}"
+                TextColor="Black" />
+
+            <Label
+                FontSize="16"
+                Text="Danasnji termini: "
+                TextColor="Black" />
+            <CollectionView ItemsLayout="HorizontalList" ItemsSource="{Binding Screening}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Button
+                                Margin="20,0"
+                                BackgroundColor="SkyBlue"
+                                HorizontalOptions="Start"
+                                Text="{Binding ScreeningStart, StringFormat='{0:HH:MM}'}"
+                                TextColor="Black" />
+
+                            <Label
+                                Margin="20,0"
+                                FontSize="14"
+                                TextColor="Black">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Dvorana: " />
+                                        <Span Text="{Binding Auditorium.AuditoriumName}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

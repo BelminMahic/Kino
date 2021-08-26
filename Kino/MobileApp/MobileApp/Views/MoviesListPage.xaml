@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MobileApp.Views.MoviesListPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:MobileApp.Converters"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Odaberite film"
+    BackgroundColor="#DCDCDC"
+    mc:Ignorable="d">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Clicked="ToolbarItem_Clicked"
+            IconImageSource="logout.png"
+            Order="Primary"
+            Priority="1" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:InverseBoolConverter x:Key="InverseBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label
+                Margin="0,20"
+                FontSize="14"
+                HorizontalOptions="CenterAndExpand"
+                IsVisible="{Binding HasMovies, Converter={converters:InverseBoolConverter}}"
+                Text="Nema dostupnih filmova."
+                TextColor="Black"
+                VerticalOptions="CenterAndExpand" />
+
+            <ActivityIndicator
+                BackgroundColor="SkyBlue"
+                IsRunning="{Binding IsLoading}"
+                IsVisible="{Binding IsLoading}" />
+            <ListView
+                Margin="0,5"
+                HasUnevenRows="True"
+                ItemTapped="ListView_ItemTapped"
+                ItemsSource="{Binding Movies}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout BackgroundColor="White" Orientation="Horizontal">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="100"
+                                    Source="{Binding ImageSource}"
+                                    WidthRequest="100" />
+
+                                <StackLayout>
+                                    <Label
+                                        FontSize="14"
+                                        Text="{Binding MovieName}"
+                                        TextColor="Black" />
+                                    <Label
+                                        FontSize="14"
+                                        Text="{Binding OriginalMovieName}"
+                                        TextColor="Black" />
+
+                                    <Label FontSize="14" TextColor="Black">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding DirectorFullName}" />
+                                                <Span Text=", " />
+                                                <Span Text="{Binding ActorsName}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

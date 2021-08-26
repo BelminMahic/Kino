@@ -20,7 +20,5 @@ namespace Kino.Model
         public int GenderId { get; set; }
 
         public ICollection<UserRole> UserRole { get; set; }
-
-
     }
 }

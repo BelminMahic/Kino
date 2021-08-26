@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MobileApp.Views.ConfirmReservationPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Potvrdite rezervaciju"
+    mc:Ignorable="d">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Clicked="ToolbarItem_Clicked"
+            Order="Primary"
+            Priority="0"
+            Text="Logout" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Padding="0,20">
+            <Grid BackgroundColor="White" VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30*" />
+                    <ColumnDefinition Width="70*" />
+                </Grid.ColumnDefinitions>
+
+                <Image
+                    Grid.Row="0"
+                    Grid.RowSpan="4"
+                    Grid.Column="0"
+                    HeightRequest="20"
+                    Source="{Binding Reservation.Screening.Movie.ImageSource}"
+                    WidthRequest="20" />
+
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    FontSize="14"
+                    Text="{Binding Reservation.Screening.Movie.MovieName}"
+                    TextColor="Black" />
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    FontSize="14"
+                    Text="{Binding Reservation.Screening.ScreeningStart, StringFormat='{0:dd.MM.yyyy HH:MM}'}"
+                    TextColor="Black" />
+
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    FontSize="14"
+                    TextColor="Black">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Kino: " />
+                            <Span Text="{Binding Reservation.Cinema.CinemaName}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    FontSize="14"
+                    TextColor="Black">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Dvorana: " />
+                            <Span Text="{Binding Reservation.Screening.Auditorium.AuditoriumName}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Grid>
+
+
+            <Label
+                Margin="20,30"
+                FontSize="14"
+                TextColor="Black"
+                VerticalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Broj ulaznica: " />
+                        <Span Text="{Binding Reservation.Quantity}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Grid Margin="20,0" VerticalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30*" />
+                    <ColumnDefinition Width="70*" />
+                </Grid.ColumnDefinitions>
+
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    FontSize="14"
+                    HorizontalOptions="StartAndExpand"
+                    Text="Odabrana sjedala: "
+                    TextColor="Black" />
+
+                <CollectionView
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    ItemsLayout="HorizontalList"
+                    ItemsSource="{Binding ReservedMovieSeats}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Label
+                                    Margin="20,0"
+                                    FontSize="14"
+                                    TextColor="Black">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding MovieSeatRow}" />
+                                            <Span Text="-" />
+                                            <Span Text="{Binding RowNumber}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+
+            <Button
+                BackgroundColor="SkyBlue"
+                Clicked="Button_Clicked"
+                FontSize="16"
+                Text="Rezervisite"
+                TextColor="Black" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

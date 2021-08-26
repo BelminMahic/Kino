@@ -13,7 +13,6 @@ namespace Kino.Desktop.UI.Movie
 {
     public partial class frm_MovieAdd : Form
     {
-
         private readonly APIService _movieService = new APIService("movie");
         private readonly APIService _genreService = new APIService("genre");
         private readonly APIService _cinemaService = new APIService("cinema");
@@ -61,11 +60,6 @@ namespace Kino.Desktop.UI.Movie
             MessageBox.Show("Film uspjesno dodan!");
             }
         }
-
-
-
-
-
 
         private async Task LoadGenres()
         {
@@ -167,7 +161,6 @@ namespace Kino.Desktop.UI.Movie
             else
             {
                 errorProvider.SetError(txtTrajanje, null);
-
             }
         }
 

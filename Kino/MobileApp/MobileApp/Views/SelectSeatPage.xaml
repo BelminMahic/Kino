@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MobileApp.Views.SelectSeatPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Odaberite sjediste"
+    mc:Ignorable="d">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Clicked="ToolbarItem_Clicked"
+            Order="Primary"
+            Priority="0"
+            Text="Logout" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20">
+                <StackLayout x:Name="contentStackView" />
+                <StackLayout
+                    x:Name="legend"
+                    Padding="20"
+                    Orientation="Horizontal">
+                    <BoxView
+                        BackgroundColor="SkyBlue"
+                        HeightRequest="20"
+                        WidthRequest="20" />
+                    <Label
+                        FontSize="16"
+                        Text="Slobodna sjedala"
+                        TextColor="Black" />
+
+                    <BoxView
+                        BackgroundColor="LightGray"
+                        HeightRequest="20"
+                        WidthRequest="20" />
+                    <Label
+                        FontSize="16"
+                        Text="Rezervisana sjedala"
+                        TextColor="Black" />
+
+                    <BoxView
+                        BackgroundColor="DarkBlue"
+                        HeightRequest="20"
+                        WidthRequest="20" />
+                    <Label
+                        FontSize="16"
+                        Text="Odabrana sjedala"
+                        TextColor="Black" />
+                </StackLayout>
+
+                <Button
+                    BackgroundColor="SkyBlue"
+                    Clicked="ContinueButton_Clicked"
+                    FontSize="16"
+                    Text="Nastavite"
+                    TextColor="Black" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

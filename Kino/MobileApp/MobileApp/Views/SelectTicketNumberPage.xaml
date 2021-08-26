@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MobileApp.Views.SelectTicketNumberPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="{Binding Movie.MovieName}"
+    mc:Ignorable="d">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Clicked="ToolbarItem_Clicked"
+            Order="Primary"
+            Priority="1"
+            Text="Logout" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20*" />
+                    <ColumnDefinition Width="80*" />
+                </Grid.ColumnDefinitions>
+
+                <Image
+                    Grid.Row="0"
+                    Grid.RowSpan="4"
+                    Grid.Column="0"
+                    Aspect="AspectFit"
+                    HeightRequest="100"
+                    Source="{Binding Movie.ImageSource}"
+                    WidthRequest="100" />
+
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    FontSize="14"
+                    Text="{Binding Movie.MovieName}"
+                    TextColor="Black" />
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    FontSize="14"
+                    Text="{Binding Screening.ScreeningStart, StringFormat='{0:dd.MM.yyyy. HH:mm}'}"
+                    TextColor="Black" />
+
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    FontSize="14"
+                    Text="{Binding Cinema.CinemaName}"
+                    TextColor="Black" />
+
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    FontSize="14"
+                    Text="{Binding Screening.Auditorium.AuditoriumName}"
+                    TextColor="Black" />
+
+            </Grid>
+
+            <Label
+                Margin="0,20"
+                FontSize="14"
+                Text="Broj ulaznica:"
+                TextColor="Black" />
+
+            <StackLayout x:Name="Container" Orientation="Horizontal">
+                <Entry
+                    BackgroundColor="Transparent"
+                    BindingContext="{x:Reference stepper}"
+                    IsReadOnly="True"
+                    Text="{Binding Value}"
+                    WidthRequest="100" />
+
+                <Stepper
+                    x:Name="stepper"
+                    BackgroundColor="SkyBlue"
+                    Increment="1"
+                    Maximum="10"
+                    Minimum="1"
+                    WidthRequest="100"
+                    Value="{Binding TicketNumber}" />
+            </StackLayout>
+
+            <Button
+                Margin="0,30"
+                BackgroundColor="SkyBlue"
+                Clicked="Button_Clicked"
+                Text="Odaberite sjedalo"
+                TextColor="Black"
+                WidthRequest="300" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

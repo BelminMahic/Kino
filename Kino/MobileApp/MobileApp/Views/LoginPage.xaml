@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MobileApp.Views.LoginPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    BackgroundColor="White"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <Grid Padding="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40*" />
+                <RowDefinition Height="60*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="1"
+                FontSize="Title"
+                HorizontalOptions="CenterAndExpand"
+                Text="KINOTEKA"
+                TextColor="DarkBlue"
+                VerticalOptions="CenterAndExpand" />
+
+            <StackLayout Grid.Row="1" Grid.Column="0">
+                <Entry
+                    x:Name="UsernameEntry"
+                    FontFamily="Regular"
+                    Placeholder="Korisnicko ime"
+                    PlaceholderColor="Black"
+                    Text="{Binding Username}"
+                    TextColor="Black"
+                    Unfocused="Entry_Unfocused"
+                    VerticalOptions="CenterAndExpand" />
+
+                <Label
+                    FontFamily="Regular"
+                    FontSize="14"
+                    Text="{Binding UsernameErrorText}"
+                    TextColor="Red" />
+
+                <Entry
+                    x:Name="PasswordEntry"
+                    FontFamily="Regular"
+                    IsPassword="True"
+                    Placeholder="Lozinka"
+                    PlaceholderColor="Black"
+                    Text="{Binding Password}"
+                    TextColor="Black"
+                    Unfocused="Entry_Unfocused"
+                    VerticalOptions="CenterAndExpand" />
+
+                <Label
+                    FontFamily="Regular"
+                    FontSize="14"
+                    Text="{Binding PasswordErrorText}"
+                    TextColor="Red" />
+
+                <Button
+                    BackgroundColor="DarkBlue"
+                    Command="{Binding LoginCommand}"
+                    CornerRadius="30"
+                    FontFamily="SemiBold"
+                    Text="Logiraj se"
+                    TextColor="White"
+                    VerticalOptions="EndAndExpand"
+                    WidthRequest="10" />
+
+                <Label
+                    FontFamily="Regular"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Za registraciju kliknite ovdje!"
+                    TextColor="DarkBlue"
+                    TextDecorations="Underline"
+                    VerticalOptions="EndAndExpand">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenRegistrationPageCommand}" NumberOfTapsRequired="1" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

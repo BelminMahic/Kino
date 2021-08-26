@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MobileApp.Views.SelectCinemaPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="{Binding Movie.MovieName}"
+    mc:Ignorable="d">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Clicked="ToolbarItem_Clicked"
+            IconImageSource="logout.png"
+            Order="Primary"
+            Priority="0" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Picker
+                Title="Odaberite kino"
+                ItemDisplayBinding="{Binding CinemaName}"
+                ItemsSource="{Binding Cinemas}"
+                SelectedIndexChanged="Picker_SelectedIndexChanged"
+                SelectedItem="{Binding SelectedCinema}"
+                TitleColor="Black" />
+
+            <Picker
+                Title="Odaberite datum:"
+                ItemDisplayBinding="{Binding Date, StringFormat='{0:dd.MM.yyyy.}'}"
+                ItemsSource="{Binding AvailableDates}"
+                SelectedIndexChanged="Picker_SelectedIndexChanged"
+                SelectedItem="{Binding SelectedDate}"
+                TitleColor="Black" />
+
+            <Label
+                FontSize="16"
+                IsVisible="{Binding IsSelected}"
+                Text="Termini za odabrani datum: "
+                TextColor="Black" />
+            <CollectionView
+                IsVisible="{Binding IsSelected}"
+                ItemsLayout="HorizontalList"
+                ItemsSource="{Binding ShowTimes}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Button
+                                Margin="20,0"
+                                BackgroundColor="SkyBlue"
+                                BindingContext="{Binding .}"
+                                Clicked="Button_Clicked"
+                                HorizontalOptions="Start"
+                                Text="{Binding ., StringFormat='{0:HH:MM}'}"
+                                TextColor="Black" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

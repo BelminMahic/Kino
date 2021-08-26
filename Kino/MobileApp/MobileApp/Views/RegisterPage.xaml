@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MobileApp.Views.RegisterPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <Grid Padding="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*" />
+                <RowDefinition Height="80*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                FontSize="Title"
+                HorizontalOptions="CenterAndExpand"
+                Text="KINOTEKA"
+                TextColor="DarkBlue"
+                VerticalOptions="CenterAndExpand" />
+
+            <ScrollView Grid.Row="1" Grid.Column="0">
+                <StackLayout>
+
+                    <Entry
+                        x:Name="FirstnameEntry"
+                        Placeholder="Ime *"
+                        PlaceholderColor="Black"
+                        Text="{Binding Firstname}"
+                        TextColor="Black" />
+
+                    <Label
+                        FontSize="18"
+                        Text="{Binding FirstnameErrorText}"
+                        TextColor="Red" />
+
+                    <Entry
+                        x:Name="LastnameEntry"
+                        Placeholder="Prezime *"
+                        PlaceholderColor="Black"
+                        Text="{Binding Lastname}"
+                        TextColor="Black" />
+
+                    <Label
+                        FontSize="18"
+                        Text="{Binding LastnameErrorText}"
+                        TextColor="Red" />
+
+                    <Entry
+                        x:Name="EmailEntry"
+                        Keyboard="Email"
+                        Placeholder="Email *"
+                        PlaceholderColor="Black"
+                        Text="{Binding Email}"
+                        TextColor="Black" />
+
+                    <Label
+                        FontFamily="Regular"
+                        FontSize="18"
+                        Text="{Binding EmailErrorText}"
+                        TextColor="Red" />
+
+                    <Entry
+                        x:Name="PhoneEntry"
+                        Keyboard="Telephone"
+                        Placeholder="Telefon *"
+                        PlaceholderColor="Black"
+                        Text="{Binding Phone}"
+                        TextColor="Black" />
+
+                    <Label
+                        FontSize="18"
+                        Text="{Binding PhoneErrorText}"
+                        TextColor="Red" />
+
+                    <Entry
+                        x:Name="UsernameEntry"
+                        Placeholder="Korisnicko ime *"
+                        PlaceholderColor="Black"
+                        Text="{Binding Username}"
+                        TextColor="Black" />
+
+                    <Label
+                        FontSize="18"
+                        Text="{Binding UsernameErrorText}"
+                        TextColor="Red" />
+
+                    <Entry
+                        x:Name="PasswordEntry"
+                        IsPassword="True"
+                        Placeholder="Lozinka *"
+                        PlaceholderColor="Black"
+                        Text="{Binding Password}"
+                        TextColor="Black" />
+
+                    <Label
+                        FontSize="18"
+                        Text="{Binding PasswordErrorText}"
+                        TextColor="Red" />
+
+                    <Picker
+                        Title="Spol *"
+                        ItemDisplayBinding="{Binding GenderName}"
+                        ItemsSource="{Binding Genders}"
+                        SelectedItem="{Binding SelectedGender}"
+                        TitleColor="Black" />
+
+                    <Button
+                        BackgroundColor="DarkBlue"
+                        Command="{Binding RegisterCommand}"
+                        CornerRadius="50"
+                        Text="Registrujte se"
+                        TextColor="White"
+                        VerticalOptions="EndAndExpand" />
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
