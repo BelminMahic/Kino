@@ -1,5 +1,6 @@
 ﻿using Kino.Model;
 using Kino.Model.Requests;
+using MobileApp.Helpers;
 using MobileApp.Models;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace MobileApp.ViewModels
     {
         private readonly APIService _service = new APIService("screening");
         private readonly APIService _auditoriumService = new APIService("auditorium");
+        private readonly APIService _ratingService = new APIService("usermovierating");
 
         private Models.Movie _movie;
 
@@ -23,6 +25,8 @@ namespace MobileApp.ViewModels
         private ObservableCollection<Models.Screening> _todaysScreenings;
 
         private bool _isLoading = true;
+
+        private int _rate = 1;
 
         public MovieDetailsViewModel(Models.Movie movie)
         {
@@ -65,6 +69,18 @@ namespace MobileApp.ViewModels
             }
         }
 
+        public int Rate
+        {
+            get
+            {
+                return _rate;
+            }
+            set
+            {
+                SetProperty(ref _rate, value);
+            }
+        }
+
         public async Task InitializeData()
         {
             try
@@ -103,6 +119,39 @@ namespace MobileApp.ViewModels
         public ObservableCollection<Models.Screening> GetAllScreenings()
         {
             return _allScreenings;
+        }
+
+        public async Task SaveRating()
+        {
+            try
+            {
+                var rate = new UserMovieRatingUpsertRequest
+                {
+                    UserId = Settings.UserId,
+                    MovieId = _movie.MovieId,
+                    Rating = _rate
+                };
+
+                var rating = await _ratingService.Insert<Kino.Model.UserMovieRating>(rate);
+
+                if (rating == null)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Greska",
+                                                                "Doslo je do greske. Molimo pokusajte ponovo.",
+                                                                "OK");
+                    return;
+                }
+
+                await Application.Current.MainPage.DisplayAlert("Uspjesno",
+                                                                "Uspjesno ste ocijenili film.",
+                                                                "OK");
+            }
+            catch
+            {
+                await Application.Current.MainPage.DisplayAlert("Greska",
+                                                                "Doslo je do greske. Molimo pokusajte ponovo.",
+                                                                "OK");
+            }
         }
     }
 }

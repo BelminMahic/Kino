@@ -52,5 +52,10 @@ namespace MobileApp.Views
                 await NavigationService.NavigateWithStackReset(Navigation, new LoginPage());
             });
         }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await viewModel.SaveRating().ConfigureAwait(false);
+        }
     }
 }

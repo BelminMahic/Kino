@@ -6,6 +6,7 @@ using Flurl.Http;
 using Flurl;
 using Kino.Model;
 using MobileApp.Helpers;
+using MobileApp.Utils;
 
 namespace MobileApp
 {
@@ -45,6 +46,24 @@ namespace MobileApp
             return result;
 
         }
+
+        public async Task<T> GetWithAdminCreds<T>(object search)
+        {
+
+            var url = $"{Settings.ApiUrl}/{_route}";
+
+            if (search != null)
+            {
+                url += "?";
+                url += await search.ToQueryString();
+            }
+
+            var result = await url.WithBasicAuth(ApiAuthentication.AdminUsername, ApiAuthentication.AdminPassword).GetJsonAsync<T>();
+
+            return result;
+
+        }
+
         public async Task<T> GetById<T>(object id)
         {
 
@@ -59,6 +78,13 @@ namespace MobileApp
             var url = $"{Settings.ApiUrl}/{_route}";
 
             return await url.WithBasicAuth(UserName, Password).PostJsonAsync(request).ReceiveJson<T>();
+        }
+
+        public async Task<T> InsertWithAdminCreds<T>(object request)
+        {
+            var url = $"{Settings.ApiUrl}/{_route}";
+
+            return await url.WithBasicAuth(ApiAuthentication.AdminUsername, ApiAuthentication.AdminPassword).PostJsonAsync(request).ReceiveJson<T>();
         }
 
         public async Task<T> Update<T>(object id, object request)

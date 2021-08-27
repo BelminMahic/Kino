@@ -1,5 +1,6 @@
 ﻿using Kino.Model;
 using Kino.Model.Requests;
+using MobileApp.Helpers;
 using MobileApp.Utils;
 using MobileApp.Views;
 using System;
@@ -182,10 +183,10 @@ namespace MobileApp.ViewModels
             try
             {
                 Genders = new ObservableCollection<Gender>();
-                Genders = await _genderService.Get<ObservableCollection<Gender>>(null);
+                Genders = await _genderService.GetWithAdminCreds<ObservableCollection<Gender>>(null);
                 SelectedGender = Genders?.FirstOrDefault();
             }
-            catch
+            catch(Exception ex)
             {
                 await Application.Current.MainPage.DisplayAlert("Greska!",
                                                                 "Doslo je do greske u komunikaciji sa serverom. Pokusajte kasnije.",
@@ -218,10 +219,14 @@ namespace MobileApp.ViewModels
                 };
 
                 User entity = null;
-                entity = await _service.Insert<User>(request);
+                entity = await _service.InsertWithAdminCreds<User>(request);
 
                 if (entity != null)
                 {
+                    Settings.UserId = entity.UserId;
+                    Settings.Username = request.UserName;
+                    Settings.Password = request.Password;
+
                     await Application.Current.MainPage.DisplayAlert("",
                                                                     "Uspjesno dodano!",
                                                                     "OK");

@@ -1,16 +1,30 @@
 ﻿using Kino.API.Services.IServices;
 using Kino.Model.Requests;
-using System;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Kino.API.Controllers
 {
-    public class UserMovieRatingController : BaseCRUDController<Model.UserMovieRating, UserMovieRatingSearchRequest, UserMovieRatingUpsertRequest, UserMovieRatingUpsertRequest>
+    [Route("api/[controller]")]
+    [ApiController]
+    public class UserMovieRatingController : ControllerBase
     {
-        public UserMovieRatingController(ICRUDService<Model.UserMovieRating, UserMovieRatingSearchRequest, UserMovieRatingUpsertRequest, UserMovieRatingUpsertRequest> service) : base(service)
+        private readonly IReviewService _reviewService;
+        public UserMovieRatingController(IReviewService reviewService)
         {
+            _reviewService = reviewService;
+        }
+
+        [HttpPost]
+        public Model.UserMovieRating Insert(UserMovieRatingUpsertRequest request)
+        {
+            return _reviewService.Insert(request);
+        }
+
+        [HttpGet("{movieId}")]
+        public List<Model.UserMovieRating> GetRatingsByMovieId(int movieId)
+        {
+            return _reviewService.GetRatingsByMovieId(movieId);
         }
     }
 }

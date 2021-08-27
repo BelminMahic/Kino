@@ -84,6 +84,10 @@ namespace MobileApp.ViewModels
                     }
                 }
 
+                await Application.Current.MainPage.DisplayAlert("Uspjesno",
+                                                                    "Uspjesno ste izvrsili rezervaciju..",
+                                                                    "OK");
+
                 return true;
             }
             catch

@@ -110,7 +110,6 @@ namespace Kino.Desktop
             else
             {
                 errorProvider.SetError(txtEmail, null);
-
             }
         }
 

@@ -4,6 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:helper="clr-namespace:MobileApp.Helpers"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="{Binding Movie.MovieName}"
     mc:Ignorable="d">
@@ -11,7 +12,7 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem
             Clicked="ToolbarItem_Clicked"
-            IconImageSource="logout.png"
+            IconImageSource="{helper:ImageResourceExtension MobileApp.Images.logout.png}"
             Order="Primary"
             Priority="0" />
     </ContentPage.ToolbarItems>

@@ -25,5 +25,7 @@ namespace MobileApp.Models
         public int CinemaId { get; set; }
 
         public ImageSource ImageSource { get; set; }
+
+        public double AverageRating { get; set; }
     }
 }

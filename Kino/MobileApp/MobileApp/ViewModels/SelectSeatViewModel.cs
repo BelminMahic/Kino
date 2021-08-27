@@ -69,14 +69,6 @@ namespace MobileApp.ViewModels
             try
             {
                 _seatReservations = await _service.Get<List<Kino.Model.SeatReservation>>(new SeatReservationSearchRequest { ScreeningId = _reservation.ScreeningId });
-
-                _seatReservations.Add(new Kino.Model.SeatReservation
-                {
-                    MovieSeatId = 2,
-                    SeatReservationId = 1,
-                    ReservationId = 1,
-                    ScreeningId = 4,
-                });
                 _movieSeats = await _movieSeatService.Get<List<Kino.Model.MovieSeat>>(new MovieSeatUpsertRequest { AuditoriumId = _reservation.AuditoriumId });
             }
             catch

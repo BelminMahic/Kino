@@ -23,7 +23,6 @@ namespace Kino.API.Services
             _context = context;
             _mapper = mapper;
         }
-
       
 
         public static string GenerateSalt()

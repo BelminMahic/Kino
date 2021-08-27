@@ -72,6 +72,8 @@ namespace Kino.API
             services.AddAutoMapper(typeof(KinotekaDbContext));
 
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IReviewService, ReviewService>();
+            services.AddScoped<IRecommenderService, RecommendedService>();
 
             services.AddScoped<IService<Model.Role, object>, BaseService<Model.Role, object, Role>>();
             services.AddScoped<ICRUDService<Model.Country, CountrySearchRequest, CountryUpsertRequest, CountryUpsertRequest>, CountryService>();

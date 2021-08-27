@@ -12,10 +12,12 @@
 
   <ItemGroup>
     <None Remove="logout.png" />
+    <None Remove="star.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="logout.png" />
+    <EmbeddedResource Include="Images\logout.png" />
+    <EmbeddedResource Include="Images\star.png" />
   </ItemGroup>
 
   <ItemGroup>

@@ -119,7 +119,7 @@ namespace MobileApp.ViewModels
                     await DisplayErrorDialog().ConfigureAwait(false);
                 }
             }
-            catch
+            catch (Exception ex)
             {
                 await DisplayErrorDialog().ConfigureAwait(false);
             }
