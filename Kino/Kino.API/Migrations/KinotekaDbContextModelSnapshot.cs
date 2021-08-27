@@ -420,6 +420,10 @@ namespace Kino.API.Migrations
 
                     b.HasKey("UserMovieRatingId");
 
+                    b.HasIndex("MovieId");
+
+                    b.HasIndex("UserId");
+
                     b.ToTable("UserMovieRating");
                 });
 
@@ -599,6 +603,25 @@ namespace Kino.API.Migrations
                         .IsRequired();
 
                     b.Navigation("Gender");
+                });
+
+            modelBuilder.Entity("Kino.API.Database.UserMovieRating", b =>
+                {
+                    b.HasOne("Kino.API.Database.Movie", "Movie")
+                        .WithMany()
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Kino.API.Database.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Movie");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Kino.API.Database.UserRole", b =>

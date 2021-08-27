@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Kino.API.Migrations
 {
     [DbContext(typeof(KinotekaDbContext))]
-    [Migration("20210706112022_initial")]
+    [Migration("20210826175912_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -404,6 +404,31 @@ namespace Kino.API.Migrations
                     b.ToTable("User");
                 });
 
+            modelBuilder.Entity("Kino.API.Database.UserMovieRating", b =>
+                {
+                    b.Property<int>("UserMovieRatingId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserMovieRatingId");
+
+                    b.HasIndex("MovieId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserMovieRating");
+                });
+
             modelBuilder.Entity("Kino.API.Database.UserRole", b =>
                 {
                     b.Property<int>("UserRoleId")
@@ -580,6 +605,25 @@ namespace Kino.API.Migrations
                         .IsRequired();
 
                     b.Navigation("Gender");
+                });
+
+            modelBuilder.Entity("Kino.API.Database.UserMovieRating", b =>
+                {
+                    b.HasOne("Kino.API.Database.Movie", "Movie")
+                        .WithMany()
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Kino.API.Database.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Movie");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Kino.API.Database.UserRole", b =>

@@ -274,6 +274,33 @@ namespace Kino.API.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "UserMovieRating",
+                columns: table => new
+                {
+                    UserMovieRatingId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    MovieId = table.Column<int>(type: "int", nullable: false),
+                    Rating = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserMovieRating", x => x.UserMovieRatingId);
+                    table.ForeignKey(
+                        name: "FK_UserMovieRating_Movie_MovieId",
+                        column: x => x.MovieId,
+                        principalTable: "Movie",
+                        principalColumn: "MovieId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserMovieRating_User_UserId",
+                        column: x => x.UserId,
+                        principalTable: "User",
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Reservation",
                 columns: table => new
                 {
@@ -430,6 +457,16 @@ namespace Kino.API.Migrations
                 column: "GenderId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_UserMovieRating_MovieId",
+                table: "UserMovieRating",
+                column: "MovieId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserMovieRating_UserId",
+                table: "UserMovieRating",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_UserRole_RoleId",
                 table: "UserRole",
                 column: "RoleId");
@@ -444,6 +481,9 @@ namespace Kino.API.Migrations
         {
             migrationBuilder.DropTable(
                 name: "SeatReservation");
+
+            migrationBuilder.DropTable(
+                name: "UserMovieRating");
 
             migrationBuilder.DropTable(
                 name: "UserRole");
