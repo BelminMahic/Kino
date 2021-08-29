@@ -19,15 +19,23 @@ namespace Kino.Desktop.UI.PromoMaterial
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            if (this.ValidateChildren()) { 
-            var request = new PromoMaterialUpsertRequest
+            try
             {
-                PromoMaterialName = txtPromoName.Text,
-                Quantity = int.Parse(txtPromoQuantity.Text)
-            };
 
-            await _promoService.Insert<Model.PromoMaterial>(request);
-            MessageBox.Show("Promo materijal je uspjesno dodan!");
+                if (this.ValidateChildren())
+                {
+                    var request = new PromoMaterialUpsertRequest
+                    {
+                        PromoMaterialName = txtPromoName.Text,
+                        Quantity = int.Parse(txtPromoQuantity.Text)
+                    };
+
+                    await _promoService.Insert<Model.PromoMaterial>(request);
+                    MessageBox.Show("Promo materijal je uspjesno dodan!");
+                }
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Promo materijal", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

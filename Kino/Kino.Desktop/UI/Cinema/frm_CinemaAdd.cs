@@ -37,16 +37,25 @@ namespace Kino.Desktop.UI.Cinema
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            if (this.ValidateChildren()) { 
-            var request = new CinemaUpsertRequest()
+
+            try
             {
-                CinemaName = txtNazivKina.Text,
-                Address = txtAdresa.Text,
-                TelephoneNumber = txtTelefon.Text,
-                CityId = int.Parse(cb_Gradovi.SelectedValue.ToString())
-            };
-            await _service.Insert<Model.Cinema>(request);
-            MessageBox.Show("Dodavanje uspjesno odradjeno!");
+
+                if (this.ValidateChildren())
+                {
+                    var request = new CinemaUpsertRequest()
+                    {
+                        CinemaName = txtNazivKina.Text,
+                        Address = txtAdresa.Text,
+                        TelephoneNumber = txtTelefon.Text,
+                        CityId = int.Parse(cb_Gradovi.SelectedValue.ToString())
+                    };
+                    await _service.Insert<Model.Cinema>(request);
+                    MessageBox.Show("Dodavanje uspjesno odradjeno!");
+                }
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Kino", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

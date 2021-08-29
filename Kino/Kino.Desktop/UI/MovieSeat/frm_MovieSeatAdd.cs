@@ -24,6 +24,7 @@ namespace Kino.Desktop.UI.MovieSeat
 
         private void txtMovieSeatRow_Validating(object sender, CancelEventArgs e)
         {
+
             if (string.IsNullOrWhiteSpace(txtMovieSeatRow.Text))
             {
                 errorProvider.SetError(txtMovieSeatRow, "Red sjedista je obavezno polje");
@@ -52,17 +53,26 @@ namespace Kino.Desktop.UI.MovieSeat
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            if (this.ValidateChildren()) { 
-            var request = new MovieSeatUpsertRequest
+            try
             {
-                MovieSeatRow = txtMovieSeatRow.Text,
-                RowNumber = int.Parse(txtRowNumber.Text),
-                AuditoriumId =int.Parse(cb_Auditorium.SelectedValue.ToString())
-            };
 
-            await _movieSeatService.Insert<Model.MovieSeat>(request);
-            MessageBox.Show("Uspjesno dodano!");
+                if (this.ValidateChildren())
+                {
+                    var request = new MovieSeatUpsertRequest
+                    {
+                        MovieSeatRow = txtMovieSeatRow.Text,
+                        RowNumber = int.Parse(txtRowNumber.Text),
+                        AuditoriumId = int.Parse(cb_Auditorium.SelectedValue.ToString())
+                    };
+
+                    await _movieSeatService.Insert<Model.MovieSeat>(request);
+                    MessageBox.Show("Uspjesno dodano!");
+                }
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Sjediste", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private async void frm_MovieSeatAdd_Load(object sender, EventArgs e)

@@ -20,14 +20,22 @@ namespace Kino.Desktop.UI.Genre
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            if (this.ValidateChildren()) { 
-            var request = new GenreUpsertRequest
+            try
             {
-                GenreName = txtNazivZanra.Text
-            };
 
-            await _genreService.Insert<Model.Genre>(request);
-            MessageBox.Show("Zanr je uspjesno dodan!");
+                if (this.ValidateChildren())
+                {
+                    var request = new GenreUpsertRequest
+                    {
+                        GenreName = txtNazivZanra.Text
+                    };
+
+                    await _genreService.Insert<Model.Genre>(request);
+                    MessageBox.Show("Zanr je uspjesno dodan!");
+                }
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Zanr", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

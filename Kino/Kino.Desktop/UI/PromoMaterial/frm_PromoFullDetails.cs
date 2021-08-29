@@ -33,17 +33,23 @@ namespace Kino.Desktop.UI.PromoMaterial
 
         private async void btnEdit_Click(object sender, EventArgs e)
         {
-            var request = new PromoMaterialUpsertRequest
+            try
             {
-                PromoMaterialName = txtPromoName.Text,
-                Quantity = int.Parse(txtPromoQuantity.Text)
-            };
-            if (_promoId.HasValue)
-            {
-                await _promoService.Update<Model.PromoMaterial>(_promoId, request);
-            }
+                var request = new PromoMaterialUpsertRequest
+                {
+                    PromoMaterialName = txtPromoName.Text,
+                    Quantity = int.Parse(txtPromoQuantity.Text)
+                };
+                if (_promoId.HasValue)
+                {
+                    await _promoService.Update<Model.PromoMaterial>(_promoId, request);
+                }
 
-            MessageBox.Show("Izmjena uspjesno uradjena!");
+                MessageBox.Show("Izmjena uspjesno uradjena!");
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Promo materijal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

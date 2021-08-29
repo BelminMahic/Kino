@@ -19,18 +19,25 @@ namespace Kino.Desktop.UI.Country
         }
         private async void btnSave_Click(object sender, EventArgs e)
         {
-
-            if(this.ValidateChildren())
+            try
             {
 
 
-            var request = new CountryUpsertRequest()
-            {
-                CountryName = txtNazivDrzave.Text
-            };
+                if (this.ValidateChildren())
+                {
 
-            await _aPIService.Insert<Model.Country>(request);
-            MessageBox.Show("Dodavanje uspjesno odradjeno!");
+
+                    var request = new CountryUpsertRequest()
+                    {
+                        CountryName = txtNazivDrzave.Text
+                    };
+
+                    await _aPIService.Insert<Model.Country>(request);
+                    MessageBox.Show("Dodavanje uspjesno odradjeno!");
+                }
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Drzava", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

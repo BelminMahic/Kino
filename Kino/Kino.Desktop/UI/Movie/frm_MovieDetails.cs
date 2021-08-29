@@ -50,9 +50,15 @@ namespace Kino.Desktop.UI.Movie
 
         private void dgv_Filmovi_DoubleClick(object sender, EventArgs e)
         {
+            try { 
             var id = dgv_Filmovi.SelectedRows[0].Cells[0].Value;
             frm_MovieFullDetails frm = new frm_MovieFullDetails(int.Parse(id.ToString()));
             frm.Show();
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void btnFilmovi_Click(object sender, EventArgs e)

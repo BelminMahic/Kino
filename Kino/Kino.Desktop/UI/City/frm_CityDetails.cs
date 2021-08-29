@@ -33,21 +33,34 @@ namespace Kino.Desktop.UI.City
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
-            var search = new CitySearchRequest
+            try
             {
-                CityName = txtSearch.Text
-            };
 
-            var result = await _cityService.Get<List<Model.City>>(search);
+                var search = new CitySearchRequest
+                {
+                    CityName = txtSearch.Text
+                };
 
-            dgv_Gradovi.DataSource = result;
+                var result = await _cityService.Get<List<Model.City>>(search);
+
+                dgv_Gradovi.DataSource = result;
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Grad", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void dgv_Gradovi_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            var id = dgv_Gradovi.SelectedRows[0].Cells[0].Value;
-            frm_CityFullDetails frm = new frm_CityFullDetails(int.Parse(id.ToString()));
-            frm.Show();
+            try
+            {
+                var id = dgv_Gradovi.SelectedRows[0].Cells[0].Value;
+                frm_CityFullDetails frm = new frm_CityFullDetails(int.Parse(id.ToString()));
+                frm.Show();
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Grad", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

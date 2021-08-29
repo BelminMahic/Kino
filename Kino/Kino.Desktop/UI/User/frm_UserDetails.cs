@@ -11,6 +11,7 @@ using Kino.Desktop.UI.Reports;
 using Kino.Desktop.UI.Reservation;
 using Kino.Desktop.UI.SeatReservation;
 using Kino.Desktop.UI.User;
+using Kino.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,9 @@ namespace Kino.Desktop.UI.User
 {
     public partial class frm_UserDetails : Form
     {
+        private readonly APIService _userService = new APIService("user");
+
+
         public frm_UserDetails()
         {
             InitializeComponent();
@@ -104,6 +108,24 @@ namespace Kino.Desktop.UI.User
         {
             frm_CinemaDetails frm = new frm_CinemaDetails();
             frm.Show();
+        }
+
+        private async void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var search = new UserSearchRequest()
+                {
+                    Name = txtPretraga.Text
+                };
+                var result = await _userService.Get<List<Model.User>>(search);
+
+                dgv_Korisnici.DataSource = result;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Korisnici", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

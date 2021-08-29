@@ -51,15 +51,23 @@ namespace Kino.Desktop.UI.City
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            if (this.ValidateChildren()) { 
-            var request = new CityUpsertRequest()
+            try
             {
-                CityName = txtNazivGrada.Text,
-                CountryId = int.Parse(cb_Drzave.SelectedValue.ToString())
-            };
 
-            await _cityService.Insert<Model.City>(request);
-            MessageBox.Show("Dodavanje uspjesno odradjeno!");
+                if (this.ValidateChildren())
+                {
+                    var request = new CityUpsertRequest()
+                    {
+                        CityName = txtNazivGrada.Text,
+                        CountryId = int.Parse(cb_Drzave.SelectedValue.ToString())
+                    };
+
+                    await _cityService.Insert<Model.City>(request);
+                    MessageBox.Show("Dodavanje uspjesno odradjeno!");
+                }
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Grad", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

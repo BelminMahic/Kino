@@ -37,15 +37,23 @@ namespace Kino.Desktop.UI.Auditorium
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            if (this.ValidateChildren()) { 
-            var request = new AuditoriumUpsertRequest
+            try
             {
-                AuditoriumName = txtNazivDvorane.Text,
-                SeatNumbers = int.Parse(txtBrojSjedista.Text),
-                CinemaId = int.Parse(cb_Kina.SelectedValue.ToString())
-            };
-            await _audService.Insert<Model.Auditorium>(request);
-            MessageBox.Show("Dodavanje uspjesno odradjeno!");
+
+                if (this.ValidateChildren())
+                {
+                    var request = new AuditoriumUpsertRequest
+                    {
+                        AuditoriumName = txtNazivDvorane.Text,
+                        SeatNumbers = int.Parse(txtBrojSjedista.Text),
+                        CinemaId = int.Parse(cb_Kina.SelectedValue.ToString())
+                    };
+                    await _audService.Insert<Model.Auditorium>(request);
+                    MessageBox.Show("Dodavanje uspjesno odradjeno!");
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Dvorana", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
