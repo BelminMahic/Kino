@@ -34,20 +34,35 @@ namespace Kino.Desktop.UI.Country
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
-            var search = new CountrySearchRequest()
+            try
             {
-                CountryName = txtSearch.Text
-            };
-            var result = await _aPIService.Get<List<Model.Country>>(search);
 
-            dgv_Drzave.DataSource = result;
+
+
+                var search = new CountrySearchRequest()
+                {
+                    CountryName = txtSearch.Text
+                };
+                var result = await _aPIService.Get<List<Model.Country>>(search);
+
+                dgv_Drzave.DataSource = result;
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Drzava", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void dgv_Drzave_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            var id = dgv_Drzave.SelectedRows[0].Cells[0].Value;
-            frm_CountryFullDetails frm = new frm_CountryFullDetails(int.Parse(id.ToString()));
-            frm.Show();
+            try
+            {
+                var id = dgv_Drzave.SelectedRows[0].Cells[0].Value;
+                frm_CountryFullDetails frm = new frm_CountryFullDetails(int.Parse(id.ToString()));
+                frm.Show();
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Drzava", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

@@ -21,16 +21,23 @@ namespace Kino.Desktop.UI.Country
 
         private async void btnEdit_Click(object sender, EventArgs e)
         {
-            var request = new CountryUpsertRequest()
+            try
             {
-                CountryName = txtNazivDrzave.Text
-            };
-            if (_id.HasValue)
-            {
-                await _service.Update<Model.Country>(_id, request);
-            }
 
-            MessageBox.Show("Izmjena uspjesno odradjena!");
+                var request = new CountryUpsertRequest()
+                {
+                    CountryName = txtNazivDrzave.Text
+                };
+                if (_id.HasValue)
+                {
+                    await _service.Update<Model.Country>(_id, request);
+                }
+
+                MessageBox.Show("Izmjena uspjesno odradjena!");
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Drzava", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private async void frm_CountryFullDetails_Load(object sender, EventArgs e)

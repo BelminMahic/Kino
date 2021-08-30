@@ -40,21 +40,35 @@ namespace Kino.Desktop.UI.Cinema
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
-            var search = new CinemaSearchRequest
+            try
             {
-                CinemaName = txtSearch.Text
-            };
 
-            var result = await _apiService.Get<List<Model.Cinema>>(search);
+                var search = new CinemaSearchRequest
+                {
+                    CinemaName = txtSearch.Text
+                };
 
-            dgv_Kina.DataSource = result;
+                var result = await _apiService.Get<List<Model.Cinema>>(search);
+
+                dgv_Kina.DataSource = result;
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Kino", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void dgv_Kina_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            var id = dgv_Kina.SelectedRows[0].Cells[0].Value;
-            frm_CinemaFullDetails frm = new frm_CinemaFullDetails(int.Parse(id.ToString()));
-            frm.Show();
+            try
+            {
+
+                var id = dgv_Kina.SelectedRows[0].Cells[0].Value;
+                frm_CinemaFullDetails frm = new frm_CinemaFullDetails(int.Parse(id.ToString()));
+                frm.Show();
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Kino", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnFilmovi_Click(object sender, EventArgs e)

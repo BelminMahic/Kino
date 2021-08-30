@@ -47,17 +47,24 @@ namespace Kino.Desktop.UI.City
 
         private async void btnEdit_Click(object sender, EventArgs e)
         {
-            var request = new CityUpsertRequest()
+            try
             {
-                CityName = txtNazivGrada.Text,
-                CountryId = int.Parse(cb_Drzave.SelectedValue.ToString())
-            };
-            if (_cityId.HasValue)
-            {
-                await _cityService.Update<Model.City>(_cityId, request);
-            }
 
-            MessageBox.Show("Izmjena uspjesno odradjena!");
+                var request = new CityUpsertRequest()
+                {
+                    CityName = txtNazivGrada.Text,
+                    CountryId = int.Parse(cb_Drzave.SelectedValue.ToString())
+                };
+                if (_cityId.HasValue)
+                {
+                    await _cityService.Update<Model.City>(_cityId, request);
+                }
+
+                MessageBox.Show("Izmjena uspjesno odradjena!");
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Grad", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

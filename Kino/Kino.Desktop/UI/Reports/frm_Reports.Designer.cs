@@ -43,10 +43,9 @@ namespace Kino.Desktop.UI.Reports
             this.btnSjedista = new System.Windows.Forms.Button();
             this.btnDvorane = new System.Windows.Forms.Button();
             this.btnFilmovi = new System.Windows.Forms.Button();
-            this.cb_Reports = new System.Windows.Forms.ComboBox();
-            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnOpenMovieReports = new System.Windows.Forms.Button();
             this.btn_Back = new System.Windows.Forms.Button();
-            this.lblIzvjestaj = new System.Windows.Forms.Label();
+            this.btnUserReport = new System.Windows.Forms.Button();
             this.panelReports.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -201,40 +200,34 @@ namespace Kino.Desktop.UI.Reports
             this.btnFilmovi.UseVisualStyleBackColor = true;
             this.btnFilmovi.Click += new System.EventHandler(this.btnFilmovi_Click);
             // 
-            // cb_Reports
+            // btnOpenMovieReports
             // 
-            this.cb_Reports.FormattingEnabled = true;
-            this.cb_Reports.Location = new System.Drawing.Point(499, 191);
-            this.cb_Reports.Name = "cb_Reports";
-            this.cb_Reports.Size = new System.Drawing.Size(231, 23);
-            this.cb_Reports.TabIndex = 2;
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Location = new System.Drawing.Point(760, 183);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(75, 41);
-            this.btnPrint.TabIndex = 3;
-            this.btnPrint.Text = "🖨";
-            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnOpenMovieReports.Location = new System.Drawing.Point(367, 183);
+            this.btnOpenMovieReports.Name = "btnOpenMovieReports";
+            this.btnOpenMovieReports.Size = new System.Drawing.Size(157, 47);
+            this.btnOpenMovieReports.TabIndex = 3;
+            this.btnOpenMovieReports.Text = "Izvjestaj o filmovima";
+            this.btnOpenMovieReports.UseVisualStyleBackColor = true;
+            this.btnOpenMovieReports.Click += new System.EventHandler(this.btnOpenMovieReports_Click);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(760, 465);
+            this.btn_Back.Location = new System.Drawing.Point(677, 483);
             this.btn_Back.Name = "btn_Back";
             this.btn_Back.Size = new System.Drawing.Size(123, 41);
             this.btn_Back.TabIndex = 4;
             this.btn_Back.Text = "Nazad";
             this.btn_Back.UseVisualStyleBackColor = true;
             // 
-            // lblIzvjestaj
+            // btnUserReport
             // 
-            this.lblIzvjestaj.AutoSize = true;
-            this.lblIzvjestaj.Location = new System.Drawing.Point(499, 170);
-            this.lblIzvjestaj.Name = "lblIzvjestaj";
-            this.lblIzvjestaj.Size = new System.Drawing.Size(73, 15);
-            this.lblIzvjestaj.TabIndex = 5;
-            this.lblIzvjestaj.Text = "Tip izvjestaja";
+            this.btnUserReport.Location = new System.Drawing.Point(820, 180);
+            this.btnUserReport.Name = "btnUserReport";
+            this.btnUserReport.Size = new System.Drawing.Size(157, 47);
+            this.btnUserReport.TabIndex = 5;
+            this.btnUserReport.Text = "Izvjestaj o korisnicima";
+            this.btnUserReport.UseVisualStyleBackColor = true;
+            this.btnUserReport.Click += new System.EventHandler(this.btnUserReport_Click);
             // 
             // frm_Reports
             // 
@@ -242,16 +235,14 @@ namespace Kino.Desktop.UI.Reports
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1157, 622);
-            this.Controls.Add(this.lblIzvjestaj);
+            this.Controls.Add(this.btnUserReport);
             this.Controls.Add(this.btn_Back);
-            this.Controls.Add(this.btnPrint);
-            this.Controls.Add(this.cb_Reports);
+            this.Controls.Add(this.btnOpenMovieReports);
             this.Controls.Add(this.panelReports);
             this.Name = "frm_Reports";
             this.Text = "Kinoteka : Izvjestaji";
             this.panelReports.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -270,10 +261,9 @@ namespace Kino.Desktop.UI.Reports
         private System.Windows.Forms.Button btnSjedista;
         private System.Windows.Forms.Button btnDvorane;
         private System.Windows.Forms.Button btnFilmovi;
-        private System.Windows.Forms.ComboBox cb_Reports;
-        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Button btnOpenMovieReports;
         private System.Windows.Forms.Button btn_Back;
-        private System.Windows.Forms.Label lblIzvjestaj;
         private System.Windows.Forms.Button btnSeatReservation;
+        private System.Windows.Forms.Button btnUserReport;
     }
 }

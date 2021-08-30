@@ -39,13 +39,20 @@ namespace Kino.Desktop.UI.Genre
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
-            var search = new GenreSearchRequest()
+            try
             {
-                GenreName = txtSearch.Text
-            };
-            var result = await _genreService.Get<List<Model.Genre>>(search);
 
-            dgvZanrovi.DataSource = result;
+                var search = new GenreSearchRequest()
+                {
+                    GenreName = txtSearch.Text
+                };
+                var result = await _genreService.Get<List<Model.Genre>>(search);
+
+                dgvZanrovi.DataSource = result;
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Zanr", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnFilmovi_Click(object sender, EventArgs e)

@@ -46,19 +46,26 @@ namespace Kino.Desktop.UI.Cinema
 
         private async void btnEdit_Click(object sender, EventArgs e)
         {
-            var request = new CinemaUpsertRequest()
+            try
             {
-                CinemaName = txtNazivKina.Text,
-                Address = txtAdresa.Text,
-                TelephoneNumber = txtTelefon.Text,
-                CityId = int.Parse(cb_Gradovi.SelectedValue.ToString())
-            };
-            if (_cinemaId.HasValue)
-            {
-                await _service.Update<Model.Cinema>(_cinemaId, request);
-            }
 
-            MessageBox.Show("Izmjena uspjesno odradjena!");
+                var request = new CinemaUpsertRequest()
+                {
+                    CinemaName = txtNazivKina.Text,
+                    Address = txtAdresa.Text,
+                    TelephoneNumber = txtTelefon.Text,
+                    CityId = int.Parse(cb_Gradovi.SelectedValue.ToString())
+                };
+                if (_cinemaId.HasValue)
+                {
+                    await _service.Update<Model.Cinema>(_cinemaId, request);
+                }
+
+                MessageBox.Show("Izmjena uspjesno odradjena!");
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Kino", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

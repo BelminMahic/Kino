@@ -29,25 +29,31 @@ namespace Kino.Desktop.UI.Movie
 
         private async void frm_MovieFullDetails_Load(object sender, EventArgs e)
         {
-            if (_movieId.HasValue)
+            try
             {
-                var movie = await _movieService.GetById<Model.Movie>(_movieId);
+                if (_movieId.HasValue)
+                {
+                    var movie = await _movieService.GetById<Model.Movie>(_movieId);
 
-                txtNazivFilma.Text = movie.MovieName;
-                txtOriginal.Text = movie.OriginalMovieName;
-                txtDatumPrikazivanja.Text = movie.ShowTime.ToString();
-                txtGlumci.Text = movie.ActorsName;
-                txt_Reditelj.Text = movie.DirectorFullName;
-                txtTrajanje.Text = movie.MovieDuration;
-                txtOpis.Text = movie.Description;
-                picturePoster.Image = ByteToImage(movie.MoviePoster);
+                    txtNazivFilma.Text = movie.MovieName;
+                    txtOriginal.Text = movie.OriginalMovieName;
+                    txtDatumPrikazivanja.Text = movie.ShowTime.ToString();
+                    txtGlumci.Text = movie.ActorsName;
+                    txt_Reditelj.Text = movie.DirectorFullName;
+                    txtTrajanje.Text = movie.MovieDuration;
+                    txtOpis.Text = movie.Description;
+                    picturePoster.Image = ByteToImage(movie.MoviePoster);
+                }
+
+
+                await LoadGenres();
+                await LoadCinemas();
             }
-
-
-            await LoadGenres();
-            await LoadCinemas();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Film", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
 
 
         private async Task LoadGenres()
@@ -69,26 +75,31 @@ namespace Kino.Desktop.UI.Movie
         }
 
         private async void btnEdit_Click(object sender, EventArgs e)
-        {         
-
-            request.MovieName = txtNazivFilma.Text;
-            request.OriginalMovieName = txtOriginal.Text;
-            request.DirectorFullName = txt_Reditelj.Text;
-            request.ActorsName = txtGlumci.Text;
-            request.CinemaId = int.Parse(cb_Kino.SelectedValue.ToString());
-            request.GenreId = int.Parse(cb_Zanrovi.SelectedValue.ToString());
-            request.Description = txtOpis.Text;
-            request.MovieDuration = txtTrajanje.Text;
-            request.ShowTime = DateTime.Parse(txtDatumPrikazivanja.Text);
-            request.MoviePoster = ConvertImageToBytes(picturePoster.Image);
-                
-            
-            if (_movieId.HasValue)
+        {
+            try
             {
-                await _movieService.Update<Model.Movie>(_movieId, request);
-            }
+                request.MovieName = txtNazivFilma.Text;
+                request.OriginalMovieName = txtOriginal.Text;
+                request.DirectorFullName = txt_Reditelj.Text;
+                request.ActorsName = txtGlumci.Text;
+                request.CinemaId = int.Parse(cb_Kino.SelectedValue.ToString());
+                request.GenreId = int.Parse(cb_Zanrovi.SelectedValue.ToString());
+                request.Description = txtOpis.Text;
+                request.MovieDuration = txtTrajanje.Text;
+                request.ShowTime = DateTime.Parse(txtDatumPrikazivanja.Text);
+                request.MoviePoster = ConvertImageToBytes(picturePoster.Image);
 
-            MessageBox.Show("Izmjena uspjesno odradjena!");
+
+                if (_movieId.HasValue)
+                {
+                    await _movieService.Update<Model.Movie>(_movieId, request);
+                }
+
+                MessageBox.Show("Izmjena uspjesno odradjena!");
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Film", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private static Bitmap ByteToImage(byte[] blob)

@@ -52,18 +52,26 @@ namespace Kino.Desktop.UI.Auditorium
 
         private async void btnEdit_Click(object sender, EventArgs e)
         {
-            var request = new AuditoriumUpsertRequest()
+            try
             {
-                AuditoriumName = txtNazivDvorane.Text,
-                SeatNumbers = int.Parse(txtBrojSjedista.Text),
-                CinemaId = int.Parse(cb_Kina.SelectedValue.ToString())
-            };
-            if (_auditoriumId.HasValue)
-            {
-                await _audService.Update<Model.Auditorium>(_auditoriumId, request);
-            }
 
-            MessageBox.Show("Izmjena uspjesno odradjena!");
+                var request = new AuditoriumUpsertRequest()
+                {
+                    AuditoriumName = txtNazivDvorane.Text,
+                    SeatNumbers = int.Parse(txtBrojSjedista.Text),
+                    CinemaId = int.Parse(cb_Kina.SelectedValue.ToString())
+                };
+                if (_auditoriumId.HasValue)
+                {
+                    await _audService.Update<Model.Auditorium>(_auditoriumId, request);
+                }
+
+                MessageBox.Show("Izmjena uspjesno odradjena!");
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Dvorana", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+            
     }
 }

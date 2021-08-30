@@ -40,20 +40,33 @@ namespace Kino.Desktop.UI.PromoMaterial
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
-            var search = new PromoMaterialSearchRequest()
+            try
             {
-                PromoMaterialName = txtSearch.Text
-            };
-            var result = await _promoService.Get<List<Model.PromoMaterial>>(search);
+                var search = new PromoMaterialSearchRequest()
+                {
+                    PromoMaterialName = txtSearch.Text
+                };
+                var result = await _promoService.Get<List<Model.PromoMaterial>>(search);
 
-            dgvPromoMaterijali.DataSource = result;
+                dgvPromoMaterijali.DataSource = result;
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Promo materijal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void dgvPromoMaterijali_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            var id = dgvPromoMaterijali.SelectedRows[0].Cells[0].Value;
-            frm_PromoFullDetails frm = new frm_PromoFullDetails(int.Parse(id.ToString()));
-            frm.Show();
+            try
+            {
+
+                var id = dgvPromoMaterijali.SelectedRows[0].Cells[0].Value;
+                frm_PromoFullDetails frm = new frm_PromoFullDetails(int.Parse(id.ToString()));
+                frm.Show();
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Promo materijal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnFilmovi_Click(object sender, EventArgs e)
