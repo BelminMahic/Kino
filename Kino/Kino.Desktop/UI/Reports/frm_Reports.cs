@@ -105,5 +105,19 @@ namespace Kino.Desktop.UI.Reports
             frm_CinemaDetails frm = new frm_CinemaDetails();
             frm.Show();
         }
+
+        private void btnOpenMovieReports_Click(object sender, EventArgs e)
+        {
+            frm_MovieReport frm = new frm_MovieReport();
+            frm.Show();
+
+        }
+
+        private void btnUserReport_Click(object sender, EventArgs e)
+        {
+            frm_UsersReport frm = new frm_UsersReport();
+            frm.Show();
+
+        }
     }
 }
