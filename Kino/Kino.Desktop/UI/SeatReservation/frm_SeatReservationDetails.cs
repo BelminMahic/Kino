@@ -94,5 +94,10 @@ namespace Kino.Desktop.UI.SeatReservation
             frm_CinemaDetails frm = new frm_CinemaDetails();
             frm.Show();
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

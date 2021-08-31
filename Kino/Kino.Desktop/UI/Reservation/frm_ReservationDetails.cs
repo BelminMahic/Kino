@@ -9,6 +9,7 @@ using Kino.Desktop.UI.PromoMaterial;
 using Kino.Desktop.UI.Reports;
 using Kino.Desktop.UI.SeatReservation;
 using Kino.Desktop.UI.User;
+using Kino.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -30,18 +31,17 @@ namespace Kino.Desktop.UI.Reservation
 
         private async void frm_ReservationDetails_Load(object sender, EventArgs e)
         {
-            await LoadCinemas();
+            await LoadScreenings();
             await LoadAuditoriums();
-            await LoadMovies();
         }
 
-        private async Task LoadCinemas()
+        private async Task LoadScreenings()
         {
-            var result = await _cinemaService.Get<List<Model.Cinema>>(null);
-            result.Insert(0, new Model.Cinema());
-            cb_Kina.DisplayMember = "CinemaName";
-            cb_Kina.ValueMember = "CinemaId";
-            cb_Kina.DataSource = result;
+            var result = await _cinemaService.Get<List<Model.Screening>>(null);
+            result.Insert(0, new Model.Screening());
+            cb_Prikazivanja.DisplayMember = "ScreeningStart";
+            cb_Prikazivanja.ValueMember = "CinemaId";
+            cb_Prikazivanja.DataSource = result;
         }
         private async Task LoadAuditoriums()
         {
@@ -52,14 +52,7 @@ namespace Kino.Desktop.UI.Reservation
             cb_Dvorana.DataSource = result;
         }
 
-        private async Task LoadMovies()
-        {
-            var result = await _movieService.Get<List<Model.Movie>>(null);
-            result.Insert(0, new Model.Movie());
-            cb_Film.DisplayMember = "MovieName";
-            cb_Film.ValueMember = "MovieId";
-            cb_Film.DataSource = result;
-        }
+       
 
         private void btnFilmovi_Click(object sender, EventArgs e)
         {
@@ -127,12 +120,35 @@ namespace Kino.Desktop.UI.Reservation
             frm.Show();
         }
 
-        
+        ReservationSearchRequest request = new ReservationSearchRequest();
 
         private void btnKina_Click(object sender, EventArgs e)
         {
             frm_CinemaDetails frm = new frm_CinemaDetails();
             frm.Show();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var audIdObj = cb_Dvorana.SelectedValue;
+                if (int.TryParse(audIdObj.ToString(), out int audId))
+                {
+                    request.AuditoriumId = audId;
+                }
+                var screeningObjId = cb_Prikazivanja.SelectedValue;
+                if (int.TryParse(screeningObjId.ToString(), out int screeningId))
+                {
+                    request.ScreeningId = screeningId;
+                }
+               
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Rezervacije", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

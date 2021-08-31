@@ -1,10 +1,5 @@
-﻿using Kino.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Kino.Desktop
@@ -34,5 +29,7 @@ namespace Kino.Desktop
                 MessageBox.Show("Pogresan username ili password!");
             }
         }
+
+       
     }
 }

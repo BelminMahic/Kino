@@ -16,7 +16,9 @@ namespace Kino.API.Helpers
             {
                 var type = new List<Role>
                 {
-                    new Role { Name = "Admin"}
+                    new Role { Name = "Admin"},
+                    new Role { Name = "Korisnik"}
+
                 };
                 foreach (var item in type)
                 {
@@ -59,7 +61,9 @@ namespace Kino.API.Helpers
             {
                 var type = new List<UserRole>
                 {
-                    new UserRole {UserId=1, Changed=DateTime.Now, RoleId=1}
+                    new UserRole {UserId=1, Changed=DateTime.Now, RoleId=1},
+                    new UserRole {UserId=2, Changed=DateTime.Now, RoleId=2}
+
                 };
                 foreach (var item in type)
                 {
@@ -107,7 +111,7 @@ namespace Kino.API.Helpers
             {
                 var type = new List<Cinema>
                 {
-                    new Cinema { CinemaName = "Kinoteka Mostar", Address = "Mostar bb", TelephoneNumber = "036/333-111",CityId = 4 }
+                    new Cinema { CinemaName = "Kinoteka Mostar", Address = "Mostar bb", TelephoneNumber = "036/333-111",CityId = 1 }
                 };
                 foreach (var item in type)
                 {
@@ -121,10 +125,10 @@ namespace Kino.API.Helpers
             {
                 var type = new List<Auditorium>
                 {
-                    new Auditorium{AuditoriumName = "Standard 2D",SeatNumbers=50,CinemaId=6},
-                    new Auditorium{AuditoriumName = "Extreme 3D",SeatNumbers=50,CinemaId=6},
-                    new Auditorium{AuditoriumName = "Standard 2D v2",SeatNumbers=50,CinemaId=6},
-                    new Auditorium{AuditoriumName = "Extreme 3D v2",SeatNumbers=50,CinemaId=6}
+                    new Auditorium{AuditoriumName = "Standard 2D",SeatNumbers=50,CinemaId=1},
+                    new Auditorium{AuditoriumName = "Extreme 3D",SeatNumbers=50,CinemaId=1},
+                    new Auditorium{AuditoriumName = "Standard 2D v2",SeatNumbers=50,CinemaId=1},
+                    new Auditorium{AuditoriumName = "Extreme 3D v2",SeatNumbers=50,CinemaId=1}
                 };
                 foreach (var item in type)
                 {
@@ -193,11 +197,11 @@ namespace Kino.API.Helpers
                         MovieName = "Avengers - Endgame",
                         OriginalMovieName = "Osvetnici - Zavrsetak",
                         MovieDuration = "178 min",
-                        ShowTime = new DateTime(2021,05,02),
+                        ShowTime = new DateTime(2021,08,31),
                         DirectorFullName = "Joe Russo,Anthony Russo",
                         ActorsName = "Robert Downey Jr, Chris Hemsworth,Scarlett Johannson,Chris Evans",
                         GenreId = 1,
-                        CinemaId = 6,
+                        CinemaId = 1,
                         MoviePoster = original1,
                         Description = "After Thanos, an intergalactic warlord, disintegrates half of the universe, the Avengers must reunite and assemble again to reinvigorate their trounced allies and restore balance."
                     },
@@ -206,11 +210,11 @@ namespace Kino.API.Helpers
                         MovieName = "The Suicide Squad",
                         OriginalMovieName = "Odred otpisanih - Nova Misija",
                         MovieDuration = "132 min",
-                        ShowTime = new DateTime(2021,08,05),
+                        ShowTime = new DateTime(2021,08,31),
                         DirectorFullName = "James Gunn",
                         ActorsName = "Idris Elba, Margot Robbie, John Cena, Joel Kinemman",
                         GenreId = 1,
-                        CinemaId = 6,
+                        CinemaId = 1,
                         MoviePoster = original2,
                         Description = "Dobrodošli u pakao - a.k.a. Belle Reve, zatvor s najvišom stopom smrtnosti u SAD-u. Gdje se drže najgori super-negativci koji će učiniti sve da izađu - čak i pridružiti se supertajnoj, super-mračnoj misiji. Današnji tko preživi pričat će zadatak je okupiti Bloodsporta, Peacemakera, Captaina Boomeranga, Ratcatchera 2, Savanta, King Sharka, Blackguarda, Javelin i svima omiljenu Harley Quinna, naoružati ih i baciti (doslovno) na udaljeni, neprijateljski otok Corto Maltese. Kao i do sada, jedan njihov pogrešan potez i mrtvi su (bilo od ruku svojih protivnika, suigrača ili Waller)."
                     },
@@ -219,7 +223,7 @@ namespace Kino.API.Helpers
                         MovieName = "Jungle Cruise",
                         OriginalMovieName = "Krstarenje džunglom",
                         MovieDuration = "127 min",
-                        ShowTime = new DateTime(2021,07,29),
+                        ShowTime = new DateTime(2021,07,31),
                         DirectorFullName = "Jaume Collet-Serra",
                         ActorsName = "Dwayne Johnson, Emily Blunt, Edgar Ramirez, Paul Giammati",
                         GenreId = 1,
@@ -241,13 +245,13 @@ namespace Kino.API.Helpers
                 {
                     new MovieSeat
                     {
-                        AuditoriumId = 2,
+                        AuditoriumId = 1,
                         MovieSeatRow = "A",
                         RowNumber = 1                        
                     },
                     new MovieSeat
                     {
-                        AuditoriumId = 2,
+                        AuditoriumId = 1,
                         MovieSeatRow = "A",
                         RowNumber = 2                        
                     },
@@ -265,103 +269,103 @@ namespace Kino.API.Helpers
                     },
                        new MovieSeat
                     {
-                        AuditoriumId = 2,
+                        AuditoriumId = 1,
                         MovieSeatRow = "A",
                         RowNumber = 4                        
                     },
                         new MovieSeat
                     {
-                        AuditoriumId = 2,
+                        AuditoriumId = 1,
                         MovieSeatRow = "A",
                         RowNumber = 5                        
                     },
                       new MovieSeat
                     {
-                        AuditoriumId = 2,
+                        AuditoriumId = 1,
                         MovieSeatRow = "B",
                         RowNumber = 1                        
                     },
                        new MovieSeat
                     {
-                        AuditoriumId = 2,
+                        AuditoriumId = 1,
                         MovieSeatRow = "B",
                         RowNumber = 2                        
                     },
                         new MovieSeat
                     {
-                        AuditoriumId = 2,
+                        AuditoriumId = 1,
                         MovieSeatRow = "B",
                         RowNumber = 3                        
                     },
                          new MovieSeat
                     {
-                        AuditoriumId = 2,
+                        AuditoriumId = 1,
                         MovieSeatRow = "B",
                         RowNumber = 4                        
                     },
                           new MovieSeat
                     {
-                        AuditoriumId = 2,
+                        AuditoriumId = 1,
                         MovieSeatRow = "B",
                         RowNumber = 5                        
                     },
                             new MovieSeat
                     {
-                        AuditoriumId = 2,
+                        AuditoriumId = 1,
                         MovieSeatRow = "C",
                         RowNumber = 1                        
                     },
                        new MovieSeat
                     {
-                        AuditoriumId = 2,
+                        AuditoriumId = 1,
                         MovieSeatRow = "C",
                         RowNumber = 2                        
                     },
                         new MovieSeat
                     {
-                        AuditoriumId = 2,
+                        AuditoriumId = 1,
                         MovieSeatRow = "C",
                         RowNumber = 3                        
                     },
                          new MovieSeat
                     {
-                        AuditoriumId = 2,
+                        AuditoriumId = 1,
                         MovieSeatRow = "C",
                         RowNumber = 4                        
                     },
                           new MovieSeat
                     {
-                        AuditoriumId = 2,
+                        AuditoriumId = 1,
                         MovieSeatRow = "C",
                         RowNumber = 5                        
                     },
                             new MovieSeat
                     {
-                        AuditoriumId = 2,
+                        AuditoriumId = 1,
                         MovieSeatRow = "D",
                         RowNumber = 1                       
                     },
                        new MovieSeat
                     {
-                        AuditoriumId = 2,
+                        AuditoriumId = 1,
                         MovieSeatRow = "D",
                         RowNumber = 2                       
                     },
                         new MovieSeat
                     {
-                        AuditoriumId = 2,
+                        AuditoriumId = 1,
                         MovieSeatRow = "D",
                         RowNumber = 3                     
                     },
                          new MovieSeat
                     {
-                        AuditoriumId = 2,
+                        AuditoriumId = 1,
                         MovieSeatRow = "D",
                         RowNumber = 4                        
                     },
                           new MovieSeat
                     {
-                        AuditoriumId = 2,
+                        AuditoriumId = 1,
                         MovieSeatRow = "D",
                         RowNumber = 5                    
                     }
@@ -401,15 +405,15 @@ namespace Kino.API.Helpers
                 {
                     new Screening
                     {
-                        MovieId = 5,
+                        MovieId = 1,
                         AuditoriumId = 2 ,
-                        ScreeningStart = new DateTime(2021,08,05)
+                        ScreeningStart = new DateTime(2021,08,31)
                     },
                      new Screening
                     {
-                        MovieId = 5,
+                        MovieId = 2,
                         AuditoriumId = 2 ,
-                        ScreeningStart = new DateTime(2021,08,29)
+                        ScreeningStart = new DateTime(2021,08,31)
                     }
                 };
                 foreach (var item in types)

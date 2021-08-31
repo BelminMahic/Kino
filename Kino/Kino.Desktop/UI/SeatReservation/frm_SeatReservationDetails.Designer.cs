@@ -274,6 +274,7 @@ namespace Kino.Desktop.UI.SeatReservation
             this.btnSearch.TabIndex = 9;
             this.btnSearch.Text = "🔍";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // frm_SeatReservationDetails
             // 

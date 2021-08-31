@@ -30,7 +30,6 @@ namespace Kino.Desktop
         private void InitializeComponent()
         {
             this.btnLogin = new System.Windows.Forms.Button();
-            this.btnRegister = new System.Windows.Forms.Button();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -41,22 +40,13 @@ namespace Kino.Desktop
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(13, 371);
+            this.btnLogin.Location = new System.Drawing.Point(99, 371);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(120, 51);
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
-            // btnRegister
-            // 
-            this.btnRegister.Location = new System.Drawing.Point(193, 371);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(120, 51);
-            this.btnRegister.TabIndex = 1;
-            this.btnRegister.Text = "Register";
-            this.btnRegister.UseVisualStyleBackColor = true;
             // 
             // txtPass
             // 
@@ -114,7 +104,6 @@ namespace Kino.Desktop
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.txtPass);
-            this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.btnLogin);
             this.Name = "KinotekaLogin";
             this.Text = "Kinoteka : Login";
@@ -127,7 +116,6 @@ namespace Kino.Desktop
         #endregion
 
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.PictureBox pictureBox1;
