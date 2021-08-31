@@ -32,7 +32,6 @@ namespace Kino.Desktop.UI.Auditorium
             this.panelAuditorium = new System.Windows.Forms.Panel();
             this.btnSeatReservation = new System.Windows.Forms.Button();
             this.btnKina = new System.Windows.Forms.Button();
-            this.btnProfile = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
             this.btnUsers = new System.Windows.Forms.Button();
             this.btnPromo = new System.Windows.Forms.Button();
@@ -59,7 +58,6 @@ namespace Kino.Desktop.UI.Auditorium
             this.panelAuditorium.BackColor = System.Drawing.Color.White;
             this.panelAuditorium.Controls.Add(this.btnSeatReservation);
             this.panelAuditorium.Controls.Add(this.btnKina);
-            this.panelAuditorium.Controls.Add(this.btnProfile);
             this.panelAuditorium.Controls.Add(this.btnReports);
             this.panelAuditorium.Controls.Add(this.btnUsers);
             this.panelAuditorium.Controls.Add(this.btnPromo);
@@ -88,22 +86,12 @@ namespace Kino.Desktop.UI.Auditorium
             // btnKina
             // 
             this.btnKina.Enabled = false;
-            this.btnKina.Location = new System.Drawing.Point(0, 523);
+            this.btnKina.Location = new System.Drawing.Point(0, 480);
             this.btnKina.Name = "btnKina";
             this.btnKina.Size = new System.Drawing.Size(276, 23);
             this.btnKina.TabIndex = 11;
             this.btnKina.Text = "Kina";
             this.btnKina.UseVisualStyleBackColor = true;
-            // 
-            // btnProfile
-            // 
-            this.btnProfile.Enabled = false;
-            this.btnProfile.Location = new System.Drawing.Point(0, 484);
-            this.btnProfile.Name = "btnProfile";
-            this.btnProfile.Size = new System.Drawing.Size(276, 23);
-            this.btnProfile.TabIndex = 10;
-            this.btnProfile.Text = "Profil";
-            this.btnProfile.UseVisualStyleBackColor = true;
             // 
             // btnReports
             // 
@@ -303,7 +291,6 @@ namespace Kino.Desktop.UI.Auditorium
 
         private System.Windows.Forms.Panel panelAuditorium;
         private System.Windows.Forms.Button btnKina;
-        private System.Windows.Forms.Button btnProfile;
         private System.Windows.Forms.Button btnReports;
         private System.Windows.Forms.Button btnUsers;
         private System.Windows.Forms.Button btnPromo;

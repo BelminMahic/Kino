@@ -5,18 +5,12 @@ using Kino.Desktop.UI.Country;
 using Kino.Desktop.UI.Genre;
 using Kino.Desktop.UI.Movie;
 using Kino.Desktop.UI.MovieSeat;
-using Kino.Desktop.UI.Profile;
 using Kino.Desktop.UI.PromoMaterial;
 using Kino.Desktop.UI.Reports;
-using Kino.Desktop.UI.Reservation;
 using Kino.Desktop.UI.SeatReservation;
 using Kino.Desktop.UI.User;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -133,11 +127,7 @@ namespace Kino.Desktop.UI.Reservation
             frm.Show();
         }
 
-        private void btnProfile_Click(object sender, EventArgs e)
-        {
-            frm_UserProfile frm = new frm_UserProfile();
-            frm.Show();
-        }
+        
 
         private void btnKina_Click(object sender, EventArgs e)
         {

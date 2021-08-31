@@ -32,7 +32,6 @@ namespace Kino.Desktop.UI.SeatReservation
             this.panelSeatReservation = new System.Windows.Forms.Panel();
             this.btnSeatReservation = new System.Windows.Forms.Button();
             this.btnKina = new System.Windows.Forms.Button();
-            this.btnProfile = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
             this.btnUsers = new System.Windows.Forms.Button();
             this.btnPromo = new System.Windows.Forms.Button();
@@ -62,7 +61,6 @@ namespace Kino.Desktop.UI.SeatReservation
             this.panelSeatReservation.BackColor = System.Drawing.Color.White;
             this.panelSeatReservation.Controls.Add(this.btnSeatReservation);
             this.panelSeatReservation.Controls.Add(this.btnKina);
-            this.panelSeatReservation.Controls.Add(this.btnProfile);
             this.panelSeatReservation.Controls.Add(this.btnReports);
             this.panelSeatReservation.Controls.Add(this.btnUsers);
             this.panelSeatReservation.Controls.Add(this.btnPromo);
@@ -90,23 +88,13 @@ namespace Kino.Desktop.UI.SeatReservation
             // 
             // btnKina
             // 
-            this.btnKina.Location = new System.Drawing.Point(0, 523);
+            this.btnKina.Location = new System.Drawing.Point(0, 487);
             this.btnKina.Name = "btnKina";
             this.btnKina.Size = new System.Drawing.Size(276, 23);
             this.btnKina.TabIndex = 11;
             this.btnKina.Text = "Kina";
             this.btnKina.UseVisualStyleBackColor = true;
             this.btnKina.Click += new System.EventHandler(this.btnKina_Click);
-            // 
-            // btnProfile
-            // 
-            this.btnProfile.Location = new System.Drawing.Point(0, 484);
-            this.btnProfile.Name = "btnProfile";
-            this.btnProfile.Size = new System.Drawing.Size(276, 23);
-            this.btnProfile.TabIndex = 10;
-            this.btnProfile.Text = "Profil";
-            this.btnProfile.UseVisualStyleBackColor = true;
-            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
             // btnReports
             // 
@@ -317,7 +305,6 @@ namespace Kino.Desktop.UI.SeatReservation
         private System.Windows.Forms.Panel panelSeatReservation;
         private System.Windows.Forms.Button btnSeatReservation;
         private System.Windows.Forms.Button btnKina;
-        private System.Windows.Forms.Button btnProfile;
         private System.Windows.Forms.Button btnReports;
         private System.Windows.Forms.Button btnUsers;
         private System.Windows.Forms.Button btnPromo;

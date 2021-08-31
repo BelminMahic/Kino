@@ -4,7 +4,6 @@ using Kino.Desktop.UI.City;
 using Kino.Desktop.UI.Country;
 using Kino.Desktop.UI.Genre;
 using Kino.Desktop.UI.MovieSeat;
-using Kino.Desktop.UI.Profile;
 using Kino.Desktop.UI.PromoMaterial;
 using Kino.Desktop.UI.Reports;
 using Kino.Desktop.UI.Reservation;
@@ -137,11 +136,7 @@ namespace Kino.Desktop.UI.Movie
             frm.Show();
         }
 
-        private void btnProfile_Click(object sender, EventArgs e)
-        {
-            frm_UserProfile frm = new frm_UserProfile();
-            frm.Show();
-        }
+       
 
         private void btnKina_Click(object sender, EventArgs e)
         {

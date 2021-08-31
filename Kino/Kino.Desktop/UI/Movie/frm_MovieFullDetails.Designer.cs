@@ -32,7 +32,6 @@ namespace Kino.Desktop.UI.Movie
             this.panelFilmovi = new System.Windows.Forms.Panel();
             this.btnSeatReservation = new System.Windows.Forms.Button();
             this.btnKina = new System.Windows.Forms.Button();
-            this.btnProfile = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
             this.btnUsers = new System.Windows.Forms.Button();
             this.btnPromo = new System.Windows.Forms.Button();
@@ -75,7 +74,6 @@ namespace Kino.Desktop.UI.Movie
             this.panelFilmovi.BackColor = System.Drawing.Color.White;
             this.panelFilmovi.Controls.Add(this.btnSeatReservation);
             this.panelFilmovi.Controls.Add(this.btnKina);
-            this.panelFilmovi.Controls.Add(this.btnProfile);
             this.panelFilmovi.Controls.Add(this.btnReports);
             this.panelFilmovi.Controls.Add(this.btnUsers);
             this.panelFilmovi.Controls.Add(this.btnPromo);
@@ -104,22 +102,12 @@ namespace Kino.Desktop.UI.Movie
             // btnKina
             // 
             this.btnKina.Enabled = false;
-            this.btnKina.Location = new System.Drawing.Point(0, 523);
+            this.btnKina.Location = new System.Drawing.Point(-2, 475);
             this.btnKina.Name = "btnKina";
             this.btnKina.Size = new System.Drawing.Size(276, 23);
             this.btnKina.TabIndex = 11;
             this.btnKina.Text = "Kina";
             this.btnKina.UseVisualStyleBackColor = true;
-            // 
-            // btnProfile
-            // 
-            this.btnProfile.Enabled = false;
-            this.btnProfile.Location = new System.Drawing.Point(0, 484);
-            this.btnProfile.Name = "btnProfile";
-            this.btnProfile.Size = new System.Drawing.Size(276, 23);
-            this.btnProfile.TabIndex = 10;
-            this.btnProfile.Text = "Profil";
-            this.btnProfile.UseVisualStyleBackColor = true;
             // 
             // btnReports
             // 
@@ -458,7 +446,6 @@ namespace Kino.Desktop.UI.Movie
 
         private System.Windows.Forms.Panel panelFilmovi;
         private System.Windows.Forms.Button btnKina;
-        private System.Windows.Forms.Button btnProfile;
         private System.Windows.Forms.Button btnReports;
         private System.Windows.Forms.Button btnUsers;
         private System.Windows.Forms.Button btnPromo;
