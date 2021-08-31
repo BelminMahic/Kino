@@ -40,7 +40,10 @@ namespace Kino.Desktop.UI.City
                 {
                     CityName = txtSearch.Text
                 };
-
+                search.IncludeList = new string[]
+                {
+                    "Country"
+                };
                 var result = await _cityService.Get<List<Model.City>>(search);
 
                 dgv_Gradovi.DataSource = result;

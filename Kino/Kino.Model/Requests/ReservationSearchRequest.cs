@@ -10,5 +10,7 @@ namespace Kino.Model.Requests
         public int? AuditoriumId { get; set; }
         public int? UserId { get; set; }
         public int? ScreeningId { get; set; }
+        public string[] IncludeList { get; set; }
+
     }
 }

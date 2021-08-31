@@ -9,5 +9,8 @@ namespace Kino.Model.Requests
         public int? ReservationId { get; set; }
         public int? ScreeningId { get; set; }
         public int? MovieSeatId { get; set; }
+
+        public string[] IncludeList { get; set; }
+
     }
 }

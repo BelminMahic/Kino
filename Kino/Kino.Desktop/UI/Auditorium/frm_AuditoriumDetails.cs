@@ -40,7 +40,10 @@ namespace Kino.Desktop.UI.Auditorium
                 {
                     AuditoriumName = txtSearch.Text
                 };
-
+                search.IncludeList = new string[]
+                 {                    
+                    "Cinema"
+                 };
                 var result = await _apiService.Get<List<Model.Auditorium>>(search);
 
                 dgv_Auditorium.DataSource = result;

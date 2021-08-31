@@ -49,7 +49,6 @@ namespace Kino.Desktop.UI.PromoMaterial
             this.lblPromoName = new System.Windows.Forms.Label();
             this.txtPromoQuantity = new System.Windows.Forms.TextBox();
             this.txtPromoName = new System.Windows.Forms.TextBox();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.panelPromo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -257,22 +256,12 @@ namespace Kino.Desktop.UI.PromoMaterial
             this.txtPromoName.Size = new System.Drawing.Size(308, 34);
             this.txtPromoName.TabIndex = 9;
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(679, 401);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 45);
-            this.btnDelete.TabIndex = 15;
-            this.btnDelete.Text = "Obrisi";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            // 
             // frm_PromoFullDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1157, 622);
-            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.lblQuantity);
@@ -310,7 +299,6 @@ namespace Kino.Desktop.UI.PromoMaterial
         private System.Windows.Forms.Label lblPromoName;
         private System.Windows.Forms.TextBox txtPromoQuantity;
         private System.Windows.Forms.TextBox txtPromoName;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSeatReservation;
     }
 }

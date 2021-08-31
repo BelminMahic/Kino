@@ -53,7 +53,6 @@ namespace Kino.Desktop.UI.Cinema
             this.txtTelefon = new System.Windows.Forms.TextBox();
             this.txtAdresa = new System.Windows.Forms.TextBox();
             this.txtNazivKina = new System.Windows.Forms.TextBox();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.panelCinema.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -294,22 +293,12 @@ namespace Kino.Desktop.UI.Cinema
             this.txtNazivKina.Size = new System.Drawing.Size(212, 32);
             this.txtNazivKina.TabIndex = 12;
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(650, 466);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 41);
-            this.btnDelete.TabIndex = 22;
-            this.btnDelete.Text = "Obrisi";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            // 
             // frm_CinemaFullDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1157, 622);
-            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.lblGradovi);
             this.Controls.Add(this.lblTelefon);
             this.Controls.Add(this.lblAdresa);
@@ -355,7 +344,6 @@ namespace Kino.Desktop.UI.Cinema
         private System.Windows.Forms.TextBox txtTelefon;
         private System.Windows.Forms.TextBox txtAdresa;
         private System.Windows.Forms.TextBox txtNazivKina;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSeatReservation;
     }
 }

@@ -49,7 +49,6 @@ namespace Kino.Desktop.UI.City
             this.txtNazivGrada = new System.Windows.Forms.TextBox();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.panelGradovi.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -257,22 +256,12 @@ namespace Kino.Desktop.UI.City
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(684, 432);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 43);
-            this.btnDelete.TabIndex = 14;
-            this.btnDelete.Text = "Obrisi";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            // 
             // frm_CityFullDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1157, 622);
-            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.lblDrzava);
             this.Controls.Add(this.lblNazivGrada);
             this.Controls.Add(this.cb_Drzave);
@@ -310,7 +299,6 @@ namespace Kino.Desktop.UI.City
         private System.Windows.Forms.TextBox txtNazivGrada;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSeatReservation;
     }
 }

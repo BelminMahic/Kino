@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Kino.API.Database;
 using Kino.Model.Requests;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,16 @@ namespace Kino.API.Services
 
             if (!string.IsNullOrEmpty(search?.CityName))
                 query = query.Where(x => x.CityName.StartsWith(search.CityName));
+
+           
+            if(search?.IncludeList?.Length > 0)
+            {
+                foreach (var item in search.IncludeList)
+                {
+                    query = query.Include(item);
+
+                }
+            }
 
 
             query = query.OrderBy(x => x.CityName);

@@ -44,7 +44,6 @@ namespace Kino.Desktop.UI.Auditorium
             this.btnDvorane = new System.Windows.Forms.Button();
             this.btnFilmovi = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.txtNazivDvorane = new System.Windows.Forms.TextBox();
             this.cb_Kina = new System.Windows.Forms.ComboBox();
@@ -216,15 +215,6 @@ namespace Kino.Desktop.UI.Auditorium
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(658, 495);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(114, 50);
-            this.btnDelete.TabIndex = 3;
-            this.btnDelete.Text = "Obrisi";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            // 
             // btnBack
             // 
             this.btnBack.Location = new System.Drawing.Point(910, 495);
@@ -298,7 +288,6 @@ namespace Kino.Desktop.UI.Auditorium
             this.Controls.Add(this.cb_Kina);
             this.Controls.Add(this.txtNazivDvorane);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.panelAuditorium);
             this.Name = "frm_AuditoriumFullDetails";
@@ -326,7 +315,6 @@ namespace Kino.Desktop.UI.Auditorium
         private System.Windows.Forms.Button btnDvorane;
         private System.Windows.Forms.Button btnFilmovi;
         private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.TextBox txtNazivDvorane;
         private System.Windows.Forms.ComboBox cb_Kina;

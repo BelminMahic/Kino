@@ -58,7 +58,6 @@ namespace Kino.Desktop.UI.Profile
             this.lblSpol = new System.Windows.Forms.Label();
             this.lblGrad = new System.Windows.Forms.Label();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
             this.panelMainWindow.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -335,21 +334,12 @@ namespace Kino.Desktop.UI.Profile
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(838, 440);
+            this.btnEdit.Location = new System.Drawing.Point(949, 440);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(96, 40);
             this.btnEdit.TabIndex = 16;
             this.btnEdit.Text = "Uredi";
             this.btnEdit.UseVisualStyleBackColor = true;
-            // 
-            // btnBack
-            // 
-            this.btnBack.Location = new System.Drawing.Point(1012, 440);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(96, 40);
-            this.btnBack.TabIndex = 17;
-            this.btnBack.Text = "Obrisi";
-            this.btnBack.UseVisualStyleBackColor = true;
             // 
             // frm_UserProfile
             // 
@@ -357,7 +347,6 @@ namespace Kino.Desktop.UI.Profile
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1157, 622);
-            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.lblGrad);
             this.Controls.Add(this.lblSpol);
@@ -412,7 +401,6 @@ namespace Kino.Desktop.UI.Profile
         private System.Windows.Forms.Label lblSpol;
         private System.Windows.Forms.Label lblGrad;
         private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnSeatReservation;
     }
 }

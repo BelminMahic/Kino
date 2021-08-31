@@ -47,6 +47,10 @@ namespace Kino.Desktop.UI.Cinema
                 {
                     CinemaName = txtSearch.Text
                 };
+                search.IncludeList = new string[]
+                 {
+                    "City"
+                 };
 
                 var result = await _apiService.Get<List<Model.Cinema>>(search);
 

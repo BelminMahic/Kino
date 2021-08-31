@@ -34,15 +34,23 @@ namespace Kino.Desktop.UI.Movie
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
-            try { 
-            var request = new MovieSearchRequest
+            try
             {
-                MovieName = txtSearch.Text
-            };
 
-            var result = await _movieService.Get<List<Model.Movie>>(request);
-            dgv_Filmovi.DataSource = result;
-            } catch(Exception ex)
+
+                var request = new MovieSearchRequest
+                {
+                    MovieName = txtSearch.Text
+                };
+                request.IncludeList = new string[]
+                  {
+                    "Genre",
+                    "Cinema"
+                  };
+                var result = await _movieService.Get<List<Model.Movie>>(request);
+                dgv_Filmovi.DataSource = result;
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Film", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -50,11 +58,13 @@ namespace Kino.Desktop.UI.Movie
 
         private void dgv_Filmovi_DoubleClick(object sender, EventArgs e)
         {
-            try { 
-            var id = dgv_Filmovi.SelectedRows[0].Cells[0].Value;
-            frm_MovieFullDetails frm = new frm_MovieFullDetails(int.Parse(id.ToString()));
-            frm.Show();
-            } catch (Exception ex)
+            try
+            {
+                var id = dgv_Filmovi.SelectedRows[0].Cells[0].Value;
+                frm_MovieFullDetails frm = new frm_MovieFullDetails(int.Parse(id.ToString()));
+                frm.Show();
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

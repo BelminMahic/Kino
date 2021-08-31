@@ -47,7 +47,6 @@ namespace Kino.Desktop.UI.Country
             this.btnBack = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.txtNazivDrzave = new System.Windows.Forms.TextBox();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.panelDrzave.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -238,22 +237,12 @@ namespace Kino.Desktop.UI.Country
             this.txtNazivDrzave.Size = new System.Drawing.Size(250, 34);
             this.txtNazivDrzave.TabIndex = 6;
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(628, 248);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(105, 38);
-            this.btnDelete.TabIndex = 10;
-            this.btnDelete.Text = "Obrisi";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            // 
             // frm_CountryFullDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1157, 622);
-            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.lblNazivDrzave);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnEdit);
@@ -287,7 +276,6 @@ namespace Kino.Desktop.UI.Country
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.TextBox txtNazivDrzave;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSeatReservation;
     }
 }

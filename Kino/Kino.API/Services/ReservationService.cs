@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Kino.API.Database;
 using Kino.Model.Requests;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,15 @@ namespace Kino.API.Services
             {
                 query = query.Where(x => x.UserId == search.UserId);
             }
+
+            if(search?.IncludeList?.Length > 0)
+            {
+                foreach (var item in search.IncludeList)
+                {
+                    query = query.Include(item);
+                }
+            }
+
 
             var list = query.ToList();
 

@@ -10,6 +10,7 @@ namespace Kino.Model
 
         public string MovieSeatRow { get; set; }
         public int RowNumber { get; set; }
+        public Auditorium Auditorium { get; set; }
         public int AuditoriumId { get; set; }
 
         public override string ToString()

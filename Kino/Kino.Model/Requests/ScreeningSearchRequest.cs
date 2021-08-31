@@ -8,5 +8,9 @@ namespace Kino.Model.Requests
     {
         public int? MovieId { get; set; }
         public int? AuditoriumId { get; set; }
+
+        public string[] IncludeList { get; set; }
+
+
     }
 }

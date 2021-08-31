@@ -17,6 +17,7 @@ namespace Kino.Model
 
         public string UserName { get; set; }
         public bool? Status { get; set; }
+        public Gender Gender { get; set; }
         public int GenderId { get; set; }
 
         public ICollection<UserRole> UserRole { get; set; }

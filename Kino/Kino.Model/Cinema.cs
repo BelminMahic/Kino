@@ -12,6 +12,7 @@ namespace Kino.Model
 
         public string Address { get; set; }
         public string TelephoneNumber { get; set; }
+        public City City { get; set; }
         public int CityId { get; set; }
 
         public override string ToString()

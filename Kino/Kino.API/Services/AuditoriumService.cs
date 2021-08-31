@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Kino.API.Database;
 using Kino.Model.Requests;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,14 @@ namespace Kino.API.Services
 
             if (!string.IsNullOrEmpty(request?.AuditoriumName))
                 query = query.Where(x => x.AuditoriumName.StartsWith(request.AuditoriumName));
+
+            if(request?.IncludeList?.Length > 0)
+            {
+                foreach (var item in request.IncludeList)
+                {
+                    query = query.Include(item);
+                }
+            }
 
             var list = query.ToList();
 

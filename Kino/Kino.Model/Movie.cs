@@ -20,7 +20,9 @@ namespace Kino.Model
         public DateTime ShowTime { get; set; }
         public string Description { get; set; }
         public byte[] MoviePoster { get; set; }
+        public Genre Genre { get; set; }
         public int GenreId { get; set; }
+        public Cinema Cinema { get; set; }
         public int CinemaId { get; set; }
 
         public override string ToString()

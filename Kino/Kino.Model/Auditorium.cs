@@ -8,6 +8,7 @@ namespace Kino.Model
 
         public string AuditoriumName { get; set; }
         public int SeatNumbers { get; set; }
+        public Cinema Cinema { get; set; }
         public int CinemaId { get; set; }
 
         public override string ToString()

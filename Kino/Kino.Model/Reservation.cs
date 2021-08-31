@@ -11,8 +11,11 @@ namespace Kino.Model
         public double Price { get; set; }
         public int Quantity { get; set; }
         public int? PromoMaterialId { get; set; }
+        public Auditorium Auditorium { get; set; }
         public int AuditoriumId { get; set; }
+        public User User { get; set; }
         public int UserId { get; set; }
+        public Screening Screening { get; set; }
         public int ScreeningId { get; set; }
     }
 }

@@ -65,7 +65,6 @@ namespace Kino.Desktop.UI.Movie
             this.txt_Reditelj = new System.Windows.Forms.TextBox();
             this.txtOriginal = new System.Windows.Forms.TextBox();
             this.txtNazivFilma = new System.Windows.Forms.TextBox();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panelFilmovi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picturePoster)).BeginInit();
@@ -412,15 +411,6 @@ namespace Kino.Desktop.UI.Movie
             this.txtNazivFilma.Size = new System.Drawing.Size(236, 24);
             this.txtNazivFilma.TabIndex = 24;
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(843, 522);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(105, 34);
-            this.btnDelete.TabIndex = 46;
-            this.btnDelete.Text = "Obrisi";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -431,7 +421,6 @@ namespace Kino.Desktop.UI.Movie
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1157, 622);
-            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnUpload);
@@ -502,7 +491,6 @@ namespace Kino.Desktop.UI.Movie
         private System.Windows.Forms.TextBox txt_Reditelj;
         private System.Windows.Forms.TextBox txtOriginal;
         private System.Windows.Forms.TextBox txtNazivFilma;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSeatReservation;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
