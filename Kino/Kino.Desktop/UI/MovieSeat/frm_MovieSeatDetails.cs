@@ -9,17 +9,32 @@ using Kino.Desktop.UI.Reports;
 using Kino.Desktop.UI.Reservation;
 using Kino.Desktop.UI.SeatReservation;
 using Kino.Desktop.UI.User;
+using Kino.Model.Requests;
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Kino.Desktop.UI.MovieSeat
 {
     public partial class frm_MovieSeatDetails : Form
     {
+
+        private readonly APIService _movieSeatService = new APIService("movieseat");
+        private readonly APIService _auditoriumService = new APIService("auditorium");
+
+
+
         public frm_MovieSeatDetails()
         {
             InitializeComponent();
         }
+
+        private async void frm_MovieSeatDetails_Load(object sender, EventArgs e)
+        {
+            await LoadAuditoriums();
+        }
+
 
         private void btnFilmovi_Click(object sender, EventArgs e)
         {
@@ -94,5 +109,40 @@ namespace Kino.Desktop.UI.MovieSeat
             frm_CinemaDetails frm = new frm_CinemaDetails();
             frm.Show();
         }
+
+        private async void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                var request = new MovieSeatSearchRequest
+                {
+                    AuditoriumId = int.Parse(cb_Auds.SelectedValue.ToString())
+                };
+                request.IncludeList = new string[]
+                {
+                    "Auditorium"
+                };
+
+                var seats = await _movieSeatService.Get<List<Model.MovieSeat>>(request);
+                dgv_Sjedista.DataSource = seats;
+
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Sjedista", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private async Task LoadAuditoriums()
+        {
+            var result = await _auditoriumService.Get<List<Model.Auditorium>>(null);
+            result.Insert(0, new Model.Auditorium());
+            cb_Auds.DisplayMember = "AuditoriumName";
+            cb_Auds.ValueMember = "AuditoriumId";
+            cb_Auds.DataSource = result;
+        }
+
+       
     }
 }

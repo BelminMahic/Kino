@@ -9,14 +9,9 @@ using Kino.Desktop.UI.PromoMaterial;
 using Kino.Desktop.UI.Reports;
 using Kino.Desktop.UI.Reservation;
 using Kino.Desktop.UI.SeatReservation;
-using Kino.Desktop.UI.User;
 using Kino.Model.Requests;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Kino.Desktop.UI.User
@@ -29,6 +24,33 @@ namespace Kino.Desktop.UI.User
         public frm_UserDetails()
         {
             InitializeComponent();
+        }
+        private async void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var search = new UserSearchRequest()
+                {
+                    Name = txtPretraga.Text
+                };
+                var result = await _userService.Get<List<Model.User>>(search);
+
+                dgv_Korisnici.DataSource = result;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Korisnici", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgv_Korisnici_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            var grid = (DataGridView)sender;
+            if (grid.Columns[e.ColumnIndex].Name == "Status")
+            {
+                e.Value = (bool)e.Value ? "Aktivan" : "Neaktivan";
+                e.FormattingApplied = true;
+            }
         }
 
         private void btnFilmovi_Click(object sender, EventArgs e)
@@ -105,22 +127,5 @@ namespace Kino.Desktop.UI.User
             frm.Show();
         }
 
-        private async void btnSearch_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var search = new UserSearchRequest()
-                {
-                    Name = txtPretraga.Text
-                };
-                var result = await _userService.Get<List<Model.User>>(search);
-
-                dgv_Korisnici.DataSource = result;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Korisnici", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
     }
 }

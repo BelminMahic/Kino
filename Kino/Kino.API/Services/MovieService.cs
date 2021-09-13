@@ -33,7 +33,7 @@ namespace Kino.API.Services
 
             var list = query.ToList();
 
-            return _mapper.Map<List<Model.Movie>>(list); ;
+            return _mapper.Map<List<Model.Movie>>(list); 
         }
     }
 }

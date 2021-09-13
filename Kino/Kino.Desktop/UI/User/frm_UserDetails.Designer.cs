@@ -209,6 +209,7 @@ namespace Kino.Desktop.UI.User
             this.dgv_Korisnici.RowTemplate.Height = 25;
             this.dgv_Korisnici.Size = new System.Drawing.Size(840, 391);
             this.dgv_Korisnici.TabIndex = 0;
+            this.dgv_Korisnici.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_Korisnici_CellFormatting);
             // 
             // txtPretraga
             // 

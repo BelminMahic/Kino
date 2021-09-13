@@ -85,7 +85,7 @@ namespace Kino.API
             services.AddScoped<ICRUDService<Model.Screening, ScreeningSearchRequest, ScreeningUpsertRequest, ScreeningUpsertRequest>, ScreeningService>();
             services.AddScoped<ICRUDService<Model.Auditorium, AuditoriumSearchRequest, AuditoriumUpsertRequest, AuditoriumUpsertRequest>, AuditoriumService>();
             services.AddScoped<ICRUDService<Model.Movie, MovieSearchRequest, MovieUpsertRequest, MovieUpsertRequest>, MovieService>();
-            services.AddScoped<ICRUDService<Model.MovieSeat, object, MovieSeatUpsertRequest, MovieSeatUpsertRequest>, MovieSeatService>();
+            services.AddScoped<ICRUDService<Model.MovieSeat, MovieSeatSearchRequest, MovieSeatUpsertRequest, MovieSeatUpsertRequest>, MovieSeatService>();
             services.AddScoped<ICRUDService<Model.Reservation, ReservationSearchRequest, ReservationUpsertRequest, ReservationUpsertRequest>, ReservationService>();
             services.AddScoped<ICRUDService<Model.SeatReservation, SeatReservationSearchRequest, SeatReservationUpsertRequest, SeatReservationUpsertRequest>, SeatReservationService>();
             services.AddAuthentication("BasicAuthentication")

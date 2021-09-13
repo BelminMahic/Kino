@@ -46,7 +46,8 @@ namespace Kino.Desktop.UI.MovieSeat
             this.dgv_Sjedista = new System.Windows.Forms.DataGridView();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.cb_Auds = new System.Windows.Forms.ComboBox();
+            this.lblDvorana = new System.Windows.Forms.Label();
             this.panelSjedista.SuspendLayout();
             this.gbSjedista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Sjedista)).BeginInit();
@@ -222,20 +223,30 @@ namespace Kino.Desktop.UI.MovieSeat
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(1020, 35);
+            this.btnSearch.Location = new System.Drawing.Point(1019, 35);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(110, 41);
             this.btnSearch.TabIndex = 5;
             this.btnSearch.Text = "🔍";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // txtSearch
+            // cb_Auds
             // 
-            this.txtSearch.Location = new System.Drawing.Point(678, 40);
-            this.txtSearch.Multiline = true;
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(267, 31);
-            this.txtSearch.TabIndex = 6;
+            this.cb_Auds.FormattingEnabled = true;
+            this.cb_Auds.Location = new System.Drawing.Point(785, 45);
+            this.cb_Auds.Name = "cb_Auds";
+            this.cb_Auds.Size = new System.Drawing.Size(174, 23);
+            this.cb_Auds.TabIndex = 6;
+            // 
+            // lblDvorana
+            // 
+            this.lblDvorana.AutoSize = true;
+            this.lblDvorana.Location = new System.Drawing.Point(785, 24);
+            this.lblDvorana.Name = "lblDvorana";
+            this.lblDvorana.Size = new System.Drawing.Size(51, 15);
+            this.lblDvorana.TabIndex = 7;
+            this.lblDvorana.Text = "Dvorana";
             // 
             // frm_MovieSeatDetails
             // 
@@ -243,13 +254,15 @@ namespace Kino.Desktop.UI.MovieSeat
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1157, 622);
-            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.lblDvorana);
+            this.Controls.Add(this.cb_Auds);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.gbSjedista);
             this.Controls.Add(this.panelSjedista);
             this.Name = "frm_MovieSeatDetails";
             this.Text = "Kinoteka : Sjedista";
+            this.Load += new System.EventHandler(this.frm_MovieSeatDetails_Load);
             this.panelSjedista.ResumeLayout(false);
             this.gbSjedista.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Sjedista)).EndInit();
@@ -276,7 +289,8 @@ namespace Kino.Desktop.UI.MovieSeat
         private System.Windows.Forms.DataGridView dgv_Sjedista;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSeatReservation;
+        private System.Windows.Forms.ComboBox cb_Auds;
+        private System.Windows.Forms.Label lblDvorana;
     }
 }

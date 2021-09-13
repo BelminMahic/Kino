@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 namespace Kino.API.Controllers
 {
     
-    public class MovieSeatController : BaseCRUDController<Model.MovieSeat, object, MovieSeatUpsertRequest, MovieSeatUpsertRequest>
+    public class MovieSeatController : BaseCRUDController<Model.MovieSeat, MovieSeatSearchRequest, MovieSeatUpsertRequest, MovieSeatUpsertRequest>
     {
-        public MovieSeatController(ICRUDService<MovieSeat, object, MovieSeatUpsertRequest, MovieSeatUpsertRequest> service) : base(service)
+        public MovieSeatController(ICRUDService<MovieSeat, MovieSeatSearchRequest, MovieSeatUpsertRequest, MovieSeatUpsertRequest> service) : base(service)
         {
         }
     }

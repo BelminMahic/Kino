@@ -20,9 +20,10 @@ namespace Kino.Desktop.UI.Reservation
     public partial class frm_ReservationDetails : Form
     {
 
-        private readonly APIService _cinemaService = new APIService("cinema");
-        private readonly APIService _movieService = new APIService("movie");
+        private readonly APIService _screeningService = new APIService("screening");
         private readonly APIService _auditoriumService = new APIService("auditorium");
+        private readonly APIService _reservationService = new APIService("reservation");
+
 
         public frm_ReservationDetails()
         {
@@ -37,10 +38,10 @@ namespace Kino.Desktop.UI.Reservation
 
         private async Task LoadScreenings()
         {
-            var result = await _cinemaService.Get<List<Model.Screening>>(null);
+            var result = await _screeningService.Get<List<Model.Screening>>(null);
             result.Insert(0, new Model.Screening());
             cb_Prikazivanja.DisplayMember = "ScreeningStart";
-            cb_Prikazivanja.ValueMember = "CinemaId";
+            cb_Prikazivanja.ValueMember = "ScreeningId";
             cb_Prikazivanja.DataSource = result;
         }
         private async Task LoadAuditoriums()
@@ -120,7 +121,6 @@ namespace Kino.Desktop.UI.Reservation
             frm.Show();
         }
 
-        ReservationSearchRequest request = new ReservationSearchRequest();
 
         private void btnKina_Click(object sender, EventArgs e)
         {
@@ -128,21 +128,26 @@ namespace Kino.Desktop.UI.Reservation
             frm.Show();
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private async void btnSearch_Click(object sender, EventArgs e)
         {
             try
             {
-                var audIdObj = cb_Dvorana.SelectedValue;
-                if (int.TryParse(audIdObj.ToString(), out int audId))
+                var request = new ReservationSearchRequest()
                 {
-                    request.AuditoriumId = audId;
-                }
-                var screeningObjId = cb_Prikazivanja.SelectedValue;
-                if (int.TryParse(screeningObjId.ToString(), out int screeningId))
-                {
-                    request.ScreeningId = screeningId;
-                }
-               
+                    AuditoriumId= int.Parse(cb_Dvorana.SelectedValue.ToString()),
+                    ScreeningId = int.Parse(cb_Prikazivanja.SelectedValue.ToString())
+                    
+                };
+                request.IncludeList = new string[]
+               {
+                    "Auditorium",
+                    "Screening"
+               };
+              
+
+
+                var reservations = await _reservationService.Get<List<Model.Reservation>>(request);
+                dgv_Rezervacije.DataSource = reservations;
 
             }
             catch(Exception ex)
