@@ -144,6 +144,18 @@ namespace Kino.Desktop.UI.MovieSeat
             cb_Auds.DataSource = result;
         }
 
-       
+        private void dgv_Sjedista_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                var id = dgv_Sjedista.SelectedRows[0].Cells[0].Value;
+                frm_MovieSeatFullDetails frm = new frm_MovieSeatFullDetails(int.Parse(id.ToString()));
+                frm.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

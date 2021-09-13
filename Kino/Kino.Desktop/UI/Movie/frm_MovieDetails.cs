@@ -147,5 +147,7 @@ namespace Kino.Desktop.UI.Movie
             frm_CinemaDetails frm = new frm_CinemaDetails();
             frm.Show();
         }
+
+       
     }
 }

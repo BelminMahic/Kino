@@ -211,6 +211,7 @@ namespace Kino.Desktop.UI.MovieSeat
             this.dgv_Sjedista.RowTemplate.Height = 25;
             this.dgv_Sjedista.Size = new System.Drawing.Size(847, 370);
             this.dgv_Sjedista.TabIndex = 0;
+            this.dgv_Sjedista.DoubleClick += new System.EventHandler(this.dgv_Sjedista_DoubleClick);
             // 
             // btnAdd
             // 

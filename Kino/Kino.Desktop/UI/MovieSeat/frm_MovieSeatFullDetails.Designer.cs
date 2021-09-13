@@ -237,6 +237,7 @@ namespace Kino.Desktop.UI.MovieSeat
             this.btnEdit.TabIndex = 13;
             this.btnEdit.Text = "Uredi";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // cb_Auditorium
             // 
@@ -277,6 +278,7 @@ namespace Kino.Desktop.UI.MovieSeat
             this.Controls.Add(this.panelSjedista);
             this.Name = "frm_MovieSeatFullDetails";
             this.Text = "Kinoteka : Sjedista";
+            this.Load += new System.EventHandler(this.frm_MovieSeatFullDetails_Load);
             this.panelSjedista.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
