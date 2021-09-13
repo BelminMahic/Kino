@@ -46,7 +46,10 @@ namespace Kino.Desktop.UI.Auditorium
                 var result = await _apiService.Get<List<Model.Auditorium>>(search);
 
                 dgv_Auditorium.DataSource = result;
-            } catch(Exception ex)
+                this.dgv_Auditorium.Columns["CinemaId"].Visible = false;
+
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Dvorana", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

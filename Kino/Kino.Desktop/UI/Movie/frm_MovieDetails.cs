@@ -48,6 +48,10 @@ namespace Kino.Desktop.UI.Movie
                   };
                 var result = await _movieService.Get<List<Model.Movie>>(request);
                 dgv_Filmovi.DataSource = result;
+                this.dgv_Filmovi.Columns["GenreId"].Visible = false;
+                this.dgv_Filmovi.Columns["CinemaId"].Visible = false;
+
+
             }
             catch (Exception ex)
             {

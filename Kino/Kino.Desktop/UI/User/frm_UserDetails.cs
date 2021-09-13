@@ -36,6 +36,10 @@ namespace Kino.Desktop.UI.User
                 var result = await _userService.Get<List<Model.User>>(search);
 
                 dgv_Korisnici.DataSource = result;
+                this.dgv_Korisnici.Columns["Gender"].Visible = false;
+                this.dgv_Korisnici.Columns["GenderId"].Visible = false;
+                this.dgv_Korisnici.Columns["UserRole"].Visible = false;
+
             }
             catch (Exception ex)
             {

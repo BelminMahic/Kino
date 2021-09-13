@@ -126,6 +126,7 @@ namespace Kino.Desktop.UI.MovieSeat
 
                 var seats = await _movieSeatService.Get<List<Model.MovieSeat>>(request);
                 dgv_Sjedista.DataSource = seats;
+                this.dgv_Sjedista.Columns["AuditoriumId"].Visible = false;
 
             }catch(Exception ex)
             {

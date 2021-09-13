@@ -41,7 +41,10 @@ namespace Kino.Desktop.UI.City
                 var result = await _cityService.Get<List<Model.City>>(search);
 
                 dgv_Gradovi.DataSource = result;
-            } catch (Exception ex)
+                this.dgv_Gradovi.Columns["CountryId"].Visible = false;
+
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Grad", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

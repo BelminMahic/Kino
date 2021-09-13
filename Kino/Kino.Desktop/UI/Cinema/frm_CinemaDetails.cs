@@ -49,7 +49,10 @@ namespace Kino.Desktop.UI.Cinema
                 var result = await _apiService.Get<List<Model.Cinema>>(search);
 
                 dgv_Kina.DataSource = result;
-            } catch(Exception ex)
+                this.dgv_Kina.Columns["CityId"].Visible = false;
+
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Kino", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

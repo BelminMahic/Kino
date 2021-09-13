@@ -148,9 +148,17 @@ namespace Kino.Desktop.UI.Reservation
 
                 var reservations = await _reservationService.Get<List<Model.Reservation>>(request);
                 dgv_Rezervacije.DataSource = reservations;
+                this.dgv_Rezervacije.Columns["PromoMaterialId"].Visible = false;
+                this.dgv_Rezervacije.Columns["AuditoriumId"].Visible = false;
+                this.dgv_Rezervacije.Columns["User"].Visible = false;
+                this.dgv_Rezervacije.Columns["UserId"].Visible = false;
+                this.dgv_Rezervacije.Columns["Screening"].Visible = false;
+                this.dgv_Rezervacije.Columns["ScreeningId"].Visible = false;
+
+
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Rezervacije", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

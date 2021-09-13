@@ -26,9 +26,20 @@ namespace Kino.Desktop.UI.Reports
         private async void btnSearch_Click(object sender, EventArgs e)
         {
             try
-            {              
-                var result = await _movieService.Get<List<Model.Movie>>(null);
+            {
+                var request = new MovieSearchRequest();
+                request.IncludeList = new string[]
+                 {
+                    "Genre",
+                    "Cinema"
+                 };
+
+                var result = await _movieService.Get<List<Model.Movie>>(request);
                 dgvFilmovi.DataSource = result;
+                this.dgvFilmovi.Columns["MoviePoster"].Visible = false;
+                this.dgvFilmovi.Columns["GenreId"].Visible = false;
+                this.dgvFilmovi.Columns["CinemaId"].Visible = false;
+
             }
             catch (Exception ex)
             {
@@ -38,6 +49,9 @@ namespace Kino.Desktop.UI.Reports
 
         public void CreatePDF(DataGridView dgv, string fileName)
         {
+
+          
+
             BaseFont bf = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.EMBEDDED);
             PdfPTable pdfTable = new PdfPTable(dgv.Columns.Count);
 
@@ -55,7 +69,6 @@ namespace Kino.Desktop.UI.Reports
                 pdfTable.AddCell(cell);
             }
 
-            // redovi
             foreach (DataGridViewRow item in dgv.Rows)
             {
                 foreach (DataGridViewCell cell in item.Cells)
@@ -85,6 +98,7 @@ namespace Kino.Desktop.UI.Reports
 
         private void btnDownload_Click(object sender, EventArgs e)
         {
+         
             CreatePDF(dgvFilmovi, "IzvjestajOFilmovima");
         }
     }
