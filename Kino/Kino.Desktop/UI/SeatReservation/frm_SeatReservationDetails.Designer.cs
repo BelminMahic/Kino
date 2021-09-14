@@ -293,6 +293,7 @@ namespace Kino.Desktop.UI.SeatReservation
             this.Controls.Add(this.panelSeatReservation);
             this.Name = "frm_SeatReservationDetails";
             this.Text = "Kinoteka : Rezervacija sjedista";
+            this.Load += new System.EventHandler(this.frm_SeatReservationDetails_Load);
             this.panelSeatReservation.ResumeLayout(false);
             this.gbRezervacijaSjedista.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_SeatReservation)).EndInit();

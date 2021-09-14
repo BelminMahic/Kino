@@ -9,17 +9,37 @@ using Kino.Desktop.UI.PromoMaterial;
 using Kino.Desktop.UI.Reports;
 using Kino.Desktop.UI.Reservation;
 using Kino.Desktop.UI.User;
+using Kino.Model.Requests;
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Kino.Desktop.UI.SeatReservation
 {
     public partial class frm_SeatReservationDetails : Form
     {
+
+        private readonly APIService _seatReservationService = new APIService("seatreservation");
+        private readonly APIService _reservationService = new APIService("reservation");
+        private readonly APIService _screeningService = new APIService("screening");
+        private readonly APIService _movieSeatService = new APIService("movieSeat");
+
+
+
         public frm_SeatReservationDetails()
         {
             InitializeComponent();
         }
+
+
+        private async void frm_SeatReservationDetails_Load(object sender, EventArgs e)
+        {
+            await LoadMovieSeats();
+            await LoadReservations();
+            await LoadScreenings();
+        }
+
 
         private void btnFilmovi_Click(object sender, EventArgs e)
         {
@@ -95,9 +115,66 @@ namespace Kino.Desktop.UI.SeatReservation
             frm.Show();
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private async void btnSearch_Click(object sender, EventArgs e)
         {
+            try
+            {
+                var request = new SeatReservationSearchRequest
+                {
+                    MovieSeatId = int.Parse(cbSjediste.SelectedValue.ToString()),
+                    ReservationId = int.Parse(cbRezervacija.SelectedValue.ToString()),
+                    ScreeningId = int.Parse(cbScreening.SelectedValue.ToString())
+                };
+                request.IncludeList = new string[]
+                {
+                    "MovieSeat",
+                    "Reservation",
+                    "Screening"
+                };
 
+                var seatReservs = await _seatReservationService.Get<List<Model.SeatReservation>>(request);
+                dgv_SeatReservation.DataSource = seatReservs;
+                this.dgv_SeatReservation.Columns["Reservation"].Visible = false;
+                this.dgv_SeatReservation.Columns["ReservationId"].Visible = false;
+                this.dgv_SeatReservation.Columns["Screening"].Visible = false;
+                this.dgv_SeatReservation.Columns["ScreeningId"].Visible = false;
+                this.dgv_SeatReservation.Columns["MovieSeatId"].Visible = false;
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Rezervacija sjedista", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
+
+        private async Task LoadReservations()
+        {
+            var result = await _reservationService.Get<List<Model.Reservation>>(null);
+            result.Insert(0, new Model.Reservation());
+            cbRezervacija.DisplayMember = "ReservationDate";
+            cbRezervacija.ValueMember = "ReservationId";
+            cbRezervacija.DataSource = result;
+        }
+
+        private async Task LoadScreenings()
+        {
+            var result = await _screeningService.Get<List<Model.Screening>>(null);
+            result.Insert(0, new Model.Screening());
+            cbScreening.DisplayMember = "ScreeningStart";
+            cbScreening.ValueMember = "ScreeningId";
+            cbScreening.DataSource = result;
+        }
+        private async Task LoadMovieSeats()
+        {
+            var result = await _movieSeatService.Get<List<Model.MovieSeat>>(null);
+            result.Insert(0, new Model.MovieSeat());
+            cbSjediste.DisplayMember = "MovieSeatRow";
+            cbSjediste.ValueMember = "MovieSeatId";
+            cbSjediste.DataSource = result;
+        }
+
+        
     }
 }
