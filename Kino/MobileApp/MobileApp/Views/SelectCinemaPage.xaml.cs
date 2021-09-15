@@ -3,7 +3,7 @@ using MobileApp.Utils;
 using MobileApp.ViewModels;
 using System;
 using System.Collections.ObjectModel;
-using Windows.UI.Core;
+//using Windows.UI.Core;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

@@ -8,7 +8,12 @@ namespace MobileApp.Helpers
 {
     public static class Settings
     {
-        public static string ApiUrl = "http://localhost:32958/api";
+        public static string text = "http://localhost:32958/api";
+
+#if DEBUG
+        public static string ApiUrl = "http://localhost:8001/api";
+
+#endif
 
         private static ISettings AppSettings => CrossSettings.Current;
 
