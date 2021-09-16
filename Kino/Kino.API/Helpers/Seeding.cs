@@ -200,7 +200,7 @@ namespace Kino.API.Helpers
                         MovieName = "Avengers - Endgame",
                         OriginalMovieName = "Osvetnici - Zavrsetak",
                         MovieDuration = "178 min",
-                        ShowTime = DateTime.Now,
+                        ShowTime = DateTime.Now.AddDays(1),
                         DirectorFullName = "Joe Russo,Anthony Russo",
                         ActorsName = "Robert Downey Jr, Chris Hemsworth,Scarlett Johannson,Chris Evans",
                         GenreId = 1,
@@ -213,7 +213,7 @@ namespace Kino.API.Helpers
                         MovieName = "The Suicide Squad",
                         OriginalMovieName = "Odred otpisanih - Nova Misija",
                         MovieDuration = "132 min",
-                        ShowTime = DateTime.Now,
+                        ShowTime = DateTime.Now.AddDays(1),
                         DirectorFullName = "James Gunn",
                         ActorsName = "Idris Elba, Margot Robbie, John Cena, Joel Kinemman",
                         GenreId = 1,
@@ -226,7 +226,7 @@ namespace Kino.API.Helpers
                         MovieName = "Jungle Cruise",
                         OriginalMovieName = "Krstarenje džunglom",
                         MovieDuration = "127 min",
-                        ShowTime = DateTime.Now,
+                        ShowTime = DateTime.Now.AddDays(1),
                         DirectorFullName = "Jaume Collet-Serra",
                         ActorsName = "Dwayne Johnson, Emily Blunt, Edgar Ramirez, Paul Giammati",
                         GenreId = 1,
@@ -435,13 +435,19 @@ namespace Kino.API.Helpers
                     {
                         MovieId = 1,
                         AuditoriumId = 1 ,
-                        ScreeningStart = DateTime.Now
+                        ScreeningStart = DateTime.Now.AddDays(1)
                     },
                      new Screening
                     {
                         MovieId = 2,
                         AuditoriumId = 2 ,
-                        ScreeningStart = DateTime.Now
+                        ScreeningStart = DateTime.Now.AddDays(1)
+                    },
+                      new Screening
+                    {
+                        MovieId = 1,
+                        AuditoriumId = 3 ,
+                        ScreeningStart = DateTime.Now.AddDays(1)
                     }
                 };
                 foreach (var item in types)
